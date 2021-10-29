@@ -1,4 +1,4 @@
-function verificar(){
+function verificar() {
   var nome = String(txtnome.value)
   var res = document.getElementById('res')
 
