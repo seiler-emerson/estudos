@@ -1,6 +1,12 @@
-function verificar(){
-  var nome = String(txtnome.value)
-  var res = document.getElementById('res')
+function enviar() {
+  var msg = document.getElementById("entrada")
+  msg = String(msg.value)
 
-  res.innerHTML = `É um prazer te conhecer <strong>${nome}</strong>!`
+  if (msg != "") {
+    window.alert('Olá mundo!')
+    res.innerHTML = `<p>Ola, Mundo!</p>`
+  } else {
+    res.innerHTML = `<p>Não quer conversar? Não se acanhe!</p>`
+
+  }
 }
