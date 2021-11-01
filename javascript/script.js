@@ -1,24 +1,16 @@
-/*
-## Para criar nomes
+// Array
 
-* JS é case-sensitive (sensível ao caso)
-* JS aceita a cadeia de caracteres Unicode
+const animals = [
+    'Lion',
+    'Monkey',
+    'Cat',
+    {
+      name: 'Dog',
+      age: 3
+    }
+]
 
-- Posso:
-    * Iniciar com esses caracteres especiais: $ _
-    * Iniciar com letras
-    * Colocar acentos
-    * Letras maiúsculas e minúsculas fazem diferença
+//acessar valores dentro do array
+console.log(animals[1])
+console.log(animals[3].name)
 
-- Não posso:
-    * Iniciar com números
-    * Colocar espaços vazios no nome
-
-- Ideal
-    * Criar nomes que fazem sentido
-    * Que explique o que a variável é ou faz
-    * camelCase
-    * snake_case
-    * Escrever em inglês
-
-*/
