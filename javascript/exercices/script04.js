@@ -51,8 +51,3 @@ let numberOfCategory = booksByCategory.length
 
 console.log(`O número de categoria de livros é ${numberOfCategory}`)
 
-let numberOfBooksRiqueza = booksByCategory.books.length
-console.log(Number(numberOfBooksRiqueza))
-
-console.log(`O número de livros na categoria Riqueza é ${numberOfBooksRiqueza}`)
-
