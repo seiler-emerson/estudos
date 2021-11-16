@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Calculadora PMOC</title>
+</head>
+<body>
+
+  <div id="container">
+    <h1>Calculadora de Contratos PMOC</h1>
+
+    <div id="horaTecnica">
+      <h2>Hora Técnica</h2>
+      <p>Valor Hora Responsável Técnico: <input type="number" name="horaRT" id="horaRT"></p>
+      <p>Valor Hora Manutenção: <input type="number" name="horaManutencao" id="horaManutencao"></p>
+    </div>
+
+    <div id="transporte">
+      <h2>Transporte</h2>
+      <p>Custo Médio Transporte: <input type="number" name="transporte" id="transporte"></p>      
+    </div>
+
+    <div id="taxas">
+      <h2>Taxas</h2>
+      <p>Lucro Desejado: <input type="number" name="lucro" id="lucro"></p>
+      <p>Comissão Vendedor: <input type="number" name="comissao" id="comissao"></p> 
+      <p>Imposto Sobre Nota: <input type="number" name="impostoNota" id="impostoNota"></p> 
+    </div>
+
+    <div id="elaboracaoPmoc">
+      <h2>Elaboração do PMOC</h2>
+      <p>Montagem do Contrato: <input type="number" name="montagemContrato" id="montagemContrato"></p>
+      <p>Visita Técnica Avaliação: <input type="number" name="avaliacao" id="avaliacao"></p> 
+      <p>Montagem do PMOC: <input type="number" name="montagemPmoc" id="montagemPmoc"></p>
+      <p>Deslocamento Avaliação: <input type="number" name="transporteAvaliacao" id="transporteAvaliacao"></p>
+      <p>Emissão ART/TRT: <input type="number" name="emissaoART" id="emissaoART"></p>
+      <p>Envio Documentação: <input type="number" name="envioDocumentacao" id="envioDocumentacao"></p>
+      <p>Emissão Acervo Técnico: <input type="number" name="emissaoAcervo" id="emissaoAcervo"></p>
+    </div>
+
+    <div id="acompanhamento">
+      <h2>Acompanhamento 12 meses</h2>
+      <p>Visita Técnica - Inspeção: <input type="number" name="inspecaoTecnica" id="inspecaoTecnica"></p>
+      <p>Deslocamento Visita Técnica: <input type="number" name="transporteInspecao" id="transporteInspecao"></p> 
+      <p>Elaboração de Relatórios: <input type="number" name="elaboracaoRelatorios" id="elaboracaoRelatorios"></p>
+      <p>Custo Material Gráfico: <input type="number" name="custoGrafico" id="custoGrafico"></p>
+    </div>
+
+    <div id="manutencao">
+      <h2>Custos Manutenção</h2>
+      <p>Visita Técnica - Manutenção: <input type="number" name="manutencaoTecnica" id="manutencaoTecnica"></p>
+      <p>Deslocamento Visita Técnica: <input type="number" name="transporteManutencao" id="transporteManutencao"></p> 
+      <p>Preenchimento OSs: <input type="number" name="preenchimentoOS" id="preenchimentoOS"></p>
+      <p>Custo Materiais e Produtos: <input type="number" name="custoMateriais" id="custoMateriais"></p>
+    </div>
+
+    <div id="analiseLaboratorial">
+      <h2>Análise Laboratorial</h2>
+      <p>Custo Análise Laboratorial: <input type="number" name="custoAnalise" id="custoAnalise"></p>
+    </div>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultado"></div>
+
+  </div>
+  
+
+
+  <script src="./scripts/script.js"></script>
+</body>
+</html>
