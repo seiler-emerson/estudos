@@ -14,8 +14,8 @@ let inputComissao = document.getElementById("comissao");
 let inputImpostoNota = document.getElementById("impostoNota");
 
 let inputMontagemContrato = document.getElementById("montagemContrato");
-let inputAvaliacao = document.getElementById("avaliacao");
-let inputMontagemPmoc = document.getElementById("montagemPmoc")
+let inputVisitaAvaliacao = document.getElementById("visitaAvaliacao");
+let inputMontagemPmoc = document.getElementById("montagemPmoc");
 let inputTransporteAvaliacao = document.getElementById("transporteAvaliacao");
 let inputEmissaoART = document.getElementById("emissaoART");
 let inputEnvioDocumentacao = document.getElementById("envioDocumentacao");
@@ -26,25 +26,35 @@ let resultado = document.getElementById("resultado");
 function calcular() {
   console.log("Calculando...")
 
-  let horaRT = inputHoraRT.value;
-  let horaManutencao = inputHoraManutencao.value;
+  let horaRT = Number(inputHoraRT.value);
+  let horaManutencao = Number(inputHoraManutencao.value);
 
-  let transporte = inputTransporte.value;
+  let transporte = Number(inputTransporte.value);
 
-  let lucro = inputLucro.value;
-  let comissao = inputComissao.value;
-  let impostoNota = inputImpostoNota.value;
+  let lucro = Number(inputLucro.value);
+  let comissao = Number(inputComissao.value);
+  let impostoNota = Number(inputImpostoNota.value);
 
-  let montagemContrato = inputMontagemContrato.value;
-  let avaliacao = inputAvaliacao.value;
-  let montagemPmoc = inputMontagemPmoc.value;
-  let transporteAvaliacao = inputTransporteAvaliacao.value;
-  let emissaoART = inputEmissaoART.value;
-  let envioDocumentacao = inputEnvioDocumentacao.value;
-  let emissaoAcervo = inputEmissaoAcervo.value;
+  let montagemContrato = Number(inputMontagemContrato.value);
+  let visitaAvaliacao = Number(inputVisitaAvaliacao.value);
+  let montagemPmoc = Number(inputMontagemPmoc.value);
+  let transporteAvaliacao = Number(inputTransporteAvaliacao.value);
+  let emissaoART = Number(inputEmissaoART.value);
+  let envioDocumentacao = Number(inputEnvioDocumentacao.value);
+  let emissaoAcervo = Number(inputEmissaoAcervo.value);
 
-  let custoElaboracao = (horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + transporteAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo;
+  let custoElaboracao = ((horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo)
 
-  resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
+  return resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
 
+
+  // console.log(horaRT)
+  // console.log(montagemContrato)
+  // console.log(visitaAvaliacao)
+  // console.log(montagemPmoc)
+  // console.log(transporteAvaliacao)
+  // console.log(emissaoART)
+  // console.log(envioDocumentacao)
+  // console.log(emissaoAcervo)
+  //console.log(((horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo))
 }
