@@ -45,7 +45,9 @@ function calcular() {
 
   let custoElaboracao = ((horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo)
 
-  return resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
+  resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
+  
+  return 
 
 
   // console.log(horaRT)
