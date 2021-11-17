@@ -4,24 +4,37 @@
 
 */
 
+//HORA TECNICA
 let inputHoraRT = document.getElementById("horaRT");
 let inputHoraManutencao = document.getElementById("horaManutencao");
 
+//TRANSPORTE
 let inputTransporte = document.getElementById("transporte");
 
+//TAXAS
 let inputLucro = document.getElementById("lucro");
 let inputComissao = document.getElementById("comissao");
 let inputImpostoNota = document.getElementById("impostoNota");
 
+//ELABORACAO PMOC
 let inputMontagemContrato = document.getElementById("montagemContrato");
 let inputVisitaAvaliacao = document.getElementById("visitaAvaliacao");
 let inputMontagemPmoc = document.getElementById("montagemPmoc");
-let inputTransporteAvaliacao = document.getElementById("transporteAvaliacao");
+let inputDeslocamentoAvaliacao = document.getElementById("deslocamentoAvaliacao");
 let inputEmissaoART = document.getElementById("emissaoART");
 let inputEnvioDocumentacao = document.getElementById("envioDocumentacao");
 let inputEmissaoAcervo = document.getElementById("emissaoAcervo");
 
+//RESULTADO
 let resultado = document.getElementById("resultado");
+
+//ACOMPANHAMENTO 12 MESES
+
+
+//CUSTO MANUTENCAO
+
+
+//ANALISE LABORATORIAL
 
 function calcular() {
   console.log("Calculando...")
@@ -38,25 +51,14 @@ function calcular() {
   let montagemContrato = Number(inputMontagemContrato.value);
   let visitaAvaliacao = Number(inputVisitaAvaliacao.value);
   let montagemPmoc = Number(inputMontagemPmoc.value);
-  let transporteAvaliacao = Number(inputTransporteAvaliacao.value);
+  let deslocamentoAvaliacao = Number(inputDeslocamentoAvaliacao.value);
   let emissaoART = Number(inputEmissaoART.value);
   let envioDocumentacao = Number(inputEnvioDocumentacao.value);
   let emissaoAcervo = Number(inputEmissaoAcervo.value);
 
-  let custoElaboracao = ((horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo)
+  
+  let custoElaboracao = ((horaRT * montagemContrato) + (horaRT * deslocamentoAvaliacao) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo)
 
   resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
   
-  return 
-
-
-  // console.log(horaRT)
-  // console.log(montagemContrato)
-  // console.log(visitaAvaliacao)
-  // console.log(montagemPmoc)
-  // console.log(transporteAvaliacao)
-  // console.log(emissaoART)
-  // console.log(envioDocumentacao)
-  // console.log(emissaoAcervo)
-  //console.log(((horaRT * montagemContrato) + (horaRT * transporte) + (horaRT * montagemPmoc) + visitaAvaliacao + emissaoART + envioDocumentacao + emissaoAcervo))
 }
