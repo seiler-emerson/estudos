@@ -92,11 +92,11 @@ function calcular() {
 
 
 
-  resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}.</p>`
-  resultado.innerHTML += `<p>O custo de acompanhamento do PMOC é R$${custoAcompanhamento}.</p>`
-  resultado.innerHTML += `<p>O custo de manutenção do PMOC é R$${custoManutencao}.</p>`
-  resultado.innerHTML += `<p>O custo com análise laboratorial do PMOC é R$${custoAnalise}.</p>`
-  resultado.innerHTML += `<p>O custo com Responsável Técnico é R$${custoRT}.</p>`
-  resultado.innerHTML += `<p>O valor a cobrar do PMOC é R$${valorPMOC}.</p>`
+  resultado.innerHTML = `<p>O custo de elaboração do PMOC é R$${custoElaboracao}</p>`
+  resultado.innerHTML += `<p>O custo de acompanhamento do PMOC é R$${custoAcompanhamento}</p>`
+  resultado.innerHTML += `<p>O custo de manutenção do PMOC é R$${custoManutencao}</p>`
+  resultado.innerHTML += `<p>O custo com análise laboratorial do PMOC é R$${custoAnalise}</p>`
+  resultado.innerHTML += `<p>O custo com Responsável Técnico é R$${custoRT}</p>`
+  resultado.innerHTML += `<p>O valor a cobrar do PMOC é R$${valorPMOC}</p>`
 }
 
