@@ -99,5 +99,3 @@ function calcular() {
   resultado.innerHTML += `<p>O custo com Responsável Técnico é R$${custoRT}</p>`
   resultado.innerHTML += `<p>O valor a cobrar do PMOC é R$${valorPMOC}</p>`
 }
-
-teste
