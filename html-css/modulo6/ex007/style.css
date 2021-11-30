@@ -1,0 +1,16 @@
+:root{
+    --bg-collor: #000;
+    --bg-second:#444;
+    --font-color: #fff;
+}
+
+body{
+    background-color: var(--bg-collor);
+}
+h1{
+    color: var(--font-color);
+}
+p{
+    background-color: var(--bg-second);
+    color: var(--font-color);
+}
