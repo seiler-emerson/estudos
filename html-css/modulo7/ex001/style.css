@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    flex-direction: row-reverse;
+    background-color: #ddd;
+    margin: 10px;
+}
+
+.container div{
+    background-color: red;
+    margin: 10px;
+    padding: 10px;
+    font-size: 18px;
+    flex: 1;
+}
