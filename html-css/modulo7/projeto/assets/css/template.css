@@ -235,7 +235,6 @@ footer{
 }
 .footer_menu{
 	display: flex;
-
 }
 .fm1, .fm2, .fm3{
 	flex:1;
