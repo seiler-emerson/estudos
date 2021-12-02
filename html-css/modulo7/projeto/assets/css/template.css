@@ -1,31 +1,34 @@
-body{
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+body {
 	margin: 0;
 	padding: 0;
 }
-header{
+header {
 	display: flex;
 	justify-content: center;
 	height: 120px;
 }
-.container{
+.container {
 	display: flex;
 	justify-content: space-between;
 	width: 990px;
 }
-.logo{
+.logo {
 	display: flex;
 	align-items: center;
 }
-.menu{
+.menu {
 	display: flex;
 	align-items: center;
 }
-nav ul, li{
+nav ul, li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-nav ul{
+nav ul {
 	display: flex;
 }
 nav a {
@@ -36,26 +39,89 @@ nav a {
 	color: #727272;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
-nav .active a, a:hover{
+nav .active a, a:hover {
 	background-color: #39aae1;
-	color: white;
+	color: #FFF;
 }
-#banner{
+#banner {
 	display: flex;
 	justify-content: center;
 	background-image: url(../images/img1.jpg);
 	background-position: center;
 	background-size: cover;
 	height: 670px;
-	
 }
-.collumn{
+.collumn {
 	flex-direction: column;
 }
-.banner_headline{
+.banner_headline {
 	flex:1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
-.banner_options{
-	flex:1;
+.banner_headline h1 {
+	color: #FFF;
+	font-size: 70px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.238);
+	margin: 0;
+	padding: 0;
+	max-width: 350px;
+}
+.banner_headline h2 {
+	color: #FFF;
+	font-size: 21px;
+	text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.238);
+	margin: 0;
+	padding: 0;
+	max-width: 350px;
+	margin-top: 30px;
+}
+.banner_options {
+	height: 210px;
+	display: flex;
+}
+.banner1, .banner2, .banner3 {
+	flex: 1;
+	color: #FFF;
+	padding: 20px;
+}
+.banner1 {
+	background-color: #39aae1;
+}
+.banner2{
+	background-color: #0079c7;
+}
+.banner3{
+	background-color: #2b4c99;
+}
+.banner_title {
+	font-size: 21px;
+}
+.banner_desc {
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.banner_options a {
+	display: inline-block;
+	border: 1px solid #FFF;
+	padding: 5px;
+	color:#FFF;
+	font-size: 13px;
+	text-decoration: none;
+}
+.banner_hours {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+}
+.banner_hours p {
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.b1{
+	margin-top: 12px;
 }
