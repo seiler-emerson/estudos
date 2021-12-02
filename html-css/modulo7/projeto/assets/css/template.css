@@ -42,9 +42,20 @@ nav .active a, a:hover{
 	color: white;
 }
 #banner{
+	display: flex;
+	justify-content: center;
 	background-image: url(../images/img1.jpg);
 	background-position: center;
 	background-size: cover;
 	height: 670px;
 	
+}
+.collumn{
+	flex-direction: column;
+}
+.banner_headline{
+	flex:1;
+}
+.banner_options{
+	flex:1;
 }
