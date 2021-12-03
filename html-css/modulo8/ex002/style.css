@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header{
+    display: flex;
+    background-color: #000000;
+    justify-content: space-between;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+header .nameHeader{
+    color: #FFFFFF;
+    font-size: 18px;
+}
+header .search{
+    font-size: 15px ;
+    border-radius: 5px;
+    height: 35px;
+    color: #555555;
+
+    padding: 10px;
+}
+header .headerButton{
+    font-size: 15px ;
+    border-radius: 5px;
+    height: 35px;
+    background-color: #111111;
+    color: #999999;
+    border: none;
+}
+header .headerButton:hover{
+    background-color: #272727;
+}
+section .principal{
+    display: flex;
+    flex-direction: row;
+}
+section .principal .menu{
+    flex: 1;
+}
+section .principal .form{
+    flex: 4;
+}
+form h1{
+    font-size: 30px;
+}

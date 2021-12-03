@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="nameHeader">SCA - Sistema de Controle Acadêmico</div>
+        <div class="searchHeader">
+            <input type="search" name="search" class="search" placeholder="Pesquisar...">
+            <input type="button" value="Configurações" class="headerButton">
+            <input type="button" value="Perfil" class="headerButton">
+            <input type="button" value="Ajuda" class="headerButton">
+        </div>
+    </header>
+    <section class="principal">
+        <div class="menu">
+            <ul>
+                <li>Inicio</li>
+                <li>Formulário</li>
+                <li>Contato</li>
+            </ul>
+        </div>
+        <div class="form">
+            <h1>Cadastro de Alunos</h1>
+            <form method="post">
+                <h2>Dados do aluno</h2>
+                <fieldset>
+                    <label>
+                        Prontuário:
+                        <input type="number" name="prontuario" id="prontuario">
+                    </label>
+                    <br>
+                    <label>
+                        Nome:
+                        <input type="text" name="nome" id="nome">
+                    </label>
+                    <br>
+                    <label>
+                        Data Nascimento:
+                        <input type="date" name="data" id="data">
+                        Sexo:
+                        <select name="sexo id="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </label>
+                    <br>
+                    <label>
+                        Curso:
+                        <select name="sexo id="sexo">
+                            <option value="masculino">Analise e Desenvolvimento de Sistemas</option>
+                            <option value="feminino">Engenharia Mecânica</option>
+                        </select>
+                    </label>
+                    <br>
+                    <label>
+                        CPF:
+                        <input type="number" name="cpf" id="cpf">
+                        RG:
+                        <input type="number" name="rg" id="rg">
+                    </label>
+                    <br>
+                    <label>
+                        Telefone:
+                        <input type="number" name="telefone" id="telefone">
+                        Celular:
+                        <input type="number" name="celular" id="celular">
+                    </label>
+                    <br>
+                    <label>
+                        E-mail:
+                        <input type="email" name="email" id="email">
+                </fieldset>
+
+                <h2>Dados do Responsável</h2>
+                <fieldset>
+                        Nome:
+                        <input type="text" name="nome" id="nome">
+                    </label>
+                    <label>
+                        CPF:
+                        <input type="number" name="cpf" id="cpf">
+                        RG:
+                        <input type="number" name="rg" id="rg">
+                    </label>
+                    <br>
+                    <label>
+                        E-mail:
+                        <input type="email" name="email" id="email">
+                    </label>
+                    <label>
+                        Data Nascimento:
+                        <input type="date" name="data" id="data">
+                    </label>
+                    <label>
+                        Celular:
+                        <input type="number" name="celular" id="celular">
+                    </label>
+                </fieldset>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Limpar">
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
