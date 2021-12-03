@@ -1,0 +1,18 @@
+
+
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color:white;
+}
+body{
+    background-color: #201d1d;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-decoration: none;
+}
