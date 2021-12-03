@@ -27,7 +27,50 @@
         </div>
         <div class="form">
             <h1>Cadastro de Alunos</h1>
-            <form method="post">
+            <label>Prontuário:</label>
+                <input type="number" name="prontuario" id="prontuario">
+            <div class="containerForm">
+                
+                <div class="coll1">
+                    <label>Nome:</label>
+                    <label>Data Nascimento:</label>
+                    <label>Curso:</label>
+                </div>
+                <div class="coll2">
+                    <input type="text" name="nome" id="nome">
+                    <div class="subCol">
+                        <input type="date" name="data" id="data">
+                        <label>Sexo:</label>
+                        <select name="sexo id="sexo">
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </div>
+                    <select name="sexo id="sexo">
+                        <option value="masculino">Analise e Desenvolvimento de Sistemas</option>
+                        <option value="feminino">Engenharia Mecânica</option>
+                    </select>
+                </div>
+                <div class="coll3">
+                    <label>CPF:</label>
+                    <label>Telefone:</label>
+                    <label>E-mail:</label>
+                </div>
+                <div class="coll4">
+                    <div class="subCol">
+                        <input type="number" name="cpf" id="cpf">
+                        <label>RG:</label>
+                        <input type="number" name="rg" id="rg">
+                    </div>
+                    <div class="subCol">
+                        <input type="number" name="telefone" id="telefone">
+                        <label>Celular:</label>
+                        <input type="number" name="celular" id="celular">
+                    </div>
+                    <input type="email" name="email" id="email">
+                </div>
+            </div>
+            <!-- <form method="post">
                 <h2>Dados do aluno</h2>
                 <fieldset>
                     <label>
@@ -39,8 +82,7 @@
                         Nome:
                         <input type="text" name="nome" id="nome">
                     </label>
-                    <br>
-                    <label>
+                                        <label>
                         Data Nascimento:
                         <input type="date" name="data" id="data">
                         Sexo:
@@ -104,7 +146,7 @@
                 </fieldset>
                 <input type="submit" value="Enviar">
                 <input type="reset" value="Limpar">
-            </form>
+            </form> -->
         </div>
     </section>
 
