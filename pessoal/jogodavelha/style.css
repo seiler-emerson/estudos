@@ -1,0 +1,23 @@
+.tabuleiro {
+    border: 1px solid black;
+    width: 600px;
+    height: 620px;
+    display: grid;
+    grid-template-columns: repeat(3, 190px);
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.item {
+    border: 1px solid black;
+    width: 190px;
+    height: 190px;
+    cursor: pointer;
+}
+.circulo {
+    background-color: blue;
+    border-radius: 50%;
+}
+.quadrado {
+    background-color: red;
+}
