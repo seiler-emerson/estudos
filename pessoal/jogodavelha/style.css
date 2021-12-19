@@ -1,23 +1,63 @@
-.tabuleiro {
-    border: 1px solid black;
-    width: 600px;
-    height: 620px;
+body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+}
+.container {
     display: grid;
-    grid-template-columns: repeat(3, 190px);
-    gap: 10px;
+    height: 100vh;
+    align-items: center;
+}
+.tabuleiro {
+    margin: auto;
+    border-radius: 30px;
+    width: 500px;
+    background-color: #222;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    gap: 15px;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 0px 20px rgba(0, 255, 13, 0.432);
 }
 .item {
-    border: 1px solid black;
-    width: 190px;
-    height: 190px;
+    border: 1px solid #111;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
     cursor: pointer;
 }
 .circulo {
-    background-color: blue;
-    border-radius: 50%;
+    background-image: url('./images/c.png');
+    background-size: 100% ;
+    border: none;
 }
 .quadrado {
-    background-color: red;
+    background-image: url('./images/x2.png');
+    background-size: 100% ;
+    border: none;
+}
+
+.limpar {
+    display: grid;
+    margin: auto;
+    margin-top: 20px;
+    width: 100px;
+    justify-content: center;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Helvetica, sans-serif;
+    background-color: transparent;
+    border: 2px solid #e74c3c;
+    box-shadow: 1px 1px 10px #e74c3c;
+    color: #e74c3c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.limpar:hover{
+    background-color: #e74c3c;
+    color: #FFF;
+    -webkit-transition: box-shadow 1500ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }

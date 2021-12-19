@@ -8,19 +8,20 @@
     <title>Jogo da Velha</title>
 </head>
 <body>
-    <div class="tabuleiro">
-        <div onclick="circulo1()" class="item"></div>
-        <div onclick="circulo2()" class="item"></div>
-        <div onclick="circulo3()" class="item"></div>
-        <div onclick="circulo4()" class="item"></div>
-        <div onclick="circulo5()" class="item"></div>
-        <div onclick="circulo6()" class="item"></div>
-        <div onclick="circulo7()" class="item"></div>
-        <div onclick="circulo8()" class="item"></div>
-        <div onclick="circulo9()" class="item"></div>
+    <div class="container">
+        <div class="tabuleiro">
+            <div onclick="jogar1()" id="item1" class="item vazio"></div>
+            <div onclick="jogar2()" id="item2" class="item vazio"></div>
+            <div onclick="jogar3()" id="item3" class="item vazio"></div>
+            <div onclick="jogar4()" id="item4" class="item vazio"></div>
+            <div onclick="jogar5()" id="item5" class="item vazio"></div>
+            <div onclick="jogar6()" id="item6" class="item vazio"></div>
+            <div onclick="jogar7()" id="item7" class="item vazio"></div>
+            <div onclick="jogar8()" id="item8" class="item vazio"></div>
+            <div onclick="jogar9()" id="item9" class="item vazio"></div>
+        </div>
+        <div class="limpar" onclick="limpar()">Limpar</div>
     </div>
-
-
     <script src="script.js"></script>
 </body>
 </html>
