@@ -161,3 +161,29 @@ function limpar() {
     document.querySelector('#item9').classList.remove('quadrado');
     document.querySelector('#item9').classList.remove('circulo');
 }
+
+setInterval(function verificar() {
+    if ( 
+    ((document.querySelector('#item1').classList.contains('circulo')) && (document.querySelector('#item2').classList.contains('circulo')) && (document.querySelector('#item3').classList.contains('circulo'))) || 
+    ((document.querySelector('#item1').classList.contains('circulo')) && (document.querySelector('#item4').classList.contains('circulo')) && (document.querySelector('#item7').classList.contains('circulo'))) ||
+    ((document.querySelector('#item4').classList.contains('circulo')) && (document.querySelector('#item5').classList.contains('circulo')) && (document.querySelector('#item6').classList.contains('circulo'))) || 
+    ((document.querySelector('#item7').classList.contains('circulo')) && (document.querySelector('#item8').classList.contains('circulo')) && (document.querySelector('#item9').classList.contains('circulo'))) || 
+    ((document.querySelector('#item2').classList.contains('circulo')) && (document.querySelector('#item5').classList.contains('circulo')) && (document.querySelector('#item8').classList.contains('circulo'))) ||
+    ((document.querySelector('#item3').classList.contains('circulo')) && (document.querySelector('#item6').classList.contains('circulo')) && (document.querySelector('#item9').classList.contains('circulo'))) || 
+    ((document.querySelector('#item1').classList.contains('circulo')) && (document.querySelector('#item5').classList.contains('circulo')) && (document.querySelector('#item9').classList.contains('circulo'))) ||
+    ((document.querySelector('#item3').classList.contains('circulo')) && (document.querySelector('#item5').classList.contains('circulo')) && (document.querySelector('#item7').classList.contains('circulo'))) )  
+    {
+        window.alert("O JOGADOR Nº 1 GANHOU!");
+    } else if (
+((document.querySelector('#item1').classList.contains('quadrado')) && (document.querySelector('#item2').classList.contains('quadrado')) && (document.querySelector('#item3').classList.contains('quadrado'))) ||
+((document.querySelector('#item4').classList.contains('quadrado')) && (document.querySelector('#item5').classList.contains('quadrado')) && (document.querySelector('#item6').classList.contains('quadrado'))) ||
+((document.querySelector('#item7').classList.contains('quadrado')) && (document.querySelector('#item8').classList.contains('quadrado')) && (document.querySelector('#item9').classList.contains('quadrado'))) || 
+((document.querySelector('#item1').classList.contains('quadrado')) && (document.querySelector('#item4').classList.contains('quadrado')) && (document.querySelector('#item7').classList.contains('quadrado'))) ||
+((document.querySelector('#item2').classList.contains('quadrado')) && (document.querySelector('#item5').classList.contains('quadrado')) && (document.querySelector('#item8').classList.contains('quadrado'))) ||
+((document.querySelector('#item3').classList.contains('quadrado')) && (document.querySelector('#item6').classList.contains('quadrado')) && (document.querySelector('#item9').classList.contains('quadrado'))) || 
+((document.querySelector('#item1').classList.contains('quadrado')) && (document.querySelector('#item5').classList.contains('quadrado')) && (document.querySelector('#item9').classList.contains('quadrado'))) ||
+((document.querySelector('#item3').classList.contains('quadrado')) && (document.querySelector('#item5').classList.contains('quadrado')) && (document.querySelector('#item7').classList.contains('quadrado'))) ) {
+        window.alert("O JOGADOR Nº 2 GANHOU!");
+    }
+}, 2000);
+
