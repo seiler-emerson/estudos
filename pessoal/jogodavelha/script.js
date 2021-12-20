@@ -162,7 +162,7 @@ function limpar() {
     document.querySelector('#item9').classList.remove('circulo');
 }
 
-setInterval(function verificar() {
+function verificar() {
     if ( 
     ((document.querySelector('#item1').classList.contains('circulo')) && (document.querySelector('#item2').classList.contains('circulo')) && (document.querySelector('#item3').classList.contains('circulo'))) || 
     ((document.querySelector('#item1').classList.contains('circulo')) && (document.querySelector('#item4').classList.contains('circulo')) && (document.querySelector('#item7').classList.contains('circulo'))) ||
@@ -185,5 +185,10 @@ setInterval(function verificar() {
 ((document.querySelector('#item3').classList.contains('quadrado')) && (document.querySelector('#item5').classList.contains('quadrado')) && (document.querySelector('#item7').classList.contains('quadrado'))) ) {
         window.alert("O JOGADOR Nº 2 GANHOU!");
     }
-}, 2000);
+};
 
+//setInterval(verificar, 2000);
+
+setTimeout(verificar, 3000);
+
+window.addEventListener('onclick', verificar);
