@@ -1,0 +1,19 @@
+body {
+    background-color: #EEE;
+}
+input {
+    padding: 10px;
+    font-size: 14px;
+}
+.azul {
+    background-color: #0000FF;
+    color: #fff;
+}
+.vermelho {
+    background-color: #FF0000;
+    color: #fff;
+}
+.verde {
+    background-color: #00FF00;
+    color: #000;
+}
