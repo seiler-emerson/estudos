@@ -1,17 +1,27 @@
 let pessoa = {
     nome: 'Emerson',
     sobrenome: 'Seiler',
-    //idade: 26,
+    idade: 26,
     social:{
-        instagram: 'seiler.emerson',
-        linkedin: 'seiler.emerson'
+        linkedin: 'seiler.emerson',
+        instagram: {
+            url: '@seiler.emerson',
+            seguidores: 250
+        },
     },
-    nomeCompleto: function() {
-        return `${this.nome} ${this.sobrenome}`;
-    }
+    // nomeCompleto: function() {
+    //     return `${this.nome} ${this.sobrenome}`;
+    // }
 };
 
 
-let {nome, sobrenome, idade = 6} = pessoa
+// let {linkedin, instagram} = pessoa.social;
+// let { nome, idade, social:{instagram:{url:instagram, seguidores}} } = pessoa;
 
-console.log(nome, sobrenome, idade);
+// console.log(nome, idade, instagram, seguidores);
+
+function pegarNomeCompleto({nome, sobrenome = 'Silva', social:{instagram:{url}}}) {
+    return `${nome} ${sobrenome} (Siga em ${url})`;
+}
+
+document.querySelector('.demo').innerHTML = pegarNomeCompleto(pessoa);
