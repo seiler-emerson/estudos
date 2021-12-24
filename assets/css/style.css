@@ -101,20 +101,19 @@ header{
 
 /* SEÇÃO SOBRE */
 
-section.aboutContainer {
+.aboutContainer {
     background-color: var(--cor0);
     height: 500px;
 }
 .aboutBox {
-    width: 950px;
-    height: 400px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: auto;
+    display: flex;
+    justify-content: center;
     padding-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .about {
-    grid-column: 1/3;
+    max-width: 550px;
     padding-right: 60px;
     text-align: justify;
 }
@@ -125,13 +124,9 @@ section.aboutContainer {
     margin-bottom: 20px;
 }
 .imgAbout {
-    background-image: url(../imagens/sobre.jpg);
-    background-position: bottom;
-    background-size: 100%;
-    height: 400px;
-    width: 350px;
+    max-width: 350px;
+    height: auto;
     border-radius: 20px;
-    grid-column: 3/4;
 }
 
 
@@ -142,25 +137,24 @@ section.aboutContainer {
     background-image: url(../imagens/produto_bg.png);
 }
 .productBox{
-    width: 950px;
-    height: 400px;
-    display: block;
+    display: flex;
     margin: auto;
-    padding-top: 10px;
+    margin-right: 30px;
+    align-items: flex-end;
+    flex-direction: column;
 }
 .productTitulo {
     font-size: 80px;
     font-weight: bold;
     color: var(--cor3);
-    margin-bottom: 20px;
+    margin-top: 10px;
 
 }
 .productDescricao {
-    text-align: right;
     font-size: 80px;
-    margin-right: 40px;
     font-family: 'Advent Pro';
     color: white;
+    text-shadow: 1px 1px 5px #1f1c1c;
 }
 
 /* SEÇÃO GALERIA */
@@ -220,12 +214,115 @@ section.aboutContainer {
 .sectionGaleryPhotoInfo h5 {
     font-size: 18px;
     font-weight: 600;
-    /* margin-bottom: 0px; */
 }
 .sectionGaleryPhotoInfo p {
-    margin-top: -20px; */
+    margin-top: -20px;
 }
 
 .sectionGaleryPhotoArea:hover .sectionGaleryPhotoInfo {
     display: flex;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (min-width: 769px) and (max-width: 1140px) {
+
+
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    header img{
+        margin-left: 20px;
+    }
+    .headerMenu ul li{
+        font-size: 12px;
+        padding-right: 10px;
+    }
+    .containerBanner h1 {
+        font-size: 56px;
+    }
+    .aboutContainer {
+        height: 700px;
+        
+    }
+    .about {
+        text-align: justify;
+        padding-right: 0px;
+    }
+    .aboutBox {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+    }
+    .about h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--cor3);
+        margin-bottom: 20px;
+    }
+    .imgAbout {
+        max-width: 350px;
+        height: auto;
+        border-radius: 20px;
+    }
+    .productBox{
+        margin-right: 0px;
+        align-items: center;
+    }
+    .productTitulo {
+        font-size: 55px;
+    
+    }
+    .productDescricao {
+        font-size: 80px;
+    }
+
+
+}
+
+@media (max-width: 425px) {
+    .headerMenu ul li{
+        display: none;
+    }
+    .containerBanner h1 {
+        font-size: 40px;
+    }
+    .aboutContainer {
+        height: 750px;   
+    }
+    .about {
+        text-align: justify;
+        padding-right: 0px;
+    }
+    .aboutBox {
+        flex-direction: column;
+        padding: 0;
+        align-items: center;
+    }
+    .about h2 {
+        font-size: 30px;
+        font-weight: bold;
+        color: var(--cor3);
+        margin-bottom: 20px;
+    }
+    .imgAbout {
+        max-width: 310px;
+        height: auto;
+        border-radius: 20px;
+    }
+    .productContainer {
+        height: 450px;
+    }
+    .productBox{
+        margin-right: 0px;
+        align-items: center;
+    }
+    .productTitulo {
+        font-size: 35px;
+    
+    }
+    .productDescricao {
+        font-size: 50px;
+    }
 }
