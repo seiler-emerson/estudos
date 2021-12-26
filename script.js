@@ -112,3 +112,11 @@ c('.pizzaInfo--qtmais').addEventListener('click', ()=>{ //Adiciona evento de cli
     modalQt++;          //Aumenta de 1 em 1
     c('.pizzaInfo--qt').innerHTML = modalQt;
 });
+
+//Configurar a seleção de pesos das pizzas
+cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{  
+    size.addEventListener('click', (e)=>{ //Adicionar evento de click
+        c('.pizzaInfo--size.selected').classList.remove('selected')   //Configurar para desmarcar o item anterior selecionado e marcar a seleção atual
+        size.classList.add('selected');  //Adicionar a class de seleção no item selecionado.
+    });
+});
