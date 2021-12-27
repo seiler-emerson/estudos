@@ -134,7 +134,7 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{
 
     let identifier = pizzaJson[modalKey].id+'@'+size; //Une o id da pizza e o tamanho dela, assim caso seja necessário editar as quantidades no carrinho, não será criada um novo item no array.
 
-    let ley = cart.findIndex((item)=>{
+    let key = cart.findIndex((item)=>{
         return item.identifier == identifier  //Procura no carrinho se há um identifier duplicado, se não retorna -1
     });
 
@@ -142,6 +142,7 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{
         cart[key].qt += modalQt    //Se achar, adiciona a quantidade atual a quantidade anterior
     } else {
         cart.push({
+            identifier,
             id:pizzaJson[modalKey].id,     //Se não achar preenche com as informações selecionadas no carrinho
             size,
             qt:modalQt
@@ -151,4 +152,81 @@ c('.pizzaInfo--addButton').addEventListener('click', ()=>{
     closeModal();
 });
 
-function updateCart()  //Função para atualizar carrinho.
+c('.menu-openner').addEventListener('click', ()=>{  //Evento para abrir o menu no mobile ao clicar no botão do carrinho
+    if(cart.length > 0) {
+        c('aside').style.left = '0';
+    }
+});
+c('.menu-closer').addEventListener('click', ()=>{  //Evento para fechar o menu no mobile ao clicar no botão de fechamento
+        c('aside').style.left = '100vw';
+    
+});
+
+function updateCart() {  //Função para atualizar carrinho.
+    c('.menu-openner span').innerHTML = cart.length; //Atualiza numero carrinho mobile
+
+
+    if(cart.length > 0) {
+        c('aside').classList.add('show'); //Se tiver itens no carrinho será adicionada a class show ao aside (tag no carrinho) e ele será exibido
+        c('.cart').innerHTML = '';  // Zera a vizualização para não duplicar os mesmos itens quando exibidos
+        
+        //Variáveis responsáveis pelos subtotal, desconto e total do carrinho
+        let subtotal = 0;
+        let desconto = 0;
+        let total = 0;
+        
+        
+        for(let i in cart) {  //Adicionar vizualização dos itens ao carrinho
+            
+            let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id);  // Procura o id do carrinho no JSON e com isso pega as outras informações 
+            let cartItem = c('.models .cart--item').cloneNode(true); //Clonar estrutura de exibição dos itens no carrinho
+            
+            let pizzaSizeName; // Um switch no cart para relacionar os tamanhos as iniciais P M G
+            switch(cart[i].size) {
+                case 0:
+                    pizzaSizeName = 'P'
+                    break;
+                case 1:
+                    pizzaSizeName = 'M'
+                    break;
+                case 2:
+                    pizzaSizeName = 'G'
+                    break;
+            };
+
+
+            let pizzaName = `${pizzaItem.name} (${pizzaSizeName})`; //Variavel com nome e tamanho da pizza
+            subtotal += pizzaItem.price * cart[i].qt; //Cálculo subtotal
+
+
+            cartItem.querySelector('img').src = pizzaItem.img; //Adiciona a foto da pizza.
+            cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName; //Adiciona o nome e o tamanho da pizza.
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt; //Adiciona a quantidade ao carrinho
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click', ()=>{ //Botão menos carrinho
+                if(cart[i].qt > 1){
+                    cart[i].qt--;
+                } else {
+                    cart.splice(i, 1);
+                }
+                updateCart();
+            });
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', ()=>{ //Botão mais carrinho
+                cart[i].qt++;
+                updateCart();
+            });
+
+            c('.cart').append(cartItem);
+        }
+        
+        desconto = subtotal * 0.1;  //Cálculo desconto
+        total = subtotal - desconto;  //Cálculo total
+
+        c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`; //Vizualização do subtotal
+        c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`; //Vizualização do desconto
+        c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`; //Vizualização do total
+    
+    } else {
+        c('aside').classList.remove('show');
+        c('aside').style.left = '100vw';
+    }
+}
