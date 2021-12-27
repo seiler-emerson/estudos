@@ -1,5 +1,11 @@
+//Variável do carrinho de compras
+let cart = [];
+
 //Variável que armazena a quantidade inicial da caixa de seleção
 let modalQt = 1;
+
+//Armazena a informação de qual pizza está selecionada para gerenciar a ação de adicionar ao carrinho.
+let modalKey = 0; 
 
 //ATALHO PARA O QUERYSELCTOR / ALL 
 //Função que recebe um elemento em c, e envia o elemento para dentro do querySelector
@@ -45,6 +51,8 @@ pizzaJson.map((item, index)=>{
 
         //Sempre que abrir a caixa de seleção definir a quantidade de pizza seleciona na caixa de seleção para 1.
         modalQt = 1;
+
+        modalKey = key; //Armazena a informação de qual pizza está selecionada para gerenciar a ação de adicionar ao carrinho.
 
         //Preencher a imagem da pizza na caixa de seleção
         c('.pizzaBig img').src= pizzaJson[key].img;
@@ -120,3 +128,27 @@ cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
         size.classList.add('selected');  //Adicionar a class de seleção no item selecionado.
     });
 });
+//Adicionar evento no botão de adicionar ao carrinho de compras
+c('.pizzaInfo--addButton').addEventListener('click', ()=>{
+    let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key')); //Tamanho da pizza selecionado
+
+    let identifier = pizzaJson[modalKey].id+'@'+size; //Une o id da pizza e o tamanho dela, assim caso seja necessário editar as quantidades no carrinho, não será criada um novo item no array.
+
+    let ley = cart.findIndex((item)=>{
+        return item.identifier == identifier  //Procura no carrinho se há um identifier duplicado, se não retorna -1
+    });
+
+    if (key > -1) {
+        cart[key].qt += modalQt    //Se achar, adiciona a quantidade atual a quantidade anterior
+    } else {
+        cart.push({
+            id:pizzaJson[modalKey].id,     //Se não achar preenche com as informações selecionadas no carrinho
+            size,
+            qt:modalQt
+        });
+    };
+    updateCart();
+    closeModal();
+});
+
+function updateCart()  //Função para atualizar carrinho.
