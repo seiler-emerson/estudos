@@ -9,8 +9,7 @@ let b7validator = {     //Ação para previnir o envio das informações do form
             let input = inputs[i];
             let check = b7validator.checkInput(input);
             if(check !== true) {
-                send = false;
-                //exibir o erro
+                console.log(check);
             }
         }
 
@@ -22,6 +21,19 @@ let b7validator = {     //Ação para previnir o envio das informações do form
         let rules = input.getAttribute('data-rules');
         if(rules !== null) {
             rules = rules.split('|');
+            for(let k in rules) {
+                let rDetails = rules[k].split('=');
+                switch(rDetails[0]) {
+                    case 'required':
+                        if(input.value == '') {
+                            return 'Campo não pode ser vazio'
+                        }
+                    break;
+                    case 'min':
+
+                    break;
+                }
+            }
         }
         return true;
     }
