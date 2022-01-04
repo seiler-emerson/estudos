@@ -1,5 +1,5 @@
 document.body.addEventListener('keyup', (event)=>{  //Adiciona um evento para observar quais teclas são pressionadas na página
-    playSound(event.code.toLocaleLowerCase());        //Envia para a função playSound a tecla pressionada
+    playSound(event.code.toLowerCase());        //Envia para a função playSound a tecla pressionada
 });
 
 document.querySelector('.composer button').addEventListener('click', ()=>{     //Adiciona um evento de click no botão tocar, responsável por tocar os digitos escritos no campo
