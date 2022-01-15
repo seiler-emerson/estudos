@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --cor0: #3EA1DB;             /* blue */
+    --cor1: #574AE8;        /* blue-dark */
+    --cor2: #FFF;               /* white */
+    --cor3: #313131;            /* title */
+    --cor4: #B6B6B6;             /* text */
+    --cor5: #ffffff44;
+    --grad0: linear-gradient(90deg, #574AE8 0%, #3EA1DB 100%);    /* gradiente */
+  }
+
+@font-face {
+    font-family: 'Inter-Medium';
+    src: url(/assets/fonts/Inter-Medium.ttf) format('truetype');
+    font-family: 'Inter-Regular';
+    src: url(/assets/fonts/Inter-Regular.ttf) format('truetype');
+    font-family: 'LexendDeca-Regular';
+    src: url(/assets/fonts/LexendDeca-Regular.ttf) format('truetype');
+}
+body {
+    background-color: rgb(235, 235, 235);
+}
+
+.headerArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 168px;
+}
+header {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1440px;
+    height: 250px;
+    background: var(--grad0);
+}
+.title {
+    display: flex;
+    justify-content: space-between;
+    width: 900px;
+    font-family: 'LexendDeca-Regular', sans-serif;
+    font-size: 12px;
+    color: var(--cor2);
+}
+.search {
+    width: 900px;
+    display: flex;
+    align-items: center;
+}
+input {
+    width: 900px;
+    height: 65px;
+    font-size: 18px;
+    padding-left: 60px;
+    background-color: var(--cor5);
+    border: none;
+    color: var(--cor2);
+    border-radius: 5px;
+}
+input::placeholder {
+    font-family: 'Inter-Regular', sans-serif;
+    color: var(--cor2);
+}
+.search img {
+    height: 24px;
+    width: 24px;
+    margin-left: -880px;
+}
+section {
+    margin: auto;
+    width: 1440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.containerPost {
+    width: 900px;
+    height: auto;
+    background-color: var(--cor2);
+    margin-bottom: 50px;
+    padding: 25px;
+}
+.containerPost:first-child {
+    margin-top: 100px;
+}
+.dataLike {
+    display: flex;
+    justify-content: space-between;
+}
+.dataLike spam {
+    font-family: 'LexendDeca-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cor3);
+}
+.containerPost h2{
+    font-family: 'LexendDeca-Regular', sans-serif;
+    font-size: 26px;
+    margin-top: 22px;
+    color: var(--cor3);
+}
+.containerPost p{
+    font-family: 'LexendDeca-Regular', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cor4);
+    margin-top: 8px;
+}
