@@ -36,25 +36,40 @@ header {
     background: var(--grad0);
 }
 .headerArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 900px;
     height: 168px;
-    max-width: 900px;
+    
+}
+.title1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+.title2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    text-align: end;
+    
 }
 
 .title {
-    display: flex;
-    justify-content: space-between;
-    width: 900px;
     font-family: 'LexendDeca-Regular', sans-serif;
-    font-size: 12px;
+    font-size: 24px;
     color: var(--cor2);
 }
 .search {
-    max-width: 900px;
     display: flex;
     align-items: center;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 input {
     width: 900px;
@@ -119,142 +134,63 @@ section {
     margin-top: 8px;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    header {
-        max-width: 1024px;
-    }
-    .headerArea {
-        max-width: 768px;
-    }
-    
-    .title {
-        width: 700px;
-    }
-    .search {
-        max-width: 700px;
-    }
-    input {
-        width: 700px;
-        font-size: 16px;
-        padding-left: 60px;
-    }
-    .search img {
-        height: 24px;
-        width: 24px;
-        margin-left: -680px;
-    }
+@media (max-width: 1024px) {
+   header {
+       width: 100%;
+   }
+   .headerArea {
+       padding: 20px;
+       width: 95%;
+       height: 200px;
+   }
+   .search {
+        height: 65px;
+   }
+   input {
+       width: 100%;
+   }
+   .search img {
+       margin-left: -97%;
+   }
 
-    section {
-        max-width: 100%;
-    }
-    .dataLike spam {
-        font-size: 14px;
-    }
-    .containerPost {
+   .containerPost {
         width: 90%;
-    }
-    .containerPost h2{
-        font-size: 20px;
-    }
-    .containerPost p{
-        font-size: 12px;
-    }
+    
+   }
 }
 
-@media (min-width: 482px) and (max-width: 767px) {
-    header {
-        max-width: 767px;
-    }
-    .headerArea {
-        max-width: 482px;
-    }
-    
-    .title {
-        margin-top: 48px;
-        width: 400px;
-        font-size: 8px;
-    }
-    .search {
-        max-width: 400px;
-    }
-
-    input {
-        width: 400px;
-        height: 40px;
-        font-size: 14px;
-    }
-    .search img {
-        height: 24px;
-        width: 24px;
-        margin-left: -380px;
-    }
-    section {
-        max-width: 100%;
-    }
-    .dataLike spam {
-        font-size: 14px;
-    }
-    .containerPost {
-        width: 90%;
-    }
-    .containerPost h2{
-        font-size: 20px;
-    }
-    .containerPost p{
-        font-size: 12px;
-    }
-}
 
 @media (min-width:320px) and (max-width: 480px) {
-    header {
-        max-width: 480px;
-        max-height: 200px;
-    }
     .headerArea {
-        max-width: 300px;
-        max-height: 200px;
-        justify-content: center;
+        padding: 20px;
+        align-items: center;
     }
-    
     .title {
-        width: 300px;
-        font-size: 8px;
-        margin-bottom: 40px;
-    }
-    .search {
-        max-width: 300px;
+        font-size: 18px;
     }
     input {
-        width: 300px;
-        height: 40px;
         font-size: 14px;
+        height: 40px;
+        padding-left: 40px;
     }
     .search img {
-        margin-left: -280px;
+        height: 14px;
+        width: auto;
+        
     }
-    section {
-        max-width: 100%;
-    }
+    
     .dataLike spam {
         font-size: 14px;
     }
-    .containerPost {
-        width: 90%;
-    }
-    .containerPost:first-child {
-        margin-top: 50px;
+    .dataLike img {
+        height: auto;
+        width: 19px;
     }
     .containerPost h2{
-        font-size: 20px;
+        font-size: 18px;
     }
     .containerPost p{
-        font-size: 12px;
+        font-size: 14px;
     }
-
+    
 }
-
-/* Desktops: (min-width: 1281px)
-Laptops, desktops: (min-width: 1025px) and (max-width: 1280px)
-Tablets, ipads: (min-width: 768px) and (max-width: 1024px)
-Tablets de baixa resolução, celulares: (min-width: 482px) and (max-width: 767px)
-A maioria dos smartphones móveis: (min-width:320px) and (max-width: 480px) */
