@@ -25,23 +25,24 @@
 body {
     background-color: rgb(235, 235, 235);
 }
-
-.headerArea {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 168px;
-}
 header {
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 1440px;
+    max-width: 1440px;
     height: 250px;
     background: var(--grad0);
 }
+.headerArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 168px;
+    max-width: 900px;
+}
+
 .title {
     display: flex;
     justify-content: space-between;
@@ -51,7 +52,7 @@ header {
     color: var(--cor2);
 }
 .search {
-    width: 900px;
+    max-width: 900px;
     display: flex;
     align-items: center;
 }
@@ -76,7 +77,7 @@ input::placeholder {
 }
 section {
     margin: auto;
-    width: 1440px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -84,11 +85,12 @@ section {
 }
 
 .containerPost {
-    width: 900px;
+    width: 100%;
     height: auto;
     background-color: var(--cor2);
     margin-bottom: 50px;
     padding: 25px;
+    border-radius: 5px;
 }
 .containerPost:first-child {
     margin-top: 100px;
@@ -116,3 +118,143 @@ section {
     color: var(--cor4);
     margin-top: 8px;
 }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    header {
+        max-width: 1024px;
+    }
+    .headerArea {
+        max-width: 768px;
+    }
+    
+    .title {
+        width: 700px;
+    }
+    .search {
+        max-width: 700px;
+    }
+    input {
+        width: 700px;
+        font-size: 16px;
+        padding-left: 60px;
+    }
+    .search img {
+        height: 24px;
+        width: 24px;
+        margin-left: -680px;
+    }
+
+    section {
+        max-width: 100%;
+    }
+    .dataLike spam {
+        font-size: 14px;
+    }
+    .containerPost {
+        width: 90%;
+    }
+    .containerPost h2{
+        font-size: 20px;
+    }
+    .containerPost p{
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 482px) and (max-width: 767px) {
+    header {
+        max-width: 767px;
+    }
+    .headerArea {
+        max-width: 482px;
+    }
+    
+    .title {
+        margin-top: 48px;
+        width: 400px;
+        font-size: 8px;
+    }
+    .search {
+        max-width: 400px;
+    }
+
+    input {
+        width: 400px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .search img {
+        height: 24px;
+        width: 24px;
+        margin-left: -380px;
+    }
+    section {
+        max-width: 100%;
+    }
+    .dataLike spam {
+        font-size: 14px;
+    }
+    .containerPost {
+        width: 90%;
+    }
+    .containerPost h2{
+        font-size: 20px;
+    }
+    .containerPost p{
+        font-size: 12px;
+    }
+}
+
+@media (min-width:320px) and (max-width: 480px) {
+    header {
+        max-width: 480px;
+        max-height: 200px;
+    }
+    .headerArea {
+        max-width: 300px;
+        max-height: 200px;
+        justify-content: center;
+    }
+    
+    .title {
+        width: 300px;
+        font-size: 8px;
+        margin-bottom: 40px;
+    }
+    .search {
+        max-width: 300px;
+    }
+    input {
+        width: 300px;
+        height: 40px;
+        font-size: 14px;
+    }
+    .search img {
+        margin-left: -280px;
+    }
+    section {
+        max-width: 100%;
+    }
+    .dataLike spam {
+        font-size: 14px;
+    }
+    .containerPost {
+        width: 90%;
+    }
+    .containerPost:first-child {
+        margin-top: 50px;
+    }
+    .containerPost h2{
+        font-size: 20px;
+    }
+    .containerPost p{
+        font-size: 12px;
+    }
+
+}
+
+/* Desktops: (min-width: 1281px)
+Laptops, desktops: (min-width: 1025px) and (max-width: 1280px)
+Tablets, ipads: (min-width: 768px) and (max-width: 1024px)
+Tablets de baixa resolução, celulares: (min-width: 482px) and (max-width: 767px)
+A maioria dos smartphones móveis: (min-width:320px) and (max-width: 480px) */
