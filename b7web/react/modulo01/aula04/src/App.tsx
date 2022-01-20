@@ -1,14 +1,19 @@
-import {Header} from './components/Header'
+import { useState } from "react";
 
 const App = () => {
-  let name: string = "Emerson"
-  let lastName: string = "Seiler"
+  const[name, setName] = useState('Emerson');
+
+
+
+  const handleButtonClick = () => {
+    setName('Seiler')
+  }
 
   return (
     <div>
-      <Header title="Este é um exemplo" />
-      Olá mundo!
-      </div>
+      Meu nome é: {name}
+      <button onClick={handleButtonClick}>Clique aqui!</button>
+    </div>
   )
 }
 
