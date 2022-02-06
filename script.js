@@ -193,7 +193,7 @@ const Form = {
 
         try {
             //Verificar se todas as informações foram preenchidas
-            Form.validateFields()
+            // Form.validateFields()
 
             //Formatar os dados para salvar
             const transaction = Form.formateValues()
