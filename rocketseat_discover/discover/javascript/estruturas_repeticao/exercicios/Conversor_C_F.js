@@ -4,8 +4,9 @@
 //     F = C * 9/5 + 32
 
 
-// RESOLUÇÃO 01
+// RESOLUÇÃO 001
 /*
+
 let isCelsius = false
 let temperature = "28.45"
 
