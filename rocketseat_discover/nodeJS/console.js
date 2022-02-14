@@ -1,3 +1,1 @@
-
-let path = require('path')
-global.console.log(path.basename(""))
+console.log("Hello World!")
