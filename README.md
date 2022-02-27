@@ -1,6 +1,7 @@
 # CALCULADORA DE IMC
 
 Esté é um projeto de uma calculadora de Indíce de Massa Coporal (IMC).
+
 A calculadora recebe a altura em metros e o peso em quilos e retornar o IMC, informando o resultado do cálculo de acordo com as informações abaixo:
 
 * Entre 0 e 18.5: Magreza
