@@ -4,6 +4,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+.main {
+    padding-bottom: 50px;
+}
 .headerContainer {
     max-width: 900px;
     margin: 40px auto;
@@ -12,6 +15,7 @@ body {
     display: flex;
     max-width: 900px;
     margin: auto;
+    
 }
 .container .leftSide {
     flex: 1;
@@ -36,6 +40,9 @@ body {
     font-size: 14px;
     outline: 0;
 }
+.container .leftSide input:disabled {
+    opacity: 0.5;
+}
 .container .leftSide button {
     background-color: #227C9D;
     color: #FFFFFF;
@@ -51,7 +58,10 @@ body {
 .container .leftSide button:hover {
     opacity: 0.8;
 }
-
+.container .leftSide button:disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
 
 .container .rightSide {
     flex: 1;
@@ -63,4 +73,53 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+}
+.container .rightSide .rightBig {
+    flex: 1;
+    display: flex;
+}
+.container .rightSide .rightArrow {
+    position: absolute;
+    background-color: #227C9D;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -35px;
+    margin-top: 145px;
+    transition: all ease 0.3s;
+}
+.container .rightSide .rightArrow:hover {
+    background-color: #308eb1;
+}
+
+
+@media (max-width: 770px) {
+    header {
+        padding: 0 20px;
+    }
+    .container {
+        padding: 0 20px;
+        flex-direction: column;
+    }
+    .container .leftSide {
+        margin-right: 0;
+    }
+    .container .rightSide {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+    .container .rightSide .rightArrow {
+        margin-left: 0;
+        margin-top: 0;
+        border-radius: 10px;
+    }
+}
+@media (max-width: 430px) {
+    .container .rightSide .grid {
+        grid-template-columns: 1fr;
+    }
 }
