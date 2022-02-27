@@ -13,7 +13,11 @@ A calculadora recebe a altura em metros e o peso em quilos e retornar o IMC, inf
 
 Projeto desenvolvido em ReactJs e TypeScript durante o curso de React da [B7Web](https://b7web.com.br).
 
+### Instalação
+- `npm install`
 
+### Para executar
+- `npm start`
 
 Você pode entrar em contato comigo pelo [Linkedin](https://www.linkedin.com/in/seileremerson/).
  
