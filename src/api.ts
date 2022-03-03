@@ -11,15 +11,15 @@ export const api = {
         let response = await http.get(`/albums`); //pega os dados da api e coloca em response
         return response.data;   //retorna o json
     },
-    getInfoAlbum: async (index)=> {
+    getInfoAlbum: async (index: string)=> {
         let response = await http.get(`/albums/${index}`)
         return response.data;
     },
-    getPhotoAlbum: async (index)=> {
+    getPhotoAlbum: async (index: string)=> {
         let response = await http.get(`/albums/${index}/Photos`)
         return response.data;
     },
-    getPhoto: async (index)=> {
+    getPhoto: async (index: string)=> {
         let response = await http.get(`/albums/${index}/Photos`)
         return response.data;
     },

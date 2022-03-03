@@ -59,7 +59,7 @@ export const AlbumDetails = () => {
           <button onClick={handleBackButton} className='my-2 border px-2 rounded border-gray bg-gray-100'>Voltar</button>
           <AlbumInfoComponent data={albumDetails} />
 
-          <div className='grid grid-cols-5'>     {/* Carrega todas as fotos no array json */}
+          <div className='grid grid-cols-5 w-max w-fit '>     {/* Carrega todas as fotos no array json */}
             {photoAlbum.map((item, index) => (     
               <Link to={`/album/${params.album}/${index+1}`}>    {/* O link vai ser /album/NumeroAlbum/NumeroFoto */}
                 <PhotoAlbumComponent data={item} />  

@@ -7,7 +7,7 @@ type Props = {
 
 export const AlbumList = ({data, index}: Props) => {  //Monta a estrutura de album para replicação
     return (
-            <div className='block border-2 p-2 border-black m-2 hover:bg-gray-300'>
+            <div className='block border-2 rounded-lg p-2 border-black m-2 hover:bg-yellow-300 hover:border-yellow-300'>
                 {data.title}
             </div>
 

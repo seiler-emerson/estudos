@@ -18,8 +18,9 @@ export const Photo = () => {
   const navigate = useNavigate();
   let params = useParams<typeParams>()
   console.log(params)
-  let index: any = params.photo
-  let indexPhoto: number = ((parseInt(index)-1))
+  let indexAlbum: any = params.album
+  let indexP: any = params.photo
+  let indexPhoto: number = ((parseInt(indexP)-1))
 
   // ATUALIZAR A TELA A CADA MUDANÇA //
   useEffect(()=> {
@@ -29,7 +30,7 @@ export const Photo = () => {
   //CARREGAR INFORMAÇÃO DA FOTO SELECIONADA DA API
   const loadPhoto = async () => {                     //carrega as fotos da api
     setLoading(true)                                  //inicia com uma mensagem de carregando
-    let json = await api.getPhoto(params.album);      //Recebe os dados convertidos pela função (api.ts) e coloca em json  .album pq a informação vem em um objeto {album: 2, photo: 1}
+    let json = await api.getPhoto(indexAlbum);      //Recebe os dados convertidos pela função (api.ts) e coloca em json  .album pq a informação vem em um objeto {album: 2, photo: 1}
     setLoading(false)                                 //remove a mensagem de carregando ao fim do processo anterior
     setPhoto(json);                                   //envia para fotos o json
   }
