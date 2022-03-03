@@ -1,4 +1,4 @@
-import { Photo } from '../types/Photo'
+import { Photo } from '../types/PhotoType'
 
 type Props = {
     data: Photo

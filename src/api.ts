@@ -15,12 +15,16 @@ export const api = {
         let response = await http.get(`/albums/${index}`)
         return response.data;
     },
-    getPhotoAlbum: async ()=> {
-        let response = await http.get(`/albums/3/photos`)
+    getPhotoAlbum: async (index)=> {
+        let response = await http.get(`/albums/${index}/Photos`)
         return response.data;
     },
-    getPhoto: async ()=> {
-        let response = await http.get(`/photos/5`)
+    getPhoto: async (index)=> {
+        let response = await http.get(`/albums/${index}/Photos`)
         return response.data;
     },
+    // getPhoto: async (index, url)=> {
+    //     let response = await http.get(`/albums/${index}/photos/${url}`)
+    //     return response.data;
+    // },
 }

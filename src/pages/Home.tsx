@@ -1,41 +1,45 @@
 import { useState, useEffect } from 'react'
 import { Albums } from '../types/Albums'
-import { AlbumsItem } from '../components/AlbumsItem'
+import { AlbumList } from '../components/AlbumList'
 import { Header } from '../components/Header'
 import { api } from '../api'
 import { Link, useParams } from 'react-router-dom'
 
 
 export const Home = () => {
-    const [albums, setAlbums] = useState<Albums[]>([])
-    const [loading, setLoading] = useState(false);
+  
+  // USE STATES //
+  const [albums, setAlbums] = useState<Albums[]>([])
+  const [loading, setLoading] = useState(false);
 
-    useEffect(()=> {
-        loadAlbums();
-      }, [])
+  // ATUALIZAR A TELA A CADA MUDANÇA //
+  useEffect(()=> {
+    loadAlbums();
+  }, [])
 
-    const loadAlbums = async () => {   //carrega os albuns da api
-        setLoading(true)                  //inicia com uma mensagem de carregando
-        let json = await api.getAllAlbums();
-        setLoading(false)                                                           //remove a mensagem de carregando ao fim do processo anterior
-        setAlbums(json);                                                            //envia para albuns o json
+  //CARREGAR INFORMAÇÃO DO ALBUM SELECIONADA DA API - NESTE CASO TÍTULO
+  const loadAlbums = async () => {
+      setLoading(true)                          //inicia com uma mensagem de carregando
+      let json = await api.getAllAlbums();      //Recebe os dados convertidos pela função (api.ts) e coloca em json
+      setLoading(false)                         //remove a mensagem de carregando ao fim do processo anterior
+      setAlbums(json);                          //envia para albuns o json
         
   }
 
-    return (
+  return (
 
-<div className="p-5">
+    <div className="p-5">
       {loading &&
-        <div>Carregando...</div>     //Caso os albuns não esteja carregados exibe a mensagem carregando..
+        <div>Carregando...</div>                //Caso os albuns NÃO ESTEJAM carregados exibe a mensagem carregando..
       }
 
-      {!loading && albums.length > 0 &&
+      {!loading && albums.length > 0 &&         //Caso os albuns ESTEJAM carregados monta o a lista de titulos.
         <>
           <Header />  
           <div className='font-bold font-2xl'>
             {albums.map((item, index) => (
                 <Link to={`/album/${index+1}`}>
-                  <AlbumsItem data={item} index={index} />
+                  <AlbumList data={item} index={index} />
                 </Link>
             ))}
           </div>
@@ -46,7 +50,7 @@ export const Home = () => {
         <div>Não há albuns para exibir!</div>
       }
     </div>
-    )
+  )
 }
 
 
