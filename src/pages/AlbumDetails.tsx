@@ -10,7 +10,7 @@ import { useNavigate, Link, useParams } from 'react-router-dom'
 export const AlbumDetails = () => {
   
   // USE STATES //
-  const [albumDetails, setAlbumDetails] = useState<InfoAlbum>({})
+  const [albumDetails, setAlbumDetails] = useState<InfoAlbum>()
   const [photoAlbum, setPhotoAlbum] = useState<PhotoAlbum[]>([])
   const [loading, setLoading] = useState(false);
 

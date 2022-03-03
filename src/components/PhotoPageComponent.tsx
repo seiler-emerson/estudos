@@ -1,7 +1,7 @@
-import { Photo } from '../types/PhotoType'
+import { PhotoType } from '../types/PhotoType'
 
 type Props = {
-    data: Photo
+    data: PhotoType
 }
 
 

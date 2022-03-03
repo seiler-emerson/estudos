@@ -1,21 +1,25 @@
 import { useState, useEffect } from 'react'
 import { PhotoType } from '../types/PhotoType'
+import { PhotoArray } from '../types/PhotoArray'
 import { Header } from '../components/Header'
 import { PhotoPageComponent } from '../components/PhotoPageComponent'
 import { api } from '../api'
 import { useNavigate, useParams } from 'react-router-dom'
+import { typeParams } from '../types/typeParams'
+ 
 
 
 export const Photo = () => {
-
   // USE STATES //
-  const [photo, setPhoto] = useState<PhotoType>()
+  const [photo, setPhoto] = useState<PhotoArray>()
   const [loading, setLoading] = useState(false);
-
+  
   // PEGAR NUMERO DO ALBUM SELECIONADO //
   const navigate = useNavigate();
-  let params = useParams()
+  let params = useParams<typeParams>()
   console.log(params)
+  let index: any = params.photo
+  let indexPhoto: number = ((parseInt(index)-1))
 
   // ATUALIZAR A TELA A CADA MUDANÇA //
   useEffect(()=> {
@@ -45,7 +49,8 @@ export const Photo = () => {
         <>
           <Header />  
           <button onClick={handleBackButton} className='my-2 border px-2 rounded border-gray bg-gray-100'>Voltar</button>
-         <PhotoPageComponent data={photo[params.photo-1]} />
+          
+          <PhotoPageComponent data={photo[indexPhoto]} />
         </> 
       }
 
