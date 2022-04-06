@@ -11,6 +11,6 @@
 
 
 
-<img src="gif/todo.gif" alt="Demonstração Aplicação To Do List">
+<img src="gif/todo.gif" alt="Demonstração To Do List">
 
 <p>Entre em contato por <a href="https://www.linkedin.com/in/seileremerson/" target="_blank">aqui</a>!</p>
