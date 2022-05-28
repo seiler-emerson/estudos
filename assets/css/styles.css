@@ -200,20 +200,21 @@ header .menu-line {
 }
 
 .container-three .projects {
-    display: flex;
-    justify-content: space-between;
-    width: 1240px;
-    height: 560px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* width: 1240px; */
+    height: auto;
 }
 
 .container-three .projects .box {
+    padding: 20px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 400px;
     border-radius: 10px;
-    gap: 10px;
+    margin: 0 5px 0 5px;
     background-color: var(--collor1);
 }
 .container-three .projects .box h2 {
@@ -236,6 +237,18 @@ header .menu-line {
     margin-top: 10px;
 }
 
+.container-three .projects .box a {
+    background-color: var(--collor2);
+    color: var(--collor1);
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+
+}
 .container-three .projects .box .img1 {
     background-image: url(../images/projects/hiremeFlix.png);
     background-size: cover;
@@ -247,6 +260,20 @@ header .menu-line {
 .container-three .projects .box .img3 {
     background-image: url(../images/projects/pomodoro.png);
     background-size: cover;
+}
+
+.container-three a {
+    display: inline-block;
+    background-color: var(--collor0);
+    color: var(--collor4);
+    padding: 20px 40px;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0px 0px 10px var(--collor3);
+    border-radius: 5px;
+    margin-top: 20px;
 }
 
 /* ============ CONTACT ============ */
@@ -327,17 +354,26 @@ footer a {
 
 /* ============ RESPONSIVIDADE ============ */
 
+@media (max-width: 1250px) {
+
+    /* ============ PROJECTS ============ */
+
+    .container-three {
+        height: auto;
+        padding: 30px;
+    }
+
+    .container-three .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container-three .projects .box {
+        margin-bottom: 10px;
+    }
+
+}
+
 @media (max-width: 850px) {
-
-    /* ============ HEADER ============ */
-
-    header {
-        position:initial;
-        background-color: var(--collor3);
-    }
-    header .menu-line {
-        background-color: var(--collor2);
-    }
 
     /* ============ HOME ============ */
 
@@ -382,7 +418,9 @@ footer a {
     
     /* ============ PROJECTS ============ */
 
-    
+    .container-three .projects {
+        grid-template-columns: repeat(1, 1fr);
+    }
 
     /* ============ CONTACT ============ */
 
@@ -413,17 +451,25 @@ footer a {
 
     footer {
         position: initial;
-        color: var(--collor3);
+        color: var(--collor0);
+        background-color: var(--collor3);
         font-size: 16px;
     }
     footer a {
-        color: var(--collor3);
+        color: var(--collor0);
     }
 }
 
 @media (max-width: 600px) {
+
+
     header .menu-complete {
         display: none;
+        position: fixed;
+    }
+    header .menu-compact {
+        display: flex;
+        position: inherit;
     }
     header .menu-line {
         display: flex;
@@ -431,6 +477,8 @@ footer a {
 }
 
 @media (max-width: 450px) {
+
+    /* ============ HOME ============ */
 
     .container-one .left-side-home .info .name{
         font-size: 35px;
@@ -441,10 +489,35 @@ footer a {
         margin-bottom: 20px;
     }
 
+    /* ============ ABOUT ME ============ */
+
     .container-two .about-me .title {
         font-size: 22px;
     }
     .container-two .about-me .text p {
         font-size: 18px;
     }
+
+    /* ============ PROJECTS ============ */
+
+    .container-three .title {
+        font-size: 30px;
+    }
+
+    .container-three .projects .box {
+        width: auto;
+        padding: 20px;
+    }
+
+
+    .container-three .projects .box .img {
+        width: 290px;
+        height: 290px;
+        background-color: var(--collor2);
+    
+    }
+    .container-three .projects .box p {
+        width: 290px;
+    }
+    
 }
