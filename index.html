@@ -8,40 +8,44 @@
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
+    
     <header>
         <div class="logo">
-            <a href="#">e.seiler</a>
+            <a href="#home">e.seiler</a>
             </div>
         <div class="menu">
             <div class="menu-complete">
-                <a href="#">HOME</a>
-                <a href="#">ABOUT</a>
-                <a href="#">PROJECTS</a>
-                <a href="#">CONTACT</a>
+                <a href="#home">HOME</a>
+                <a href="#about">ABOUT</a>
+                <a href="#projects">PROJECTS</a>
+                <a href="#contact">CONTACT</a>
             </div>
-            <div class="menu-compact">
+            <div class="menu-compact" onclick="openMenuCompact()">
                 <div class="menu-line"></div>
                 <div class="menu-line"></div>
                 <div class="menu-line"></div>
             </div>
         </div>
+        
     </header>
-
-    <section class="container-one">
+    
+    <a name="home"></a>
+    <section class="container-one" onclick="closeMenuCompact()"">
         <div class="left-side-home">
             <div class="info">
                 <div class="profession">Java Developer Jr</div>
                 <div class="name">I'm Emerson Seiler</div>
                 <div class="buttons">
-                    <a href="#">More About Me</a>
-                    <a href="#" class="light">Contact Me!</a>
+                    <a href="#about">More About Me</a>
+                    <a href="#contact" class="light">Contact Me!</a>
                 </div>
             </div>
         </div>
         <div class="right-side-home"></div>
     </section>
 
-    <section class="container-two">
+    <a name="about"></a>
+    <section class="container-two" onclick="closeMenuCompact()">
         <div class="left-side-about"></div>
         <div class="right-side-about">
             <div class="about-me">
@@ -65,7 +69,8 @@
         </div>
     </section>
 
-    <section class="container-three">
+    <a name="projects"></a>
+    <section class="container-three" onclick="closeMenuCompact()">
         <div class="title">MY PROJECTS</div>
         <div class="projects">
             <div class="box">
@@ -90,15 +95,16 @@
         <a href="https://github.com/seiler-emerson" target="_blank">MORE PROJECTS</a>
     </section>
 
-    <section class="container-four">
+    <a name="contact"></a>
+    <section class="container-four" onclick="closeMenuCompact()">
         <div class="left-side-contact">
             <div class="text">
                 <div class="phrase">HOW ABOUT A COFEE?</div>
                 <div class="title">Contact me!</div>
                 <div class="buttons">
-                    <a href="#"><img src="./assets/buttons/email.png" alt="Buttom E-mail"></a>
-                    <a href="#"><img src="./assets/buttons/github.png" alt="Buttom Github"></a>
-                    <a href="#"><img src="./assets/buttons/linkedin.png" alt="Buttom Linkedin"></a>
+                    <a href="https://mail.google.com/mail/u/0/?fs=1&to=seiler.emerson@gmail.com&su=HELLO+-+Emerson!&body=Hello+Emerson%20Seiler,+how+are+you?&tf=cm" target="_blank"><img src="./assets/buttons/email.png" alt="Buttom E-mail"></a>
+                    <a href="https://github.com/seiler-emerson" target="_blank"><img src="./assets/buttons/github.png" alt="Buttom Github"></a>
+                    <a href="https://www.linkedin.com/in/seileremerson/" target="_blank"><img src="./assets/buttons/linkedin.png" alt="Buttom Linkedin"></a>
                 </div>
             </div>
         </div>
@@ -106,7 +112,9 @@
     </section>
 
     <footer>
-        Copyright ©2022 All rights reserved | This site is made with ♥ by <a href="https://github.com/seiler-emerson">Emerson Seiler</a>
+        <p>
+            This site is made with ♥ by <a href="https://github.com/seiler-emerson">Emerson Seiler</a>
+        </p>
     </footer>
 
 
@@ -114,3 +122,4 @@
     <script src="./script.js"></script>
 </body>
 </html>
+

@@ -1,22 +1,29 @@
+    /* ================================================ */
+    /* ================ CONFIG GLOBAL ================= */
+    /* ================================================ */
+
 :root {
     --collor0: #FFFFFF;
     --collor1: #000000;
     --collor2: #D9043D;
     --collor3: #010626;
     --collor4: #021859;
-    --collor5: #484659;
-
-    
+    --collor5: #484659; 
 }
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
-
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+    /* ================================================ */
+    /* ==================== HEADER ==================== */
+    /* ================================================ */
 
 header {
     display: flex;
@@ -25,6 +32,7 @@ header {
     background-color: var(--collor3);
     padding: 20px;
     position: fixed;
+    z-index: 999;
     left: 0;
     right: 0;
     top: 0;
@@ -43,7 +51,6 @@ header .logo a:hover{
     align-items: center;
     justify-content: center;
 }
-
 header .menu-complete {
     display: flex;
     border-radius: 10px;
@@ -60,6 +67,10 @@ header .menu-complete a:hover {
     opacity: 0.8;
 }
 
+    /* ================================================ */
+    /* ================= MENU MOBILE ================== */
+    /* ================================================ */
+
 header .menu-compact {
     display: none;
     position: fixed;
@@ -75,7 +86,10 @@ header .menu-line {
     background-color: var(--collor2);
 }
 
-/* ============ HOME ============ */
+
+    /* ================================================ */
+    /* ===================== HOME ===================== */
+    /* ================================================ */
 
 .container-one {
     display: flex;
@@ -95,7 +109,6 @@ header .menu-line {
     background-size: cover;
     background-position: center;
 }
-
 .container-one .info {
     display: flex;
     flex-direction: column;
@@ -138,9 +151,9 @@ header .menu-line {
     opacity: 0.8;
 }
 
-
-/* ============ ABOUT ============ */
-
+    /* ================================================ */
+    /* =================== ABOUT ME =================== */
+    /* ================================================ */
 
 .container-two {
     display: flex;
@@ -157,7 +170,7 @@ header .menu-line {
 .container-two .left-side-about {
     flex: 1;
     background-image: url('../images/about-left-side.png');
-    background-size: cover;
+    background-size: center;
     background-position: center;
 }
 
@@ -180,7 +193,9 @@ header .menu-line {
     text-align: justify;
 }
 
-/* ============ PROJECTS ============ */
+    /* ================================================ */
+    /* =================== PROJECTS =================== */
+    /* ================================================ */
 
 .container-three {
     display: flex;
@@ -188,7 +203,9 @@ header .menu-line {
     justify-content: center;
     align-items: center;
     background-image: url(../images/project.png);
-    background-position: center;
+    background-size: 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
     height: 100vh;
 }
 
@@ -276,7 +293,9 @@ header .menu-line {
     margin-top: 20px;
 }
 
-/* ============ CONTACT ============ */
+    /* ================================================ */
+    /* ==================== CONTACT =================== */
+    /* ================================================ */
 
 .container-four {
     display: flex;
@@ -335,29 +354,38 @@ header .menu-line {
     opacity: 0.8;
 }
 
-
-/* ============ FOOTER ============ */
+    /* ================================================ */
+    /* ==================== FOOTER ==================== */
+    /* ================================================ */
 
 footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    background-color: var(--collor3);
+    margin: auto;
     padding: 20px;
     color: var(--collor2);
     font-size: 13px;
 }
+
+footer p {
+    text-align: center;
+}
+
 footer a {
     color: var(--collor2);
 }
 
 
-/* ============ RESPONSIVIDADE ============ */
+
+    /* ================================================ */
+    /* ================ RESPONSIVIDADE ================ */
+    /* ================================================ */
 
 @media (max-width: 1250px) {
 
-    /* ============ PROJECTS ============ */
-
+    /* ================================================ */
+    /* =================== PROJECTS =================== */
+    /* ================================================ */
+    
     .container-three {
         height: auto;
         padding: 30px;
@@ -375,7 +403,9 @@ footer a {
 
 @media (max-width: 850px) {
 
-    /* ============ HOME ============ */
+    /* ================================================ */
+    /* ===================== HOME ===================== */
+    /* ================================================ */
 
     .container-one {
         flex-direction: column;
@@ -388,12 +418,15 @@ footer a {
     }
     .container-one .left-side-home .info {
         align-items:center;
+        margin-top: 50px;
     }
     .container-one .info .name {
         text-align: center;
     }
 
-    /* ============ ABOUT ME ============ */
+    /* ================================================ */
+    /* =================== ABOUT ME =================== */
+    /* ================================================ */
 
     .container-two {
         flex-direction: column;
@@ -415,14 +448,18 @@ footer a {
     .container-two .left-side-about {
         display: none;
     }
-    
-    /* ============ PROJECTS ============ */
+
+    /* ================================================ */
+    /* =================== PROJECTS =================== */
+    /* ================================================ */
 
     .container-three .projects {
         grid-template-columns: repeat(1, 1fr);
     }
 
-    /* ============ CONTACT ============ */
+    /* ================================================ */
+    /* ==================== CONTACT =================== */
+    /* ================================================ */
 
     .container-four {
         flex-direction: column;
@@ -445,27 +482,17 @@ footer a {
     .container-four .right-side-contact {
         display: none;
     }
-
-    /* ============ FOOTER ============ */
-
-
-    footer {
-        position: initial;
-        color: var(--collor0);
-        background-color: var(--collor3);
-        font-size: 16px;
-    }
-    footer a {
-        color: var(--collor0);
-    }
 }
 
 @media (max-width: 600px) {
 
-
+    /* ================================================ */
+    /* ==================== HEADER ==================== */
+    /* ================================================ */
     header .menu-complete {
         display: none;
-        position: fixed;
+        flex-direction: column;
+        align-items: center;
     }
     header .menu-compact {
         display: flex;
@@ -478,8 +505,9 @@ footer a {
 
 @media (max-width: 450px) {
 
-    /* ============ HOME ============ */
-
+    /* ================================================ */
+    /* ===================== HOME ===================== */
+    /* ================================================ */
     .container-one .left-side-home .info .name{
         font-size: 35px;
     }
@@ -489,7 +517,9 @@ footer a {
         margin-bottom: 20px;
     }
 
-    /* ============ ABOUT ME ============ */
+    /* ================================================ */
+    /* =================== ABOUT ME =================== */
+    /* ================================================ */
 
     .container-two .about-me .title {
         font-size: 22px;
@@ -498,7 +528,9 @@ footer a {
         font-size: 18px;
     }
 
-    /* ============ PROJECTS ============ */
+    /* ================================================ */
+    /* =================== PROJECTS =================== */
+    /* ================================================ */
 
     .container-three .title {
         font-size: 30px;
@@ -506,9 +538,8 @@ footer a {
 
     .container-three .projects .box {
         width: auto;
-        padding: 20px;
+        padding: 10px;
     }
-
 
     .container-three .projects .box .img {
         width: 290px;
