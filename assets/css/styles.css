@@ -8,14 +8,13 @@
 
     
 }
-* {
-    box-sizing: border-box;
+*{
+    margin: 0;
     padding: 0;
-    border: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -33,21 +32,31 @@ header .logo a{
     font-size: 23px;
     font-weight: bold;
     text-decoration: none;
+    background-color: var(--collor3);
+    padding: 10px;
+    border-radius: 10px;
     color: var(--collor2);
+}
+header .logo a:hover{
+    opacity: 0.8;
 }
 
 header .menu-complete {
     display: flex;
+    background-color: var(--collor3);
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0.8;
     gap: 20px;
 }
 header .menu-complete a {
     color: var(--collor2);
-    font-size: 23px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
 }
 header .menu-complete a:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 header .menu-compact {
@@ -160,6 +169,7 @@ header .menu-line {
     color: var(--collor2);
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 .container-two .about-me .text p {
     color: var(--collor0);
@@ -168,6 +178,84 @@ header .menu-line {
     text-align: justify;
 }
 
+/* ============ PROJECTS ============ */
+
+.container-three {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/project.png);
+    background-position: center;
+    height: 100vh;
+}
+
+.container-three .title {
+    font-size: 80px;
+    font-weight: bold;
+    color: var(--collor0);
+}
+
+
+
+/* ============ CONTACT ============ */
+
+.container-four {
+    display: flex;
+    height: 100vh;
+}
+.container-four .left-side-contact {
+    flex: 1;
+    background-color: var(--collor3);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: center;
+}
+.container-four .right-side-contact {
+    flex: 1;
+    background-image: url('../images/contact-right-side.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.container-four .text {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+}
+.container-four .text .phrase {
+    color: var(--collor2);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 19px;
+}
+.container-four .text .title {
+    color: var(--collor0);
+    text-align: right;
+    font-weight: bold;
+    font-size: 80px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 300px;
+    line-height: 0.9;
+}
+
+.container-four .text .buttons {
+    width: 290px;
+    display: inline-block;
+    text-align: start;
+    margin-top: -70px;
+}
+
+.container-four .text .buttons a img {
+    box-shadow: 0px 0px 10px var(--collor3);
+    margin-right: 10px;
+}
+
+.container-four .text .buttons a img:hover {
+    opacity: 0.8;
+}
 
 
 /* ============ FOOTER ============ */
@@ -186,7 +274,12 @@ footer a {
 }
 
 
+/* ============ RESPONSIVIDADE ============ */
+
 @media (max-width: 850px) {
+
+    /* ============ HEADER ============ */
+
     header {
         position:initial;
         background-color: var(--collor3);
@@ -194,6 +287,9 @@ footer a {
     header .menu-line {
         background-color: var(--collor2);
     }
+
+    /* ============ HOME ============ */
+
     .container-one {
         flex-direction: column;
     }
@@ -208,14 +304,70 @@ footer a {
     }
     .container-one .info .name {
         text-align: center;
-    /* footer {
+    }
+
+    /* ============ ABOUT ME ============ */
+
+    .container-two {
+        flex-direction: column;
+    }
+    .container-two .right-side-about {
+        flex: none;
+        background-image: url(../images/about-left-side.png);
+        padding: 30px 20px;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+    }
+    .container-two .right-side-about .about-me{
+        background-color: var(--collor3);
+        opacity: 0.8;
+        align-items:center;
+        padding: 50px;
+    }
+    .container-two .left-side-about {
+        display: none;
+    }
+    
+    /* ============ PROJECTS ============ */
+
+    
+
+    /* ============ CONTACT ============ */
+
+    .container-four {
+        flex-direction: column;
+    }
+    .container-four .left-side-contact {
+        flex: none;
+        background-image: url(../images/contact-right-side.png);
+        background-position: center;
+        padding: 30px 20px;
+        justify-content: center;
+        text-align: center;
+        height: 100vh;
+    }
+    .container-four .right-side-contact .text{
+        background-color: var(--collor3);
+        opacity: 0.8;
+        align-items:center;
+        padding: 50px;
+    }
+    .container-four .right-side-contact {
+        display: none;
+    }
+
+    /* ============ FOOTER ============ */
+
+
+    footer {
         position: initial;
         color: var(--collor3);
         font-size: 16px;
-    } */
-    /* footer a {
+    }
+    footer a {
         color: var(--collor3);
-    } */
+    }
 }
 
 @media (max-width: 600px) {
@@ -229,7 +381,6 @@ footer a {
 
 @media (max-width: 450px) {
 
-    
     .container-one .left-side-home .info .name{
         font-size: 35px;
     }
@@ -237,5 +388,12 @@ footer a {
         display: block;
         margin-right: 0;
         margin-bottom: 20px;
+    }
+
+    .container-two .about-me .title {
+        font-size: 22px;
+    }
+    .container-two .about-me .text p {
+        font-size: 18px;
     }
 }
