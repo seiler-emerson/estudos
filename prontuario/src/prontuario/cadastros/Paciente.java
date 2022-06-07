@@ -28,4 +28,18 @@ public class Paciente extends Pessoa {
 		this.atendimentos = atendimentos;
 	}
 	
+	public void cadastroRealizado(String nome) { //polimorfismo
+		System.out.println("O cadastro do paciente "+nome+" foi realizado com sucesso!");
+	}
+	
+	public void cadastroEditado(String nome) {
+		System.out.println("O cadastro do paciente "+nome+" foi editado com sucesso!");
+	}
+	
+	public void cadastroExcluido(String nome) {
+		System.out.println("O cadastro do paciente "+nome+" foi excluido com sucesso!");
+	}
+	
+	
+	
 }

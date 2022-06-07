@@ -41,6 +41,9 @@ public class Relatorios {
 				System.out.println("RELATORIO - DETALHES PACIENTES");
 				relatorioDetalhesPacientes(Cadastros.pacientes);
 				break;
+			case 4:
+				ProntuarioEletronico.listarPacientes(Cadastros.pacientes);
+				break;
 			default:
 				System.out.println("Select a valid option!");
 				break;
@@ -58,6 +61,7 @@ public class Relatorios {
 		menu += "\n|| 1 - Numero de Pacientes            ||";
 		menu += "\n|| 2 - Numbero de Consultas           ||";
 		menu += "\n|| 3 - Dados Pacientes                ||";
+		menu += "\n|| 4 - Lista Pacientes                ||";
 		menu += "\n||                                    ||";
 		menu += "\n||====================================||";
 		menu += "\nSelect an option:";

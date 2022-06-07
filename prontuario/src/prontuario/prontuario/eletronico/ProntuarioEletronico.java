@@ -1,6 +1,7 @@
 package prontuario.prontuario.eletronico;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 import prontuario.Main;
@@ -34,7 +35,7 @@ public class ProntuarioEletronico extends Paciente {
 				break;
 			case 2:
 				System.out.println("CONSULTA DE PRONTUARIO SELECIONADA");
-				consultarPaciente(Cadastros.pacientes);
+				consultarProntuario(Cadastros.pacientes);
 				break;
 			default:
 				System.out.println("Select a valid option!");
@@ -67,7 +68,7 @@ public class ProntuarioEletronico extends Paciente {
 		}
 	}
 	
-	private static void consultarPaciente(ArrayList<Paciente> pacientes) {
+	private static void consultarProntuario(ArrayList<Paciente> pacientes) {
 		listarPacientes(pacientes);
 		System.out.println("Selecione o numero referente ao paciente.");
 		byte index = input.nextByte();
@@ -79,15 +80,19 @@ public class ProntuarioEletronico extends Paciente {
 		System.out.println("Nome pai "+pacientes.get(index).getNomePai());
 		System.out.println("endereco "+pacientes.get(index).getEndereco());
 		System.out.println("sexo "+pacientes.get(index).getSexo());
+		System.out.println("Data nascimento: "+pacientes.get(index).getNascimento());
 		if(pacientes.get(index).atendimentos == null) {			
 			System.out.println("Nenhum atendimento realizado");			
 		} else {	
 			for(byte count=0;count<pacientes.get(index).atendimentos.size();count++) {
 				System.out.println("ATENDIMENTO "+(count+1));
-				System.out.println("Anamneses :"+pacientes.get(index).getAtendimento().get(0).getAnamnese());      //acessando dentro da lista de paciente o paciente um e dentro da lista atendimento o primeiro atendimento e dentro do primeiro atendimento a anamneses
-				System.out.println("receita :"+pacientes.get(index).getAtendimento().get(0).getReceituario());
-				System.out.println("documento :"+pacientes.get(index).getAtendimento().get(0).getDocumentos());
-				System.out.println("alta :"+pacientes.get(index).getAtendimento().get(0).getAlta());
+				System.out.println("Data atendimento: "+pacientes.get(index).getAtendimento().get(count).getData());
+				System.out.println("Data atendimento: "+pacientes.get(index).getAtendimento().get(count).getHora());
+				System.out.println("Anamneses :"+pacientes.get(index).getAtendimento().get(count).getAnamnese());      //acessando dentro da lista de paciente o paciente um e dentro da lista atendimento o primeiro atendimento e dentro do primeiro atendimento a anamneses
+				System.out.println("receita :"+pacientes.get(index).getAtendimento().get(count).getReceituario());
+				System.out.println("Atestado/Declaracao :"+pacientes.get(index).getAtendimento().get(count).getAtestado());
+				System.out.println("Encaminhamento :"+pacientes.get(index).getAtendimento().get(count).getEncaminhamento());
+				System.out.println("alta :"+pacientes.get(index).getAtendimento().get(count).getAlta());
 			} 
 		}		
 	}
@@ -99,15 +104,19 @@ public class ProntuarioEletronico extends Paciente {
 		byte index = input.nextByte();
 		System.out.println("Voce selecionou o paciente "+pacientes.get(index).getNome());
 		
+		LocalDate dataAtendimento = LocalDate.now();
+		LocalTime horaAtendimento = LocalTime.now();
 		String anamnese = cadastrarAnamnese(index);
 		String receituario = cadastrarReceita(index);
-		String documento = cadastrarDocumento(index);
+		String atestado = cadastrarAtestado(index);
+		String encaminhamento = cadastrarEncaminhamento(index);
 		String alta = cadastrarAlta(index);
 		
 		//CRIANDO ARRAY DE ATENDIMENTO
 		
-		Atendimento atendimento = new Atendimento(anamnese, receituario, documento, alta);     //CRIAR ATENDIMENTO
+		Atendimento atendimento = new Atendimento(anamnese, receituario, atestado, encaminhamento, alta, dataAtendimento, horaAtendimento);     //CRIAR ATENDIMENTO
 		pacientes.get(index).atendimentos.add(atendimento);	//ADICIONAR ATNEDIMENTO AO ARRAY
+		
 				
 	}
 	
@@ -135,20 +144,35 @@ public class ProntuarioEletronico extends Paciente {
 		
 		return descricaoReceita;
 	}
-	public static String cadastrarDocumento(byte index) {
-		System.out.println("Necessario atestado/declaracao/encaminhamento?");
+	public static String cadastrarAtestado(byte index) {
+		System.out.println("Necessario atestado/declaracao?");
 		System.out.println("1 - SIM");
 		System.out.println("2 - NAO");
-		byte opcao = input.nextByte();
-		String descricaoDocumento = null;
+		byte option = input.nextByte();
+		String atestado = null;
 		
-		if(opcao == 1) {
-			System.out.println("Descreva o/os documento(s):");
-			descricaoDocumento = input.next();
+		if(option == 1) {
+			System.out.println("Informe a receita:");
+			atestado = input.next();
 		};
 		
-		return descricaoDocumento;
+		return atestado;
 	}
+	public static String cadastrarEncaminhamento(byte index) {
+		System.out.println("Necessario encaminhamento?");
+		System.out.println("1 - SIM");
+		System.out.println("2 - NAO");
+		byte option = input.nextByte();
+		String encaminhamento = null;
+		
+		if(option == 1) {
+			System.out.println("Informe a receita:");
+			encaminhamento = input.next();
+		};
+		
+		return encaminhamento;
+	}
+	
 	public static String cadastrarAlta(byte index) {
 		System.out.println("Descreva a alta do paciente: ");
 		String descricaoAlta = input.next();
