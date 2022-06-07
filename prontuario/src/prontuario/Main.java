@@ -1,8 +1,11 @@
 package prontuario;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import prontuario.cadastros.Cadastros;
+import prontuario.cadastros.Medico;
+import prontuario.cadastros.Paciente;
 import prontuario.prontuario.eletronico.ProntuarioEletronico;
 import prontuario.relatorios.Relatorios;
 
@@ -10,7 +13,7 @@ import prontuario.relatorios.Relatorios;
 public class Main {
 	static Scanner input = new Scanner(System.in);
 	public static void main(String[] args) {
-		
+		Cadastros.preCadastro(Cadastros.pacientes, Cadastros.medicos);
 		byte option;
 
 		do {

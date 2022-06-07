@@ -63,20 +63,7 @@ public class Cadastros {
 
 	public static void cadastrarPaciente(ArrayList<Paciente> pacientes) {
 
-		// PACIENTES TESTE
-		Paciente nomePaciente1 = new Paciente("Joao da Silva", "123.123.123-33", "Maria da Silva", "Jose da Silca",
-				"Rua 123", "m", LocalDate.of(1945, 2, 1));
-		nomePaciente1.setAtendimento(new ArrayList<>());
-		pacientes.add(nomePaciente1);
-		
-		
-		Paciente nomePaciente2 = new Paciente("Joana da Silva", "456.456.456-77", "Julia Garcia", "Joao da Silca",
-				"Rua 456", "f", LocalDate.of(1985, 6, 13));
-		
-		pacientes.add(nomePaciente2);
-//		nomePaciente2.setAtendimento(new ArrayList<>());
 		// CRIANDO VARIAVEIS PARA RECEBER DADOS
-
 		String nome;
 		String cpf;
 		String nomeMae;
@@ -87,9 +74,7 @@ public class Cadastros {
 		byte mes;
 		short ano;
 
-		/*
 		// CAPTURANDO DADOS
-
 		System.out.println("Digite o nome do paciente:");
 		nome = input.next();
 
@@ -117,45 +102,16 @@ public class Cadastros {
 		System.out.println("Digite o ano de nascimento do paciente:");
 		ano = input.nextShort();
 
-		// CRIANDO UM PACIENTE
-		Paciente nomePaciente = new Paciente(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia)); // NECESSARIO DEIXAR O nomePaciente dinamico para n ficar tudo com msm nome
+		// CRIANDO UM PACIENTE e ADICIONANDO UM PACIENTE NO ARRAY DE PACIENTES
+		Paciente paciente = new Paciente(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia)); // NECESSARIO DEIXAR O nomePaciente dinamico para n ficar tudo com msm nome
+		paciente.setAtendimento(new ArrayList<>());
+		pacientes.add(paciente);
 
-		// ADICIONANDO UM PACIENTE NO ARRAY DE PACIENTES
-		pacientes.add(nomePaciente);
-*/
-		/*
-		 * 
-		 * //CRIANDO UM ATENDIMENTO nomePaciente.setAtendimento(new ArrayList<>());
-		 * nomePaciente.getAtendimento().add(new Atendimento(anamnese1, receita1,
-		 * documento1, alta1));
-		 * 
-		 * 
-		 * 
-		 * pacientes.add(new Paciente(nome, cpf, nomeMae, nomePai, endereco, sexo,
-		 * LocalDate.of(ano, mes, dia))); System.out.println("PRONTUARIO");
-		 * System.out.println("Nome Paciente: "+nomePaciente.getNome());
-		 * System.out.println("CPF: "+nomePaciente.getCpf());
-		 * System.out.println("Nome mae "+nomePaciente.getNomeMae());
-		 * System.out.println("Nome pai "+nomePaciente.getNomePai());
-		 * System.out.println("endereco "+nomePaciente.getEndereco());
-		 * System.out.println("sexo "+nomePaciente.getSexo());
-		 * System.out.println(pacientes.get(0).getAtendimento().get(0).getAnamnese());
-		 * //acessando dentro da lista de paciente o paciente um e dentro da lista
-		 * atendimento o primeiro atendimento e dentro do primeiro atendimento a
-		 * anamneses
-		 * 
-		 * 
-		 */
 	}
 
 	public static void cadastrarMedico(ArrayList<Medico> medicos) {
 		
-		// 	MEDICO TESTE
-		Medico nomeMedico1 = new Medico("Rafael da Silva", "145.345.345-34", "Julia Silva", "Carlos da Silva", "Rua Barao", "m", LocalDate.of(1975, 3, 30), "Clinico Geral", "123456-9");
-		medicos.add(nomeMedico1);
-
 		// CRIANDO VARIAVEIS PARA RECEBER DADOS
-
 		String nome;
 		String cpf;
 		String nomeMae;
@@ -169,7 +125,6 @@ public class Cadastros {
 		String numeroConselho;
 
 		// CAPTURANDO DADOS
-
 		System.out.println("Digite o nome do medico:");
 		nome = input.next();
 
@@ -204,11 +159,55 @@ public class Cadastros {
 		numeroConselho = input.next();
 
 		// CRIANDO UM MEDICO
-		Medico nomeMedico = new Medico(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia), especialidade, numeroConselho); // NECESSARIO DEIXAR O nomeMedico dinamico para n ficar tudo com msm nome
+		Medico medico = new Medico(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia), especialidade, numeroConselho); // NECESSARIO DEIXAR O nomeMedico dinamico para n ficar tudo com msm nome
 
 		// ADICIONANDO UM PACIENTE NO ARRAY DE PACIENTES
-		medicos.add(nomeMedico);
+		medicos.add(medico);
 
+	}
+	
+	public static void preCadastro(ArrayList<Paciente> pacientes, ArrayList<Medico> medicos) {
+		
+		//PACIENTES
+		Paciente nomePaciente1 = new Paciente("Sheldon Li Cooper", "010.110.010-01", "Mary Cooper", "George Cooper", "Av Los Robles Avenue, 2311 Pasadena", "m", LocalDate.of(1980, 2, 26));
+		nomePaciente1.setAtendimento(new ArrayList<>());
+		pacientes.add(nomePaciente1);
+		Atendimento atendimento1 = new Atendimento("Dor abdominal", "laxante - 8/8h - 1 dia ", "Atestado", "Liberado");
+		nomePaciente1.atendimentos.add(atendimento1);
+		Atendimento atendimento6 = new Atendimento("Dor de cabeca", "paracetamol - 8/8h - se dor ", "Declaracao de comparecimento", "Liberado");
+		nomePaciente1.atendimentos.add(atendimento6);
+				
+		Paciente nomePaciente2 = new Paciente("Joana da Silva", "456.456.456-77", "Julia Garcia", "Joao da Silca", "Rua 456, Decimal, Numerais", "f", LocalDate.of(1985, 6, 13));
+		nomePaciente2.setAtendimento(new ArrayList<>());
+		pacientes.add(nomePaciente2);
+		Atendimento atendimento2 = new Atendimento("Dor abdominal", "laxante - 8/8h - 1 dia ", "Atestado", "Liberado");
+		nomePaciente2.atendimentos.add(atendimento2);
+		
+		Paciente nomePaciente3 = new Paciente("Cleber Silveira", "456.956.316-11", "Carla Silva Garcia", "Olindio Silveira", "Rua 456", "m", LocalDate.of(1995, 4, 13));
+		nomePaciente3.setAtendimento(new ArrayList<>());
+		pacientes.add(nomePaciente3);
+		Atendimento atendimento3 = new Atendimento("Dor de cabeca", "paracetamol - 8/8h - se dor ", "Declaracao de comparecimento", "Liberado");
+		nomePaciente3.atendimentos.add(atendimento3);
+				
+		Paciente nomePaciente4 = new Paciente("Silvana Github", "256.256.312-21", "Olivia Github", "Linus Github", "Rua Versionamento, Git, Online", "f", LocalDate.of(2003, 10, 6));
+		nomePaciente4.setAtendimento(new ArrayList<>());
+		pacientes.add(nomePaciente4);
+		Atendimento atendimento4 = new Atendimento("Dor de cabeca", "paracetamol - 8/8h - se dor ", "Declaracao de comparecimento", "Liberado");
+		nomePaciente4.atendimentos.add(atendimento4);
+		
+		Paciente nomePaciente5 = new Paciente("Joao da Silva", "123.123.123-33", "Maria da Silva", "Jose da Silva", "Rua 123, Centro, Numerais", "m", LocalDate.of(1945, 2, 1));
+		nomePaciente5.setAtendimento(new ArrayList<>());
+		pacientes.add(nomePaciente5);
+		Atendimento atendimento5 = new Atendimento("Dor de cabeca", "paracetamol - 8/8h - se dor ", "Declaracao de comparecimento", "Liberado");
+		nomePaciente5.atendimentos.add(atendimento5);
+				
+				
+		//MEDICOS
+		Medico nomeMedico1 = new Medico("Rafael da Silva", "145.345.345-34", "Julia Silva", "Carlos da Silva", "Rua Barao", "m", LocalDate.of(1975, 3, 30), "Clinico Geral", "123456-9");
+		medicos.add(nomeMedico1);
+		
+		Medico nomeMedico2 = new Medico("Lizabel Balta", "745.468.345-84", "Carla Balta", "Clovis Balta", "Rua Conselheiro, 3476, Rocio Pequeno", "f", LocalDate.of(1986, 9, 14), "Obstetra", "9836745-9");
+		medicos.add(nomeMedico2);
 	}
 
 }
