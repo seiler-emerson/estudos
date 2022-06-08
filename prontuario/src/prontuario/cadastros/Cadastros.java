@@ -70,7 +70,7 @@ public class Cadastros {
 		String nomeMae;
 		String nomePai;
 		String endereco;
-		String sexo; // MUDAR PARA CHAR
+		String sexo; // MUDAR PARA 
 		byte dia;
 		byte mes;
 		short ano;
@@ -104,7 +104,7 @@ public class Cadastros {
 		ano = input.nextShort();
 
 		// CRIANDO UM PACIENTE e ADICIONANDO UM PACIENTE NO ARRAY DE PACIENTES
-		Paciente paciente = new Paciente(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia)); // NECESSARIO DEIXAR O nomePaciente dinamico para n ficar tudo com msm nome
+		Paciente paciente = new Paciente(nome, cpf, nomeMae, nomePai, endereco, sexo, LocalDate.of(ano, mes, dia)); 
 		paciente.setAtendimento(new ArrayList<>());
 		pacientes.add(paciente);
 

@@ -120,8 +120,6 @@ public class ProntuarioEletronico extends Paciente {
 				
 	}
 	
-	
-	
 	public static String cadastrarAnamnese(byte index) {
 		System.out.println("Descreva a anamnese do paciente: ");
 		String descricaoAnamnese = input.next();
