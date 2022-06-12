@@ -19,11 +19,11 @@ public interface ICrud<T> {
 
 	public T search(T key);
 
-	public void update();
+	public void update(T key);
 
-	public void detele();
+	public void delete(T key);
 
-	public String captureKey();
+	public T captureKey();
 
 	public T captureValues();
 	

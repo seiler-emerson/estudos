@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import br.com.entra21.emr.backend.Menu;
 import br.com.entra21.emr.backend.Repository;
+import br.com.entra21.emr.backend.models.Appointment;
 import br.com.entra21.emr.backend.models.Patient;
 
 public class PatientCRUD extends Menu implements ICrud<Patient> {
@@ -31,11 +32,12 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 			break;
 		case 3:
 			// Update patient
-			update();
+			System.out.println("UPDATING PATIENT");
+			update(captureKey());
 			break;
 		case 4:
 			// Delete patient
-			detele();
+			delete(captureKey());
 			break;
 		case 5:
 			// Details of patient
@@ -53,7 +55,7 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		System.out.println("========================================================");
 		System.out.println("PATIENTS LIST");
 		for (Patient patient : patients.values()) {
-			System.out.println("\t" + patient.getName() + " - "+patient.appointments.size()+" appointment(s)");
+			System.out.println("\t" + patient.getName() + " - "+((patient.appointments) != null? (patient.appointments.size()):"0")+" appointment(s) - CPF: "+patient.getCpf());
 		}
 		System.out.println("\nPATIENTS TOTAL: " + patients.size() + " patients ");
 	}
@@ -62,7 +64,8 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 	public void create() {
 		Patient newPatient = captureValues();
 		if (search(newPatient) == null) {
-			patients.put(newPatient.getName(), newPatient);
+			patients.put(newPatient.getCpf(), newPatient);
+			newPatient.setAppointments(new ArrayList<>());
 		} else {
 			System.out.println("The patient with cpf "+newPatient.getCpf()+" is already registered");
 		}
@@ -70,41 +73,30 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 
 	@Override
 	public Patient search(Patient key) {
-		// TODO Auto-generated method stub
-		return patients.get(key.getName());
+		return patients.get(key.getCpf());
 	}
 	
 
 	@Override
-	public void update() {
-		list(patients);
-		System.out.println("Select a patient: ");
-		String option = getInput().next();
-		System.out.println(option);
-		
-		if (patients.get(option).getName() == null) {
-			System.out.println("The selected patient does not exist: " + option);
+	public void update(Patient key) {
+		Patient currentPatient = search(key);
+		if (currentPatient == null) {
+			System.out.println("The selected patient does not exist: "+ key.getCpf());
 		} else {
-			patients.put(option, captureValues());
-			if(patients.get(option).appointments.size() > 0) {
-				// ADICIONAR ATENDIMENTOS PARA O NOME EDITADO
-			}
+			patients.put(key.getCpf(), editValues(key.getCpf(), patients.get(key.getCpf()).getAppointments()));
 			System.out.println("Updated data...");
 		}
 
 	}
 
 	@Override
-	public void detele() {
-		list(patients);
-		System.out.println("Select a patient: ");
-		String option = getInput().next();
-		System.out.println(option);
+	public void delete(Patient key) {
+		Patient currentPatient = search(key);
 		
-		if (patients.get(option).getName() == null) {
-			System.out.println("The selected patient does not exist: " + option);
+		if (currentPatient == null) {
+			System.out.println("The selected patient does not exist: " + key.getCpf());
 		} else {
-			patients.remove(option);
+			patients.remove(key.getCpf());
 			System.out.println("Deleted data...");
 		}
 
@@ -112,31 +104,77 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 
 	@Override
 	public Patient captureKey() {
-		// TODO Auto-generated method stub
-		return null;
+		list(patients);
+		Patient capturePatient = new Patient();
+		
+		System.out.println("Inform the patient CPF:");
+		capturePatient.setCpf(super.getInput().next());
+		return capturePatient;
 	}
 
 	@Override
 	public Patient captureValues() {
-		Patient newPatient = new Patient();
+		
+		Patient patient = new Patient();
 		
 		System.out.println("Enter the patient's name:");
-		newPatient.setName(getInput().next());
-		
+		patient.setName(getInput().next());
+				
 		System.out.println("Enter the patient's CPF:");
-		newPatient.setCpf(getInput().next());
+		patient.setCpf(getInput().next());			
 		
 		System.out.println("Enter the name of the patient's mother:");
-		newPatient.setNameMother(getInput().next());
+		patient.setNameMother(getInput().next());
 		
 		System.out.println("Enter the name of the patient's father:");
-		newPatient.setNameFather(getInput().next());
+		patient.setNameFather(getInput().next());
 		
 		System.out.println("Enter the patient's address:");
-		newPatient.setAddress(getInput().next());
+		patient.setAddress(getInput().next());
 		
 		System.out.println("Enter the patient's gender:");
-		newPatient.setGenre(getInput().next());
+		patient.setGenre(getInput().next());
+		
+//		System.out.println("Enter the patient's day of birth:");
+//		byte dayBirth = getInput().nextByte();
+//		
+//		System.out.println("Enter the patient's month of birth:");
+//		byte monthBirth = getInput().nextByte();
+//		
+//		System.out.println("Enter the patient's year of birth:");
+//		short yearBirth = getInput().nextShort();
+		
+		System.out.println("Enter your date of birth in yyyy-mm-dd format");
+		LocalDate birthDate = LocalDate.parse(getInput().next());
+		patient.setBirth(birthDate);
+		
+		return patient;
+	}
+	
+	public Patient editValues(String cpf, ArrayList<Appointment> appointments) {
+		
+		Patient patient = new Patient();
+		patient.setCpf(cpf);
+//		patient.setAppointments(new ArrayList<>());
+		patient.setAppointments(appointments);
+//		for(byte i=0;i<patient.appointments.size();i++) {
+//			System.out.println(appointments.get(i));
+//		}
+		
+		System.out.println("Enter the patient's name:");
+		patient.setName(getInput().next());		
+		
+		System.out.println("Enter the name of the patient's mother:");
+		patient.setNameMother(getInput().next());
+		
+		System.out.println("Enter the name of the patient's father:");
+		patient.setNameFather(getInput().next());
+		
+		System.out.println("Enter the patient's address:");
+		patient.setAddress(getInput().next());
+		
+		System.out.println("Enter the patient's gender:");
+		patient.setGenre(getInput().next());
 		
 		System.out.println("Enter the patient's day of birth:");
 		byte dayBirth = getInput().nextByte();
@@ -147,11 +185,9 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		System.out.println("Enter the patient's year of birth:");
 		short yearBirth = getInput().nextShort();
 		
-		newPatient.setBirth(LocalDate.of(yearBirth, monthBirth, dayBirth));
+		patient.setBirth(LocalDate.of(yearBirth, monthBirth, dayBirth));
 		
-		newPatient.setAppointments(new ArrayList<>());
-	
-		return newPatient;
+		return patient;
 	}
 	
 	@Override

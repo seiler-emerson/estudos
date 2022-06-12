@@ -52,19 +52,19 @@ public class AppointmentCRUD extends Menu implements ICrud<Appointment>  {
 	}
 
 	@Override
-	public Appointment search(Appointment chave) {
+	public Appointment search(Appointment key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void update(Appointment chave) {
+	public void update(Appointment key) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void detele(Appointment chave) {
+	public void delete(Appointment key) {
 		// TODO Auto-generated method stub
 		
 	}

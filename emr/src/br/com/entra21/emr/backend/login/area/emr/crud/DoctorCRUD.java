@@ -59,19 +59,19 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 	}
 
 	@Override
-	public Doctor search(Doctor chave) {
+	public Doctor search(Doctor key) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void update(Doctor chave) {
+	public void update(Doctor key) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void detele(Doctor chave) {
+	public void delete(Doctor key) {
 		// TODO Auto-generated method stub
 		
 	}
