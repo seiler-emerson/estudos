@@ -1,9 +1,8 @@
-package emr.records;
+package br.com.entra21.emr.backend.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import emr.emr.Appointment;
 
 public class Patient extends Person {
 	public ArrayList<Appointment> appointments;

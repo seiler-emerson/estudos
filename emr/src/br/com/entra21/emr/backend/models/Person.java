@@ -1,4 +1,4 @@
-package emr.records;
+package br.com.entra21.emr.backend.models;
 
 import java.time.LocalDate;
 
