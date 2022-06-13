@@ -22,15 +22,12 @@ public class MenuEMR extends Menu {
 		byte opcao = super.captureOption();
 		switch (opcao) {
 		case 1:  
-			//new MenuEMR("PATIENTS", new ArrayList<String>(Arrays.asList("Create Patient", "Read Patient","Update Patient","Delete Patient", "Details Patient"))).playMenu();
 			new PatientCRUD().playMenu();
 			break;
 		case 2: 
-			//new MenuEMR("DOCTORS", new ArrayList<String>(Arrays.asList("Create Doctor", "Read Doctor","Update Doctor","Delete Doctor", "Details Doctor"))).playMenu();
 			new DoctorCRUD().playMenu();
 			break;
 		case 3:
-			//new MenuEMR("APPOINTMENS", new ArrayList<String>(Arrays.asList("Create Appointment", "Read Appointment","Update Appointment","Delete Appointment"))).playMenu();
 			new AppointmentCRUD().playMenu();
 			break;
 		default:
@@ -39,5 +36,4 @@ public class MenuEMR extends Menu {
 		}
 		return opcao;
 	}
-
 }

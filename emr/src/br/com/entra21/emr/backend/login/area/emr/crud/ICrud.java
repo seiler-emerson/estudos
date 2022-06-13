@@ -4,29 +4,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import br.com.entra21.emr.backend.anottations.NotImplemented;
-
-public interface ICrud<T> {
+public interface ICrud<A> {
 	
-	@NotImplemented
 	ArrayList<String> options = new ArrayList<String>(
 			Arrays.asList("Create", "Read", "Update", "Delete", "Details"));
-		//Arrays.asList("List", "Create", "Search", "Update", "Delete"));
 
-	public void list(HashMap<String,T> list);
+	public void list(HashMap<String,A> list);
 
 	public void create();
 
-	public T search(T key);
+	public A search(A key);
 
-	public void update(T key);
+	public void update(A key);
 
-	public void delete(T key);
+	public void delete(A key);
 
-	public T captureKey();
+	public A captureKey();
 
-	public T captureValues();
+	public A captureValues();
 	
-	public void details(HashMap<String,T> list);
+	public void details(HashMap<String,A> list);
 	
 }

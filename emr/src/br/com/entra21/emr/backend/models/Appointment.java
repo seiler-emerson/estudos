@@ -3,6 +3,8 @@ package br.com.entra21.emr.backend.models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+
+
 public class Appointment {
 	private String anamnesis;   //anamnese
 	private String prescription;  //receituario
@@ -84,4 +86,5 @@ public class Appointment {
 	public void setHour(LocalTime hour) {
 		this.hour = hour;
 	}
+
 }
