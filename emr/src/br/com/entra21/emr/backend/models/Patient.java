@@ -1,11 +1,11 @@
 package br.com.entra21.emr.backend.models;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class Patient extends Person {
-	public ArrayList<Appointment> appointments;
+	public LinkedList<Appointment> appointments;
 
 	public Patient() {
 		super();
@@ -18,16 +18,16 @@ public class Patient extends Person {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Patient(ArrayList<Appointment> appointments) {
+	public Patient(LinkedList<Appointment> appointments) {
 		super();
 		this.appointments = appointments;
 	}
 
-	public ArrayList<Appointment> getAppointments() {
+	public LinkedList<Appointment> getAppointments() {
 		return appointments;
 	}
 
-	public void setAppointments(ArrayList<Appointment> appointments) {
+	public void setAppointments(LinkedList<Appointment> appointments) {
 		this.appointments = appointments;
 	}
 

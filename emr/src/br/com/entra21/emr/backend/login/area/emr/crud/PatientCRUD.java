@@ -1,8 +1,10 @@
 package br.com.entra21.emr.backend.login.area.emr.crud;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 import br.com.entra21.emr.backend.Menu;
 import br.com.entra21.emr.backend.Repository;
@@ -65,7 +67,7 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		Patient newPatient = captureValues();
 		if (search(newPatient) == null) {
 			patients.put(newPatient.getCpf(), newPatient);
-			newPatient.setAppointments(new ArrayList<>());
+			newPatient.setAppointments(new LinkedList<>());
 		} else {
 			System.out.println("The patient with cpf "+newPatient.getCpf()+" is already registered");
 		}
@@ -86,7 +88,6 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 			patients.put(key.getCpf(), editValues(key.getCpf(), patients.get(key.getCpf()).getAppointments()));
 			System.out.println("Updated data...");
 		}
-
 	}
 
 	@Override
@@ -118,31 +119,23 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		Patient patient = new Patient();
 		
 		System.out.println("Enter the patient's name:");
-		patient.setName(getInput().next());
-				
+		patient.setName(getInput().nextLine());
+		patient.setName(getInput().nextLine());
+		
 		System.out.println("Enter the patient's CPF:");
 		patient.setCpf(getInput().next());			
 		
 		System.out.println("Enter the name of the patient's mother:");
-		patient.setNameMother(getInput().next());
+		patient.setNameMother(getInput().nextLine());
 		
 		System.out.println("Enter the name of the patient's father:");
-		patient.setNameFather(getInput().next());
+		patient.setNameFather(getInput().nextLine());
 		
 		System.out.println("Enter the patient's address:");
-		patient.setAddress(getInput().next());
+		patient.setAddress(getInput().nextLine());
 		
 		System.out.println("Enter the patient's gender:");
 		patient.setGenre(getInput().next());
-		
-//		System.out.println("Enter the patient's day of birth:");
-//		byte dayBirth = getInput().nextByte();
-//		
-//		System.out.println("Enter the patient's month of birth:");
-//		byte monthBirth = getInput().nextByte();
-//		
-//		System.out.println("Enter the patient's year of birth:");
-//		short yearBirth = getInput().nextShort();
 		
 		System.out.println("Enter your date of birth in yyyy-mm-dd format");
 		LocalDate birthDate = LocalDate.parse(getInput().next());
@@ -151,41 +144,31 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		return patient;
 	}
 	
-	public Patient editValues(String cpf, ArrayList<Appointment> appointments) {
+	public Patient editValues(String cpf, LinkedList<Appointment> appointments) {
 		
 		Patient patient = new Patient();
 		patient.setCpf(cpf);
-//		patient.setAppointments(new ArrayList<>());
 		patient.setAppointments(appointments);
-//		for(byte i=0;i<patient.appointments.size();i++) {
-//			System.out.println(appointments.get(i));
-//		}
-		
+
 		System.out.println("Enter the patient's name:");
-		patient.setName(getInput().next());		
+		patient.setName(getInput().nextLine());		
+		patient.setName(getInput().nextLine());
 		
 		System.out.println("Enter the name of the patient's mother:");
-		patient.setNameMother(getInput().next());
+		patient.setNameMother(getInput().nextLine());
 		
 		System.out.println("Enter the name of the patient's father:");
-		patient.setNameFather(getInput().next());
+		patient.setNameFather(getInput().nextLine());
 		
 		System.out.println("Enter the patient's address:");
-		patient.setAddress(getInput().next());
+		patient.setAddress(getInput().nextLine());
 		
 		System.out.println("Enter the patient's gender:");
-		patient.setGenre(getInput().next());
+		patient.setAddress(getInput().nextLine());
 		
-		System.out.println("Enter the patient's day of birth:");
-		byte dayBirth = getInput().nextByte();
-		
-		System.out.println("Enter the patient's month of birth:");
-		byte monthBirth = getInput().nextByte();
-		
-		System.out.println("Enter the patient's year of birth:");
-		short yearBirth = getInput().nextShort();
-		
-		patient.setBirth(LocalDate.of(yearBirth, monthBirth, dayBirth));
+		System.out.println("Enter your date of birth in yyyy-mm-dd format");
+		LocalDate birthDate = LocalDate.parse(getInput().next());
+		patient.setBirth(birthDate);
 		
 		return patient;
 	}
@@ -203,22 +186,27 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		System.out.println("Name Father: "+patients.get(option).getNameFather());
 		System.out.println("Adress: "+patients.get(option).getAddress());
 		System.out.println("Genre: "+patients.get(option).getGenre());
-		System.out.println("Birth date: "+patients.get(option).getBirth());
+		System.out.println("Birth date: "+patients.get(option).getBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 		System.out.println("Appointment Number: "+patients.get(option).appointments.size());
 		if(patients.get(option).appointments == null) {			
 			System.out.println("The patient has no previous appointments.");			
 		} else {	
-			for(byte count=0;count<patients.get(option).appointments.size();count++) {
-				System.out.println("\nAPPOINTMENTS "+(count+1));
-				System.out.println("Service date: "+patients.get(option).getAppointments().get(count).getDate());
-				System.out.println("Service time: "+patients.get(option).getAppointments().get(count).getHour());
-				System.out.println("Anamnesi :"+patients.get(option).getAppointments().get(count).getAnamnesis());
-				System.out.println("Prescription :"+patients.get(option).getAppointments().get(count).getPrescription());
-				System.out.println("Certificate/Declaration :"+patients.get(option).getAppointments().get(count).getCertificate());
-				System.out.println("Forwarding :"+patients.get(option).getAppointments().get(count).getForwarding());
-				System.out.println("Medical release :"+patients.get(option).getAppointments().get(count).getMedicalRelease());
-			} 
+			listAppointments(patients, option);
 		}
+	}
+	
+	public static void listAppointments(HashMap<String, Patient> patients, String option) {
+		for(byte count=0;count<patients.get(option).appointments.size();count++) {
+			System.out.println("\nAPPOINTMENTS "+(count+1));
+			System.out.println("Service date: "+patients.get(option).getAppointments().get(count).getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+			System.out.println("Service time: "+patients.get(option).getAppointments().get(count).getHour());
+			System.out.println("Anamnesi :"+patients.get(option).getAppointments().get(count).getAnamnesis());
+			System.out.println("Prescription :"+patients.get(option).getAppointments().get(count).getPrescription());
+			System.out.println("Certificate/Declaration :"+patients.get(option).getAppointments().get(count).getCertificate());
+			System.out.println("Forwarding :"+patients.get(option).getAppointments().get(count).getForwarding());
+			System.out.println("Medical release :"+patients.get(option).getAppointments().get(count).getMedicalRelease());
+			//MEDICO DO ATENDIMENTO
+		} 
 	}
 
 }
