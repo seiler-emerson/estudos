@@ -76,6 +76,7 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		if (search(newPatient) == null) {
 			patients.put(newPatient.getCpf(), newPatient);
 			newPatient.setAppointments(new LinkedList<>());
+			Patient.createMessage(newPatient.getName());
 		} else {
 			System.out.println("The patient with cpf "+newPatient.getCpf()+" is already registered");
 		}
@@ -98,6 +99,7 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		} else {
 			patients.put(key.getCpf(), editValues(key.getCpf(), patients.get(key.getCpf()).getAppointments()));
 			System.out.println("Updated data...");
+			Patient.editMessage(currentPatient.getName());
 		}
 	}
 
@@ -112,6 +114,7 @@ public class PatientCRUD extends Menu implements ICrud<Patient> {
 		} else {
 			patients.remove(key.getCpf());
 			System.out.println("Deleted data...");
+			Patient.deleteMessage(currentPatient.getName());
 		}
 
 	}

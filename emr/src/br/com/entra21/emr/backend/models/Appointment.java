@@ -97,4 +97,15 @@ public class Appointment {
 		this.doctor = doctor;
 	}
 
+	public static void createMessage(String name) {
+		System.out.println("The appointment registration "+name+" was successful!");
+	}
+	
+	public static void editMessage(String name) {
+		System.out.println("The appointment selected "+name+" was successful!");
+	}
+	
+	public static void deleteMessage(String name) {
+		System.out.println("The appointment selected "+name+" was successfully deleted!");
+	}
 }

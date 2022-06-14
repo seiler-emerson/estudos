@@ -42,6 +42,16 @@ public class Doctor extends Person{
 		this.medicalLicense = medicalLicense;
 	}
 	
+	public static void createMessage(String name) {
+		System.out.println("The doctor registration "+name+" was successful!");
+	}
 	
+	public static void editMessage(String name) {
+		System.out.println("The doctor selected "+name+" was successful!");
+	}
+	
+	public static void deleteMessage(String name) {
+		System.out.println("The doctor selected "+name+" was successfully deleted!");
+	}
 	
 }

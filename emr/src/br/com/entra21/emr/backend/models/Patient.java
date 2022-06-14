@@ -32,16 +32,16 @@ public class Patient extends Person {
 		this.appointments = appointments;
 	}
 
-	public void registrationRecord(String name) {
+	public static void createMessage(String name) {
 		System.out.println("The patient registration "+name+" was successful!");
 	}
 	
-	public void editedRecord(String name) {
-		System.out.println("The patient record "+name+" was successful!");
+	public static void editMessage(String name) {
+		System.out.println("The patient selected "+name+" was successful!");
 	}
 	
-	public void deletedRecord(String name) {
-		System.out.println("The patient record "+name+" was successfully deleted!");
+	public static void deleteMessage(String name) {
+		System.out.println("The patient selected "+name+" was successfully deleted!");
 	}
 	
 	

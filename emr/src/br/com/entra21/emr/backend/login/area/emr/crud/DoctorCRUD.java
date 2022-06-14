@@ -74,6 +74,7 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 		Doctor newDoctor = captureValues();
 		if (search(newDoctor) == null) {
 			doctors.put(newDoctor.getCpf(), newDoctor);
+			Doctor.createMessage(newDoctor.getName());
 		} else {
 			System.out.println("The doctor with cpf "+newDoctor.getCpf()+" is already registered");
 		}
@@ -94,6 +95,7 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 		} else {
 			doctors.put(key.getCpf(), editValues(key.getCpf()));
 			System.out.println("Updated data...");
+			Doctor.editMessage(currentDoctor.getName());
 		}
 	}
 	
@@ -106,6 +108,7 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 		} else {
 			doctors.remove(key.getCpf());
 			System.out.println("Deleted data...");
+			Doctor.deleteMessage(currentDoctor.getName());
 		}
 	}
 	

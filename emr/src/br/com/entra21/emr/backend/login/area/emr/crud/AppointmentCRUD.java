@@ -92,6 +92,7 @@ public class AppointmentCRUD extends Menu {
 		Appointment newAppointment = new Appointment();
 		captureValues(newAppointment);
 		patients.get(key).appointments.add(newAppointment);	
+		Appointment.createMessage(patients.get(key).getName());
 	}
 	
 	public void update(HashMap<String, Patient> patients) {
@@ -101,8 +102,9 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("You selected the patient "+patients.get(keyPatient).getName());
 		System.out.println("Select the patient APPOINTMENT of patient selected:");
 		byte keyAppointment = getInput().nextByte();
-		captureValues(patients.get(keyPatient).getAppointments().get(keyAppointment)); //verificar
-//		captureValues(selectAppointment());
+		captureValues(patients.get(keyPatient).getAppointments().get(keyAppointment)); 
+		System.out.println("Updated data...");
+		Appointment.editMessage(patients.get(keyPatient).getName());
 		
 	}
 	
@@ -114,6 +116,8 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("Select the patient APPOINTMENT of patient deleted:");
 		byte keyAppointment = getInput().nextByte();
 		patients.get(keyPatient).getAppointments().remove(keyAppointment);
+		System.out.println("Deleted data...");
+		Appointment.deleteMessage(patients.get(keyPatient).getName());
 	}
 	
 	
