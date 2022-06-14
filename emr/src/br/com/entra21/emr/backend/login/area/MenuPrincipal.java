@@ -22,7 +22,7 @@ public class MenuPrincipal extends Menu {
 			new MenuEMR("ELECTRONIC MEDICAL RECORD", new ArrayList<String>(Arrays.asList("Patient", "Doctor","Appointment"))).playMenu();
 			break; 
 		case 2:  
-			new MenuReports("REPORTS", new ArrayList<String>(Arrays.asList("Number of Patients", "Details Patients", "Number of Appointments", "Data Patients", "List Patients"))).playMenu();
+			new MenuReports("REPORTS", new ArrayList<String>(Arrays.asList("Number of Patients", "Number of Appointments", "List Patients", "List Doctors"))).playMenu();
 			break;
 		default:
 			System.out.println("Select a valid option for menu " + super.getTitle());

@@ -22,7 +22,7 @@ public class AppointmentCRUD extends Menu {
 	public static HashMap<String, Doctor> doctors = Repository.doctors;
 	
 	private static ArrayList<String> options = new ArrayList<String>(
-			Arrays.asList("Create", "Read", "Update", "Delete", "Details"));
+			Arrays.asList("Create Appointment", "List Appointment", "Update Appointment", "Delete Appointment", "Details Appointment"));
 	
 	public AppointmentCRUD() {
 		super("APPOINTMENTS", options);
@@ -35,23 +35,18 @@ public class AppointmentCRUD extends Menu {
 		byte opcao = super.captureOption();
 		switch (opcao) {
 		case 1:
-			// CREATE
 			create(patients);
 			break;
 		case 2:
-			// READ
 			listAppointments(patients);
 			break;
 		case 3:
-			// UPDATE
 			update(patients);
 			break;
 		case 4:
-			// DETELE
 			delete(patients);
 			break;
 		case 5:
-			// DETAILS
 			details(patients);
 			break;
 		default:
@@ -77,6 +72,7 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("\nAPPOINTMENTS TOTAL: " + totalAppointments + " appointments ");
 	}
 	
+	@Implemented
 	public void listPatients(HashMap<String, Patient> patients) {
 		System.out.println("========================================================");
 		System.out.println("PATIENTS LIST");
@@ -86,6 +82,7 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("\nPATIENTS TOTAL: " + patients.size() + " patients ");
 	}
 	
+	@Implemented
 	public void create(HashMap<String, Patient> patients) {
 		listPatients(patients);
 		System.out.println("Select the patient CPF:");
@@ -105,6 +102,7 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("Select the patient APPOINTMENT of patient selected:");
 		byte keyAppointment = getInput().nextByte();
 		captureValues(patients.get(keyPatient).getAppointments().get(keyAppointment)); //verificar
+//		captureValues(selectAppointment());
 		
 	}
 	
@@ -118,7 +116,8 @@ public class AppointmentCRUD extends Menu {
 		patients.get(keyPatient).getAppointments().remove(keyAppointment);
 	}
 	
-	@NotImplemented //falta medico do atendimento
+	
+	@Implemented
 	public void details(HashMap<String, Patient> patients) {
 		
 		listAppointments(patients);
@@ -130,6 +129,7 @@ public class AppointmentCRUD extends Menu {
 		
 		
 		System.out.println("\nAPPOINTMENTS");
+		System.out.println("Doctor responsible: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getDoctor().getName());
 		System.out.println("Patient Name: "+patients.get(keyPatient).getName());
 		System.out.println("Patient CPF: "+patients.get(keyPatient).getCpf());
 		System.out.println("Service date: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
@@ -139,10 +139,11 @@ public class AppointmentCRUD extends Menu {
 		System.out.println("Certificate/Declaration: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getCertificate());
 		System.out.println("Forwarding: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getForwarding());
 		System.out.println("Medical release: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getMedicalRelease());
-		//MEDICO DO ATENDIMENTO
 	}
 	
 	public void captureValues(Appointment newAppointment) {
+		
+		newAppointment.setDoctor(captureDoctor());
 		newAppointment.setDate(LocalDate.now());
 		newAppointment.setHour(LocalTime.now());
 		newAppointment.setAnamnesis(getInput().nextLine());
@@ -214,6 +215,15 @@ public class AppointmentCRUD extends Menu {
 		medicalRelease = getInput().nextLine();
 		
 		return medicalRelease;
+	}
+	
+	public Doctor captureDoctor() {
+		new DoctorCRUD().list(doctors);
+		
+		System.out.println("Inform the doctor CPF:");
+		Doctor captureDoctor = doctors.get(super.getInput().next());
+		
+		return captureDoctor;
 	}
 	
 }

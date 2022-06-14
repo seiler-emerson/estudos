@@ -16,6 +16,7 @@ public class Patient extends Person {
 			LocalDate birth) {
 		super(name, cpf, nameMother, nameFather, address, genre, birth);
 		// TODO Auto-generated constructor stub
+		setAppointments(new LinkedList<>());
 	}
 
 	public Patient(LinkedList<Appointment> appointments) {

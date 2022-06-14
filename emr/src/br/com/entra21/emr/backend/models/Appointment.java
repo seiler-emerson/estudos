@@ -13,6 +13,7 @@ public class Appointment {
 	private String medicalRelease;  //alta medica
 	private LocalDate date;
 	private LocalTime hour;
+	private Doctor doctor;
 	
 	public Appointment() {
 		super();
@@ -20,7 +21,7 @@ public class Appointment {
 	}
 	
 	public Appointment(String anamnesis, String prescription, String certificate, String forwarding,
-			String medicalRelease, LocalDate date, LocalTime hour) {
+			String medicalRelease, LocalDate date, LocalTime hour, Doctor doctor) {
 		super();
 		this.anamnesis = anamnesis;
 		this.prescription = prescription;
@@ -29,6 +30,7 @@ public class Appointment {
 		this.medicalRelease = medicalRelease;
 		this.date = date;
 		this.hour = hour;
+		this.doctor = doctor;
 	}
 	
 	public String getAnamnesis() {
@@ -85,6 +87,14 @@ public class Appointment {
 	
 	public void setHour(LocalTime hour) {
 		this.hour = hour;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 
 }
