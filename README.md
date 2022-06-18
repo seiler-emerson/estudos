@@ -1,1 +1,2 @@
 # estudos
+Commit diário
