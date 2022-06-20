@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public interface ICrud<A> {
+//TODO - Generics
+//TODO - Interface
+
+public interface ICrud<A> {	
 	
 	ArrayList<String> options = new ArrayList<String>(
 			Arrays.asList("Create", "Read", "Update", "Delete", "Details"));

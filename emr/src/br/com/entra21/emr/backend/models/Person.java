@@ -13,7 +13,6 @@ public class Person {
 	
 	public Person() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Person(String name, String cpf, String nameMother, String nameFather, String address, String genre,
@@ -83,4 +82,17 @@ public class Person {
 	public void setBirth(LocalDate birth) {
 		this.birth = birth;
 	}
+	
+	public static void createMessage() { 
+		System.out.println("The registration was successful!");
+	}
+	
+	public static void editMessage() {	//TODO - Polimorfismo - Apenas aproveitar os métodos
+		System.out.println("The selected was successful!");
+	}
+	
+	public static void deleteMessage() {
+		System.out.println("The selected was successfully deleted!");
+	}
+	
 }

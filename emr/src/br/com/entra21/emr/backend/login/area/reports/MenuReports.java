@@ -44,7 +44,4 @@ public class MenuReports extends Menu {
 		}
 		return opcao;
 	}
-	
-	
-	
 }

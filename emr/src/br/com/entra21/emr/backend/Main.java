@@ -10,19 +10,17 @@ public class Main {
 	private static ArrayList<String> options;
 	
 	public static void main(String[] args) {
-		
-		//Repository.generateDataBase();
-
-		
+	
 		byte option;
 		do {
 			System.out.println(displayMenu());
 			
-			Repository.generateDataBase();  //metodo gerador de dados
+			//metode generate Database //TODO - Comentarios
+			Repository.generateDataBase();  
 			
 			option = input.nextByte();
 
-			switch (option) {
+			switch (option) {	//TODO - switch
 			case 0:
 				System.out.println("Exiting...");
 				break;
@@ -52,7 +50,6 @@ public class Main {
 		
 		if(options==null) {
 			options = new ArrayList<>(Arrays.asList("Login","Record User","I forgot my password","About"));
-			
 		}
 		
  

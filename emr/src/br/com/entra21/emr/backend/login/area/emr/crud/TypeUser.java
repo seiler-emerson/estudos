@@ -1,6 +1,6 @@
-package br.com.entra21.emr.backend.models;
+package br.com.entra21.emr.backend.login.area.emr.crud;
 
-public enum TypeUser {
+public enum TypeUser {	//TODO - Enum
 	ADMIN("Superusers"),DOCTOR("Doctors users"), USER("Common user");
 
 	private final String value;

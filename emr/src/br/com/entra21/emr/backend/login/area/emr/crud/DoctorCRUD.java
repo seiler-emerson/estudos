@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 import br.com.entra21.emr.backend.Menu;
 import br.com.entra21.emr.backend.Repository;
@@ -12,22 +13,22 @@ import br.com.entra21.emr.backend.anottations.Description;
 import br.com.entra21.emr.backend.models.Doctor;
 import br.com.entra21.emr.backend.models.Patient;
 
-public class DoctorCRUD extends Menu implements ICrud<Doctor> {
+//TODO - Implements
+public class DoctorCRUD extends Menu implements ICrud<Doctor> {	
 
 	private HashMap<String, Doctor> doctors = Repository.doctors;
 	private HashMap<String, Patient> patients = Repository.patients;
+	private static HashSet<String> states = Repository.states;
 	
 	private static ArrayList<String> options = new ArrayList<String>(
 			Arrays.asList("Create Doctor", "List Doctors", "Update Doctor", "Delete Doctor", "Details Doctor"));
 	
 	public DoctorCRUD() {
 		super("DOCTOR", options);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public byte captureOption() {
-
 		byte opcao = super.captureOption();
 		switch (opcao) {
 		case 1:
@@ -96,6 +97,7 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 			doctors.put(key.getCpf(), editValues(key.getCpf()));
 			System.out.println("Updated data...");
 			Doctor.editMessage(currentDoctor.getName());
+			Doctor.editMessage();
 		}
 	}
 	
@@ -126,76 +128,69 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 	@Description(value = "Method for capturing the doctor's personal data.")
 	@Override
 	public Doctor captureValues() {
-		
 		Doctor doctor = new Doctor();
-		
 		System.out.println("Enter the doctor's name:");
 		doctor.setName(getInput().nextLine());
 		doctor.setName(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's CPF:");
 		doctor.setCpf(getInput().next());			
-		
 		System.out.println("Enter the name of the doctor's mother:");
 		doctor.setNameMother(getInput().nextLine());
 		doctor.setNameMother(getInput().nextLine());
-		
 		System.out.println("Enter the name of the doctor's father:");
 		doctor.setNameFather(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's address:");
 		doctor.setAddress(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's gender:");
 		doctor.setGenre(getInput().next());
-		
 		System.out.println("Enter doctor's date of birth in yyyy-mm-dd format");
 		LocalDate birthDate = LocalDate.parse(getInput().next());
 		doctor.setBirth(birthDate);
-		
 		System.out.println("Enter the doctor's medical specialty:");
 		doctor.setSpecialty(getInput().nextLine());
 		doctor.setSpecialty(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's medical license:");
 		doctor.setMedicalLicense(getInput().nextLine());
-		
+		System.out.println("Enter you state initials license. Ex: SC: ");
+		String stateLicense = getInput().next();
+		if(states.contains(stateLicense)) {
+			doctor.setStateLicense(stateLicense);
+		} else {
+			System.out.println("State not found. Try again.");
+		}
 		return doctor;
 	}
 
 	@Description(value = "Method for capturing the doctor's personal data for edit. Receives the cpf, coming from the temporary patient created in the consultation (data transition form).")
 	public Doctor editValues(String cpf) {
-		
 		Doctor doctor = new Doctor();
 		doctor.setCpf(cpf);
-
 		System.out.println("Enter the doctor's name:");
 		doctor.setName(getInput().nextLine());		
 		doctor.setName(getInput().nextLine());
-		
 		System.out.println("Enter the name of the doctor's mother:");
 		doctor.setNameMother(getInput().nextLine());
 		doctor.setNameMother(getInput().nextLine());
-		
 		System.out.println("Enter the name of the doctor's father:");
 		doctor.setNameFather(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's address:");
 		doctor.setAddress(getInput().nextLine());
-		
 		System.out.println("Enter the doctor's gender:");
 		doctor.setGenre(getInput().next());
-		
 		System.out.println("Enter your date of birth in yyyy-mm-dd format");
 		LocalDate birthDate = LocalDate.parse(getInput().next());
 		doctor.setBirth(birthDate);
-		
 		System.out.println("Enter the doctor's medical specialty:");
 		doctor.setSpecialty(getInput().nextLine());
-
 		System.out.println("Enter the doctor's medical license:");
 		doctor.setMedicalLicense(getInput().nextLine());
-		
+		System.out.println("Enter you state initials license. Ex: SC: ");
+		String stateLicense = getInput().nextLine();
+		if(states.contains(stateLicense)) {
+			doctor.setStateLicense(stateLicense);
+		} else {
+			System.out.println("State not found. Try again.");
+		}
 		return doctor;
 	}
 	
@@ -206,7 +201,6 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 		System.out.println("Select a doctor for CPF: ");
 		String option = getInput().next();
 		System.out.println(option);
-		
 		System.out.println("Full name: "+doctors.get(option).getName());
 		System.out.println("CPF: "+doctors.get(option).getCpf());
 		System.out.println("Mother name: "+doctors.get(option).getNameMother());
@@ -214,8 +208,8 @@ public class DoctorCRUD extends Menu implements ICrud<Doctor> {
 		System.out.println("Adress: "+doctors.get(option).getAddress());
 		System.out.println("Genre: "+doctors.get(option).getGenre());
 		System.out.println("Birth date: "+doctors.get(option).getBirth().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-		System.out.println("Medical specialty:: "+doctors.get(option).getSpecialty());
-		System.out.println("Medical license:: "+doctors.get(option).getMedicalLicense());
+		System.out.println("Medical specialty: "+doctors.get(option).getSpecialty());
+		System.out.println("Medical license:: "+doctors.get(option).getMedicalLicense()+"-"+doctors.get(option).getStateLicense().toUpperCase());
 		appointmentsNumber(patients, option);
 	}
 	

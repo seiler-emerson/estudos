@@ -18,7 +18,6 @@ public class Reports {
 		for(byte count=0;count<patients.size();count++) {
 			patientsNumber+=1;
 		}
-		
 		System.out.println("Number of registered patients: "+patientsNumber);
 	}
 	
@@ -33,6 +32,5 @@ public class Reports {
 		}
 		System.out.println("Number of registered appointment: "+ totalAppointments);
 	}
-
 	
-}
+ }

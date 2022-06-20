@@ -9,8 +9,6 @@ public class Menu {
 	private String title;
 	private ArrayList<String> options;
 	
-	
-	
 	public Menu(String title, ArrayList<String> options) {
 		super();
 		this.input= new Scanner(System.in);
@@ -19,7 +17,7 @@ public class Menu {
 	}
 	
 	public void playMenu() {
-		do {
+		do {	//TODO - do-while
 			System.out.println("\n========================================================");
 			System.out.println("\t\tMENU "+this.title);
 			System.out.println("-1 = Finish System");
@@ -36,8 +34,6 @@ public class Menu {
 			System.out.println("Select an option:");
 			System.out.println("========================================================");
 			
-		
-
 		} while (captureOption() != 0);
 	}
 	
@@ -66,4 +62,3 @@ public class Menu {
 	}
  
 }
-

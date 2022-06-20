@@ -11,27 +11,24 @@ import br.com.entra21.emr.backend.Menu;
 import br.com.entra21.emr.backend.Repository;
 import br.com.entra21.emr.backend.anottations.Description;
 import br.com.entra21.emr.backend.anottations.Implemented;
-import br.com.entra21.emr.backend.anottations.NotImplemented;
 import br.com.entra21.emr.backend.models.Appointment;
 import br.com.entra21.emr.backend.models.Doctor;
 import br.com.entra21.emr.backend.models.Patient;
 
-public class AppointmentCRUD extends Menu {
+public class AppointmentCRUD extends Menu {	//TODO - Extends
 	
 	private HashMap<String, Patient> patients = Repository.patients;
 	public static HashMap<String, Doctor> doctors = Repository.doctors;
 	
-	private static ArrayList<String> options = new ArrayList<String>(
+	private static ArrayList<String> options = new ArrayList<String>(	//TODO - ArrayList
 			Arrays.asList("Create Appointment", "List Appointment", "Update Appointment", "Delete Appointment", "Details Appointment"));
 	
 	public AppointmentCRUD() {
 		super("APPOINTMENTS", options);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public byte captureOption() {
-
 		byte opcao = super.captureOption();
 		switch (opcao) {
 		case 1:
@@ -63,7 +60,7 @@ public class AppointmentCRUD extends Menu {
 		
 		byte totalAppointments = 0;
 		System.out.println("\tNº -    Date   -  Hour - Patient Name - CPF");
-		for (Patient patient : patients.values()) {
+		for (Patient patient : patients.values()) {	//TODO - for
 			for(byte count=0;count<patient.getAppointments().size();count++) {
 				System.out.println("\t"+count+" - "+patient.getAppointments().get(count).getDate()+" - "+ patient.getAppointments().get(count).getHour().format(DateTimeFormatter.ofPattern("HH:mm"))+" - "+patient.getName()+" - "+patient.getCpf() );
 				totalAppointments+=1;
@@ -84,7 +81,7 @@ public class AppointmentCRUD extends Menu {
 	
 	@Implemented
 	public void create(HashMap<String, Patient> patients) {
-		listPatients(patients);
+		listPatients(patients);	//TODO - Recursividade
 		System.out.println("Select the patient CPF:");
 		String key = getInput().next();
 		System.out.println("You selected the patient "+patients.get(key).getName());
@@ -105,7 +102,6 @@ public class AppointmentCRUD extends Menu {
 		captureValues(patients.get(keyPatient).getAppointments().get(keyAppointment)); 
 		System.out.println("Updated data...");
 		Appointment.editMessage(patients.get(keyPatient).getName());
-		
 	}
 	
 	public void delete(HashMap<String, Patient> patients) {
@@ -120,17 +116,14 @@ public class AppointmentCRUD extends Menu {
 		Appointment.deleteMessage(patients.get(keyPatient).getName());
 	}
 	
-	
 	@Implemented
 	public void details(HashMap<String, Patient> patients) {
-		
 		listAppointments(patients);
 		System.out.println("Select the patient CPF:");
 		String keyPatient = getInput().next();
 		System.out.println("You selected the patient "+patients.get(keyPatient).getName());
 		System.out.println("Select the patient APPOINTMENT of patient appointments detais:");
 		byte keyAppointment = getInput().nextByte();
-		
 		
 		System.out.println("\nAPPOINTMENTS");
 		System.out.println("Doctor responsible: "+patients.get(keyPatient).getAppointments().get(keyAppointment).getDoctor().getName());
@@ -146,9 +139,9 @@ public class AppointmentCRUD extends Menu {
 	}
 	
 	public void captureValues(Appointment newAppointment) {
-		
+		//TODO - Encapsulamento
 		newAppointment.setDoctor(captureDoctor());
-		newAppointment.setDate(LocalDate.now());
+		newAppointment.setDate(LocalDate.now());	//TODO - Dates
 		newAppointment.setHour(LocalTime.now());
 		newAppointment.setAnamnesis(getInput().nextLine());
 		newAppointment.setPrescription(prescription());
@@ -158,71 +151,68 @@ public class AppointmentCRUD extends Menu {
 	}
 	
 	@Description(value = "Method for capturing the patient's prescription.")
-	@NotImplemented //TRY CAT PARA OPCAO DIFERENTE
 	public String prescription() {
 		System.out.println("Medical prescription required?");
 		System.out.println("1 - YES");
 		System.out.println("2 - NO");
 		byte option = getInput().nextByte();
 		String prescription = null;
-		
-		if(option == 1) {
+		final byte OPTION_ONE = 1;	//TODO - CONSTANTE
+		final byte OPTION_TWO = 2;  
+		if(option == OPTION_ONE) {
 			System.out.println("Report Medical prescription:");
 			prescription = getInput().nextLine();	//Two because nextLine Bug.
 			prescription = getInput().nextLine();
-		} else if(option == 2) {
+		} else if(option == OPTION_TWO) {
 			prescription = "There is no prescription";
 		} else {
 			System.out.println("Please select a valid option!");
 			prescription();
 		}
-		
 		return prescription;
 	}
 	
 	@Description(value = "Method for capturing the patient's certificate.")
-	@NotImplemented //TRY CAT PARA OPCAO DIFERENTE
 	public String certificate() {
 		System.out.println("Certificate/declaration required?");
 		System.out.println("1 - YES");
 		System.out.println("2 - NO");
 		byte option = getInput().nextByte();
 		String certificate = null;
-		
-		if(option == 1) {
+		final byte OPTION_ONE = 1;	//TODO - CONSTANTE
+		final byte OPTION_TWO = 2; 
+		if(option == OPTION_ONE) {
 			System.out.println("Report the certificate:");
 			certificate = getInput().nextLine();	//Two because nextLine Bug.
 			certificate = getInput().nextLine();
-		} else if(option == 2) {
+		} else if(option == OPTION_TWO) {
 			certificate = "There is no certificate";
 		} else {
 			System.out.println("Please select a valid option!");
 			certificate();
 		}
-		
 		return certificate;
 	}
 	
 	@Description(value = "Method for capturing the patient's forwarding.")
-	@NotImplemented //TRY CAT PARA OPCAO DIFERENTE
 	public String forwarding() {
 		System.out.println("Forwarding require?");
 		System.out.println("1 - YES");
 		System.out.println("2 - NO");
 		byte option = getInput().nextByte();
 		String forwarding = null;
-		
-		if(option == 1) {
+		final byte OPTION_ONE = 1;	//TODO - CONSTANTE
+		final byte OPTION_TWO = 2; 
+		if(option == OPTION_ONE) {
 			System.out.println("Report the forwarding:");
 			forwarding = getInput().nextLine();	//Two because nextLine Bug.
 			forwarding = getInput().nextLine();
-		} else if(option == 2) {
+		} else if(option == OPTION_TWO) {
 			forwarding = "There is no forwarding";
 		} else {
 			System.out.println("Please select a valid option!");
 			forwarding();
 		}
-		
 		return forwarding;
 	}
 	
@@ -231,17 +221,13 @@ public class AppointmentCRUD extends Menu {
 	public String medicalRelease() {
 		System.out.println("Report the medical release: ");
 		String medicalRelease = getInput().nextLine();
-		
 		return medicalRelease;
 	}
 	
 	public Doctor captureDoctor() {
 		new DoctorCRUD().list(doctors);
-		
 		System.out.println("Inform the doctor CPF:");
 		Doctor captureDoctor = doctors.get(super.getInput().next());
-		
 		return captureDoctor;
 	}
-	
 }

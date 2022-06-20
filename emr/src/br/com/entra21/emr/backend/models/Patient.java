@@ -9,14 +9,12 @@ public class Patient extends Person {
 
 	public Patient() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public Patient(String name, String cpf, String nameMother, String nameFather, String address, String genre,
 			LocalDate birth) {
 		super(name, cpf, nameMother, nameFather, address, genre, birth);
-		// TODO Auto-generated constructor stub
-		setAppointments(new LinkedList<>());
+		setAppointments(new LinkedList<>());	//TODO - LinkedList
 	}
 
 	public Patient(LinkedList<Appointment> appointments) {
@@ -32,8 +30,9 @@ public class Patient extends Person {
 		this.appointments = appointments;
 	}
 
-	public static void createMessage(String name) {
-		System.out.println("The patient registration "+name+" was successful!");
+	
+	public static void createMessage() {
+		System.out.println("The patient registration was successful!");
 	}
 	
 	public static void editMessage(String name) {

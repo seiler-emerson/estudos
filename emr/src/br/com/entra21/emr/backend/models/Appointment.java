@@ -3,24 +3,21 @@ package br.com.entra21.emr.backend.models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-
-
 public class Appointment {
-	private String anamnesis;   //anamnese
-	private String prescription;  //receituario
-	private String certificate; //atestado
-	private String forwarding;  //encaminhamento
-	private String medicalRelease;  //alta medica
-	private LocalDate date;
+	private String anamnesis;	//TODO - Atributos
+	private String prescription;
+	private String certificate;
+	private String forwarding;
+	private String medicalRelease;
+	private LocalDate date;	//TODO - Dates
 	private LocalTime hour;
 	private Doctor doctor;
 	
 	public Appointment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Appointment(String anamnesis, String prescription, String certificate, String forwarding,
+	public Appointment(String anamnesis, String prescription, String certificate, String forwarding, //TODO - Construtores
 			String medicalRelease, LocalDate date, LocalTime hour, Doctor doctor) {
 		super();
 		this.anamnesis = anamnesis;
@@ -97,7 +94,7 @@ public class Appointment {
 		this.doctor = doctor;
 	}
 
-	public static void createMessage(String name) {
+	public static void createMessage(String name) {	//TODO - Metodos especificos
 		System.out.println("The appointment registration "+name+" was successful!");
 	}
 	

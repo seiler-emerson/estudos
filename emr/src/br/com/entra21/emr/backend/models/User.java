@@ -3,6 +3,8 @@ package br.com.entra21.emr.backend.models;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import br.com.entra21.emr.backend.login.area.emr.crud.TypeUser;
+
 public class User {
 	private String user;
 	private Integer password;

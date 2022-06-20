@@ -10,7 +10,6 @@ import java.util.HashMap;
 import br.com.entra21.emr.backend.Menu;
 import br.com.entra21.emr.backend.Repository;
 import br.com.entra21.emr.backend.models.Patient;
-import br.com.entra21.emr.backend.models.TypeUser;
 import br.com.entra21.emr.backend.models.User;
 
 public class LoginCRUD extends Menu implements ICrud<User> {
@@ -59,11 +58,8 @@ public class LoginCRUD extends Menu implements ICrud<User> {
 	public void list(HashMap<String, User> list) {
 		System.out.println("========================================================");
 		System.out.println("USERS LIST");
-		for (User user : users.values()) {
-			System.out.println("\t" + user.getUser());
-		}
-		System.out.println("\nUSERS TOTAL: " + users.size() + " users.");
-		
+		list.forEach((key,value) -> System.out.println("\t"+key));	//TODO - Funções Lambda
+		System.out.println("\nUSERS TOTAL: " + users.size() + " users.");	
 	}
 
 	@Override
@@ -130,12 +126,18 @@ public class LoginCRUD extends Menu implements ICrud<User> {
 		user.setUser(getInput().nextLine().toLowerCase());
 		user.setUser(getInput().nextLine().toLowerCase());
 		
-		System.out.println("Password must consist only of numbers. Maximum 6 numbers Minimum 4 numbers.");
-		System.out.println("Enter the password:");
-		String password = getInput().next();
-		user.setPassword(Integer.parseInt(password)); //TODO WRAPPER
 		
-		System.out.println("Selection user type:"
+		try {
+			System.out.println("Password must consist only of numbers. Maximum 6 numbers Minimum 4 numbers.");
+			System.out.println("Enter the password:");
+			String password = getInput().next();
+			user.setPassword(Integer.parseInt(password)); //TODO - Wrapper
+		} catch (NumberFormatException e) {
+			System.out.println("Please, digit only numbers. Try again!");
+			create();
+		}
+		
+		System.out.print("Selection user type:"
 				+ "\n\t1 - Admin"
 				+ "\n\t2 - Doctor"
 				+ "\n\t3 - Common User");
@@ -163,7 +165,7 @@ public class LoginCRUD extends Menu implements ICrud<User> {
 	public void details(HashMap<String, User> users) {
 		list(users);
 		
-		try {	//TODO Exceptions
+		try {
 			System.out.println("Select a login for user: ");
 			String option = getInput().next();
 			

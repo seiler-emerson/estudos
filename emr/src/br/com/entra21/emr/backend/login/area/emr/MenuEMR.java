@@ -3,17 +3,18 @@ package br.com.entra21.emr.backend.login.area.emr;
 import java.util.ArrayList;
 
 import br.com.entra21.emr.backend.Menu;
+import br.com.entra21.emr.backend.anottations.Description;
+import br.com.entra21.emr.backend.anottations.Implemented;
 import br.com.entra21.emr.backend.login.area.emr.crud.AppointmentCRUD;
 import br.com.entra21.emr.backend.login.area.emr.crud.DoctorCRUD;
 import br.com.entra21.emr.backend.login.area.emr.crud.PatientCRUD;
 
-// RESPONSAVEL POR GERENCIAR OS MENUS DE PACIENTES, MEDICOS E ATENDIMENTOS
-
+@Implemented
+@Description(value = "Responsible for managing the menus of patients, doctors and appointments.")
 public class MenuEMR extends Menu {
 
 	public MenuEMR(String title, ArrayList<String> options) {
 		super(title, options);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
