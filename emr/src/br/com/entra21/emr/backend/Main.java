@@ -28,13 +28,12 @@ public class Main {
 				break;
 			case 1: 
 				Principal.login();
-				
 				break;
 			case 2: 
-				// METODO DE CADASTRO DE NOVOS USUARIOS
+				Principal.record();
 				break;
 			case 3: 
-				// METODO DE RECUPERACAO DE SENHA
+				Principal.recoverPassword();
 				break;
 			case 4: 
 				Principal.viewAboutInfo();

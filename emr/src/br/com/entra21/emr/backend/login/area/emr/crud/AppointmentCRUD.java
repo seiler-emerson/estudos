@@ -170,7 +170,12 @@ public class AppointmentCRUD extends Menu {
 			System.out.println("Report Medical prescription:");
 			prescription = getInput().nextLine();	//Two because nextLine Bug.
 			prescription = getInput().nextLine();
-		};
+		} else if(option == 2) {
+			prescription = "There is no prescription";
+		} else {
+			System.out.println("Please select a valid option!");
+			prescription();
+		}
 		
 		return prescription;
 	}
@@ -188,7 +193,12 @@ public class AppointmentCRUD extends Menu {
 			System.out.println("Report the certificate:");
 			certificate = getInput().nextLine();	//Two because nextLine Bug.
 			certificate = getInput().nextLine();
-		};
+		} else if(option == 2) {
+			certificate = "There is no certificate";
+		} else {
+			System.out.println("Please select a valid option!");
+			certificate();
+		}
 		
 		return certificate;
 	}
@@ -206,7 +216,12 @@ public class AppointmentCRUD extends Menu {
 			System.out.println("Report the forwarding:");
 			forwarding = getInput().nextLine();	//Two because nextLine Bug.
 			forwarding = getInput().nextLine();
-		};
+		} else if(option == 2) {
+			forwarding = "There is no forwarding";
+		} else {
+			System.out.println("Please select a valid option!");
+			forwarding();
+		}
 		
 		return forwarding;
 	}
@@ -215,8 +230,7 @@ public class AppointmentCRUD extends Menu {
 	@Implemented
 	public String medicalRelease() {
 		System.out.println("Report the medical release: ");
-		String medicalRelease = getInput().nextLine();	//Two because nextLine Bug.
-		medicalRelease = getInput().nextLine();
+		String medicalRelease = getInput().nextLine();
 		
 		return medicalRelease;
 	}

@@ -8,11 +8,14 @@ import java.util.HashMap;
 import br.com.entra21.emr.backend.models.Appointment;
 import br.com.entra21.emr.backend.models.Doctor;
 import br.com.entra21.emr.backend.models.Patient;
+import br.com.entra21.emr.backend.models.TypeUser;
+import br.com.entra21.emr.backend.models.User;
 
 public class Repository {
 
 	public static HashMap<String, Patient> patients = new HashMap<>();
 	public static HashMap<String, Doctor> doctors = new HashMap<>();
+	public static HashMap<String, User> users = new HashMap<>();
 	
 	
 	//PATIENTS
@@ -46,11 +49,19 @@ public class Repository {
 		patients.get("005").appointments.add(new Appointment("Dor abdominal", "laxante - 8/8h - 1 dia ", "Atestado", "encaminhamento para gastro", "Liberado", LocalDate.of(2017, 12, 1), LocalTime.of(05, 10), doctors.get("745.468.345-84")));
 		patients.get("005").appointments.add(new Appointment("Dor abdominal", "laxante - 8/8h - 1 dia ", "Atestado", "encaminhamento para gastro", "Liberado", LocalDate.of(2018, 12, 14), LocalTime.of(15, 00), doctors.get("145.345.345-34")));
 	}
+	
+	public static void generateDataLogin() {
+		users.put("admin", new User("admin", 123456, LocalDate.of(2022, 6, 19), LocalTime.of(19, 57), TypeUser.ADMIN));
+		users.put("doctor", new User("doctor", 12345, LocalDate.of(2022, 6, 19), LocalTime.of(16, 42), TypeUser.DOCTOR));
+		users.put("user", new User("user", 1234, LocalDate.of(2022, 6, 19), LocalTime.of(1, 18), TypeUser.USER));
+		users.put("1", new User("1", 1, LocalDate.of(2022, 6, 19), LocalTime.of(1, 18), TypeUser.USER));
+	}
 
 	public static void generateDataBase() {
 		generateDataPatients(); 			//Banco de dados Pacientes
 		generateDataDoctors();				//Banco de dados Médicos
 		generateDataAppointments();
+		generateDataLogin();
 	}
 	
 }
