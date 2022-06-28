@@ -1,0 +1,16 @@
+<h2>Input Area</h2>
+
+<input [(ngModel)]="folderName">
+
+<p>
+    git remote add {{folderName}} /Users/emerson/Documents/GitHub/{{folderName}}
+</p>
+<p>
+    git fetch {{folderName}} --tags
+</p>
+<p>
+    git merge --allow-unrelated-histories {{folderName}}/main
+</p>
+<p>
+    git remote remove {{folderName}}
+</p>
