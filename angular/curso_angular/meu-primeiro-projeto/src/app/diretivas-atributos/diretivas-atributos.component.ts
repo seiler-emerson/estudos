@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TRANSLATIONS } from '@angular/core';
 
 @Component({
   selector: 'app-diretivas-atributos',
@@ -8,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DiretivasAtributosComponent implements OnInit {
   
   public valor: boolean = true;
+  public heightPx: string = "20px";
+  public backgroudColor: string = "green";
+
+  public nome: string = "";
+  public list: Array<{nome: string}> = [];
 
   constructor() { }
 
@@ -15,7 +20,22 @@ export class DiretivasAtributosComponent implements OnInit {
     setInterval( ()=>{
       if(this.valor) {
         this.valor = false;
+      } else{
+        this.valor = true;
+      }
+
+      if(this.heightPx == "20px") {
+        this.heightPx = "50px";
+        this.backgroudColor = "gray";
+      } else {
+        this.heightPx = "20px";
+        this.backgroudColor = "green";
       }
     },2000);
+  }
+
+  public salvar() {
+    this.list.push({nome: this.nome});
+    this.nome = "";
   }
 }
