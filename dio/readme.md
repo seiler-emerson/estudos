@@ -1,2 +1,0 @@
-
-# Strogonof de Frango
