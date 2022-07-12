@@ -1,0 +1,20 @@
+<div class="container_buttons" >
+    <div class="button operadores" (click)="eraseAll()">C</div>
+    <div class="button operadores" (click)="eraseLast()"><</div>
+    <div class="button operadores" (click)="insert('/')" (click)="addCalcExpression()">/</div>
+    <div class="button operadores" (click)="insert('*')" (click)="addCalcExpression()">x</div>
+    <div class="button" (click)="insert('7')" (click)="addCalcExpression()">7 </div>
+    <div class="button" (click)="insert('8')" (click)="addCalcExpression()">8</div>
+    <div class="button" (click)="insert('9')" (click)="addCalcExpression()">9</div>
+    <div class="button operadores" (click)="insert('-')" (click)="addCalcExpression()">-</div>
+    <div class="button" (click)="insert('4')" (click)="addCalcExpression()">4</div>
+    <div class="button" (click)="insert('5')" (click)="addCalcExpression()">5</div>
+    <div class="button" (click)="insert('6')" (click)="addCalcExpression()">6</div>
+    <div class="button operadores"(click)="insert('+')" (click)="addCalcExpression()">+</div>
+    <div class="button" (click)="insert('1')" (click)="addCalcExpression()">1</div>
+    <div class="button" (click)="insert('2')" (click)="addCalcExpression()">2</div>
+    <div class="button" (click)="insert('3')" (click)="addCalcExpression()">3</div>
+    <div class="button igual" (click)="calculate()" >=</div>
+    <div class="button zero" (click)="insert('0')" (click)="addCalcExpression()">0</div>
+    <div class="button" (click)="insert('.')" (click)="addCalcExpression()">.</div>
+</div>

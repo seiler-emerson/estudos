@@ -1,0 +1,41 @@
+.container_buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3px;
+}
+.button {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    background-color: #3A3F5D;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.button:hover {
+    background-color: #26293f;
+}
+.zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    width: 153px;
+}
+.igual {
+    background-color: #c71841;
+    height: 153px;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 6; 
+}
+.igual:hover {
+    background-color: #c9002f;
+}
+.operadores {
+    background-color: #4F556F;
+    color: #FF3664;
+}
