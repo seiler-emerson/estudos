@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMR - Novo Atendimento</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+   <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="container-fluid">
+    <header class="row medical-color ">
+        <a class="text-primary logo-link" href="/index.html">
+            <img class="logo" src="/icons/logo.png" alt="">
+        </a>
+    </header>
+    <main>
+        <section class="row">
+            <div class="col-2 medical-color menu p-3 ">
+                <nav class="d-flex flex-column justify-content-between h-100">
+                    <ul class="list-unstyled ">
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/menu.html">Início</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/medico-2-novo.html">Novo Médico</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/medico-3-lista.html">Listar Médicos</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-light w-100" href="/medico-4-atualizar.html">Atualizar Médico</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/medico-5-deletar.html">Deletar Médico</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/medico-6-detalhes.html">Detalhes Médicos</a>
+                        </li>
+                        <li>
+                            <a class="text-decoration-none btn btn-outline-light w-100" href="/medico-1.html">Voltar</a>
+                        </li>
+                        
+                    </ul>
+                    <ul class="list-unstyled ">
+                        <li>
+                            <a class="text-decoration-none btn btn-danger w-100" href="/index.html">Sair</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col d-flex justify-content-center">
+                
+                    <div class="align-self-center table-width">
+                        <section class="col">
+
+                                <div class="card-body">
+                                    <div class="section row">
+                                        <div class="col">
+                                            <div class="card">
+                                                <form action="" enctype="text/plain" method="post">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="input-group mb-3">
+                                                                    <label class="input-group-text" for="paciente-cpf">CPF</label>
+                                                                    <select class="form-select" id="paciente">
+                                                                        <option selected>Selecione o médico pelo CPF...</option>
+                                                                        <option value="1">CPF: 502.680.680-54</option>
+                                                                        <option value="2">CPF: 296.131.660-09</option>
+                                                                        <option value="3">CPF: 763.323.270-65</option>
+                                                                        <option value="3">CPF: 163.514.890-16</option>
+                                                                        <option value="3">CPF: 036.869.260-40</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-nome" class="form-label">Nome do médico:</label>
+                                                                    <input type="text" class="form-control" id="medico-nome" placeholder="Nome do médico">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-cpf" class="form-label">CPF do médico:</label>
+                                                                    <input type="text" class="form-control" id="medico-cpf" placeholder="000.000.000-00">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+    
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-nome-mae" class="form-label">Nome da Mãe:</label>
+                                                                    <input type="text" class="form-control" id="medico-nome-mae" placeholder="Nome da mãe">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-nome-pai" class="form-label">Nome do Pai:</label>
+                                                                    <input type="text" class="form-control" id="medico-nome-pai" placeholder="Nome da pai">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="genero" id="flexRadioDefault1">
+                                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                      Masculino
+                                                                    </label>
+                                                                  </div>
+                                                                  <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="genero" id="flexRadioDefault2" checked>
+                                                                    <label class="form-check-label" for="flexRadioDefault2">Feminino</label>
+                                                                  </div>
+                                                                  <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="genero" id="flexRadioDefault2" checked>
+                                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                                      Outro
+                                                                    </label>
+                                                                  </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-nascimento" class="form-label">Data Nascimento:</label>
+                                                                    <input type="date" class="form-control" id="medico-nascimento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-rua" class="form-label">Nome da rua:</label>
+                                                                    <input type="text" class="form-control" id="medico-rua" placeholder="Nome da rua">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-numero-casa" class="form-label">Numero:</label>
+                                                                    <input type="text" class="form-control" id="medico-numero-casa" placeholder="Numero">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-bairro" class="form-label">Bairro:</label>
+                                                                    <input type="text" class="form-control" id="medico-bairro" placeholder="Bairro">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+    
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-cidade" class="form-label">Cidade:</label>
+                                                                    <input type="text" class="form-control" id="medico-cidade" placeholder="Cidade">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-estado" class="form-label">Estado:</label>
+                                                                    <input type="text" class="form-control" id="medico-estado" placeholder="Estado">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-complemento" class="form-label">Complemento:</label>
+                                                                    <input type="text" class="form-control" id="medico-complemento" placeholder="Complemento">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-numero-conselho" class="form-label">Número do conselho:</label>
+                                                                    <input type="text" class="form-control" id="medico-numero-conselho" placeholder="00000000-00">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="mb-3">
+                                                                    <label for="medico-especialidade" class="form-label">Especialidade:</label>
+                                                                    <input type="text" class="form-control" id="medico-especialidade" placeholder="Especialidade">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                        
+                                                    </div>
+                                                    <div class="card-footer">
+                                                        <button type="reset" class="btn btn-outline-danger">Cancelar</button>
+                                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </section>
+                        </div>
+            
+            </div>
+        </section>
+    </main>
+    <footer class="row medical-color d-flex justify-content-center">
+    </footer>
+
+
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs
+</body>
+</html>

@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+
+
+.medical-color {
+    background-color: #47BED8;
+}
+
+.initial {
+    height: 100vh;
+}
+
+.title-initial {
+    font-size: 100px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    line-height: 90px;
+}
+
+.initial-image {
+    background-image: url(/images/background-initial.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+}
+
+.login-image {
+    background-image: url(/images/background-login.png);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-position: inherit;
+    background-size: cover;
+}
+
+.icon {
+    height: 20px;
+}
+
+.form-width {
+    width: 700px;
+    max-width: 1000px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo {
+    height: 40px;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+}
+
+footer::after {
+    content: "© Copyright 2022 seiler-emerson.github.io";
+}  
+
+.menu {
+    height: calc(100vh - 74px) ;
+    text-align: center;
+}
+
+
+nav ul li {
+    margin-bottom: 5px;
+}
+
+.table-width {
+    width: 60vw;
+}
+
+.img-dashboard {
+    background-image: url(/images/background-dashboard.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+}
