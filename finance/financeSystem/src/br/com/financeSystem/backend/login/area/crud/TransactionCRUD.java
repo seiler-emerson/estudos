@@ -1,5 +1,6 @@
 package br.com.financeSystem.backend.login.area.crud;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -24,6 +25,7 @@ public class TransactionCRUD extends Menu implements ICrud<Transaction>{
 		switch (option) {
 		case "1":
 			System.out.println("ADD TRANSACTION");
+			create();
 			break;
 		case "2":
 			System.out.println("LIST TRANSACTION");
@@ -58,14 +60,18 @@ public class TransactionCRUD extends Menu implements ICrud<Transaction>{
 
 	@Override
 	public void create() {
-		// TODO Auto-generated method stub
+		Transaction newTransaction = captureValues();
+		if(search(newTransaction) == null) {
+			transactions.put(newTransaction.getKey(), newTransaction);
+		} else {
+			System.out.println("Essa transação ja foi registrada.");
+		}
 		
 	}
 
 	@Override
 	public Transaction search(Transaction key) {
-		// TODO Auto-generated method stub
-		return null;
+		return transactions.get(key.getKey());
 	}
 
 	@Override
@@ -88,8 +94,45 @@ public class TransactionCRUD extends Menu implements ICrud<Transaction>{
 
 	@Override
 	public Transaction captureValues() {
-		// TODO Auto-generated method stub
-		return null;
+		Transaction transaction = new Transaction();
+		System.out.println("Digite a chave");
+		transaction.setKey(getInput().nextLine());
+		transaction.setKey(getInput().nextLine());
+		
+		System.out.println("Foi pago? 1 = pago | 2 = não pago");
+		byte option = getInput().nextByte();
+		switch (option) {
+		case 1:
+			transaction.setPaid(true);
+			break;
+		case 2:
+			transaction.setPaid(false);
+			break;
+		default:
+			System.out.println("Invalid Option");;
+		}
+		
+		System.out.println("Digite a data do pagamento: Formato yyyy-mm-dd");
+		transaction.setDatePaid(LocalDate.parse(getInput().next()));
+		
+		System.out.println("Digite a descrição do pagamento:");
+		transaction.setDescription(getInput().nextLine());
+		transaction.setDescription(getInput().nextLine());
+		
+		System.out.println("Digite a categoria");
+		transaction.setDescription(getInput().nextLine());
+		
+		System.out.println("Income/Expense");
+		transaction.setType(getInput().nextLine());
+		
+		System.out.println("Compra no cartão? Qual? ");
+		transaction.setType(getInput().nextLine());
+		
+		System.out.println("Valor");
+		transaction.setValue(getInput().nextFloat());
+		
+		
+		return transaction;
 	}
 
 	@Override

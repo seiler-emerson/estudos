@@ -3,6 +3,7 @@ package br.com.financeSystem.backend.models;
 import java.time.LocalDate;
 
 public class Transaction {
+	private String key; 
 	private boolean paid;
 	private LocalDate datePaid;
 	private String description;
@@ -17,9 +18,10 @@ public class Transaction {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(boolean paid, LocalDate datePaid, String description, String category, String type,
+	public Transaction(String key, boolean paid, LocalDate datePaid, String description, String category, String type,
 			String isCard, float value) {
 		super();
+		this.key = key;
 		this.paid = paid;
 		this.datePaid = datePaid;
 		this.description = description;
@@ -27,6 +29,15 @@ public class Transaction {
 		this.type = type;
 		this.isCard = isCard;
 		this.value = value;
+	}
+
+	
+	public String getKey() {
+		return key;
+	}
+
+	public void setKey(String key) {
+		this.key = key;
 	}
 
 	public boolean isPaid() {
