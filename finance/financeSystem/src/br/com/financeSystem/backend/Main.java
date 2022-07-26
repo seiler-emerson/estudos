@@ -16,6 +16,7 @@ public class Main {
 			System.out.println(displayMenu());
 			
 //			Metode for generate Database
+			Repository.generateCategory();
 			Repository.generateTransactions();
 			
 			option = input.next();

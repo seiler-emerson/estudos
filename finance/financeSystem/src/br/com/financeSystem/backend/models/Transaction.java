@@ -9,9 +9,9 @@ public class Transaction {
 	private String description;
 	private String category;
 	private String type;
-	private String isCard;
+	private boolean isCard;
+//	private String card;
 	private float value;
-	
 	
 	public Transaction() {
 		super();
@@ -19,7 +19,7 @@ public class Transaction {
 	}
 
 	public Transaction(String key, boolean paid, LocalDate datePaid, String description, String category, String type,
-			String isCard, float value) {
+			boolean isCard, float value) {
 		super();
 		this.key = key;
 		this.paid = paid;
@@ -31,7 +31,6 @@ public class Transaction {
 		this.value = value;
 	}
 
-	
 	public String getKey() {
 		return key;
 	}
@@ -88,11 +87,11 @@ public class Transaction {
 		this.type = type;
 	}
 
-	public String getIsCard() {
+	public boolean getIsCard() {
 		return isCard;
 	}
 
-	public void setIsCard(String isCard) {
+	public void setIsCard(boolean isCard) {
 		this.isCard = isCard;
 	}
 	
