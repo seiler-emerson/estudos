@@ -1,15 +1,19 @@
 <label for="">Nome da Escola</label>
-<!-- <input type="text" class="form-control" (input)="updateSchoolName($event)"> -->
 <input type="text" class="form-control" [(ngModel)]="schoolName">
-<!-- <p>{{ schoolName }}</p> -->
 
 <button
-    class="btn btn-primary"
+    class="btn btn-primary mt-2 mb-2"
     [disabled]="!allowNewSchool"
-    (click)="createSchool()">Incluir</button>
+    (click)="createSchool()">Incluir
+</button>
 
-<!-- <p>{{ aceitaNovaEscola }}</p> -->
-<p>{{ createdSchoolStatus }}</p>
 
-<app-school></app-school>
-<app-school></app-school>
+<p *ngIf="schoolCreated;else noSchool">A escola foi criada: {{ schoolName }}</p>
+<ng-template #noSchool>
+    <p>Nenhuma escola foi criada!</p>
+</ng-template>
+
+<!-- <app-school *ngFor="let school of schools"></app-school> -->
+<p *ngFor="let school of schools; let i = index" >
+    {{ i }} - {{ school }}
+</p>

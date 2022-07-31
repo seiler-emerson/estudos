@@ -10,9 +10,12 @@ export class SchoolsComponent implements OnInit {
   allowNewSchool: boolean = false;
   createdSchoolStatus: string = 'Nenhuma escola criada';
   schoolName: string = "Nome de Teste da Escola";
+  schoolCreated: boolean = false;
+  schools: Array<String> = ["Escola 1", "Escola 2"];
 
-
-  constructor() { }
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
     setTimeout(()=>{
@@ -21,10 +24,14 @@ export class SchoolsComponent implements OnInit {
   }
 
   createSchool() {
+    this.schoolCreated = true;
     this.createdSchoolStatus = "Escola foi criada com o nome de "+ this.schoolName;
+    this.schools.push(this.schoolName);
   }
 
   updateSchoolName(event: Event) {
     this.schoolName = (<HTMLInputElement>event.target).value;
   }
+
+  
 }
