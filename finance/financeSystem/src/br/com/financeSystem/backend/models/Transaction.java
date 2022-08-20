@@ -2,41 +2,25 @@ package br.com.financeSystem.backend.models;
 
 import java.time.LocalDate;
 
-public class Transaction {
-	private String key; 
+public class Transaction { 
 	private boolean paid;
-	private LocalDate datePaid;
+	private LocalDate datePayment;
 	private String description;
 	private String category;
-	private String type;
-	private boolean isCard;
-//	private String card;
-	private float value;
+	private String account;
 	
 	public Transaction() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(String key, boolean paid, LocalDate datePaid, String description, String category, String type,
-			boolean isCard, float value) {
+	public Transaction(boolean paid, LocalDate datePayment, String description, String category, String account) {
 		super();
-		this.key = key;
 		this.paid = paid;
-		this.datePaid = datePaid;
+		this.datePayment = datePayment;
 		this.description = description;
 		this.category = category;
-		this.type = type;
-		this.isCard = isCard;
-		this.value = value;
-	}
-
-	public String getKey() {
-		return key;
-	}
-
-	public void setKey(String key) {
-		this.key = key;
+		this.account = account;
 	}
 
 	public boolean isPaid() {
@@ -47,12 +31,12 @@ public class Transaction {
 		this.paid = paid;
 	}
 
-	public LocalDate getDatePaid() {
-		return datePaid;
+	public LocalDate getDatePayment() {
+		return datePayment;
 	}
 
-	public void setDatePaid(LocalDate datePaid) {
-		this.datePaid = datePaid;
+	public void setDatePayment(LocalDate datePayment) {
+		this.datePayment = datePayment;
 	}
 
 	public String getDescription() {
@@ -71,28 +55,14 @@ public class Transaction {
 		this.category = category;
 	}
 
-	public Number getValue() {
-		return value;
+	public String getAccount() {
+		return account;
 	}
 
-	public void setValue(float value) {
-		this.value = value;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public boolean getIsCard() {
-		return isCard;
-	}
-
-	public void setIsCard(boolean isCard) {
-		this.isCard = isCard;
-	}
+	
 	
 }
