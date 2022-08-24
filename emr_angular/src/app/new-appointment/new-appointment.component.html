@@ -1,0 +1,71 @@
+<div class="card m-5 p-2" id="newAppointmentContainer">
+    <div class="card-body">
+        <form action="" enctype="text/plain" method="post">
+            <div class="card-body">
+                <div class="row d-flex flex-column">
+                    <div class="col">
+                        <div class="input-group mb-3">
+                            <label class="input-group-text" for="patientList">Paciente</label>
+                            <select class="form-select form-control" id="patientList">
+                                <option selected>Selecione o paciente...</option>
+                                <option value="1">Joana da Silva - CPF: 502.680.680-54
+                                </option>
+                                <option value="2">Joao da Silva - CPF: 296.131.660-09
+                                </option>
+                                <option value="3">Silvana Github - CPF: 763.323.270-65
+                                </option>
+                                <option value="3">Cleber Silveira - CPF: 163.514.890-16
+                                </option>
+                                <option value="3">Sheldon Cooper - CPF: 036.869.260-40
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="medicalAnamnesisAppointment" class="form-label">Anamnese</label>
+                            <textarea class="form-control" id="medicalAnamnesisAppointment" rows="3"
+                                placeholder="Descreva a anamnese do paciente."></textarea>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="medicalPrescriptionAppointment" class="form-label">Receita Médica</label>
+                            <textarea class="form-control" id="medicalPrescriptionAppointment" rows="3"
+                                placeholder="Descreva a receita."></textarea>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="medicalCertificateAppointment" class="form-label">Atestado/Declaração</label>
+                            <textarea class="form-control" id="medicalCertificateAppointment" rows="3"
+                                placeholder="Descreva a declaração/atestado."></textarea>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="medicalForwardingAppointment" class="form-label">Encaminhamento</label>
+                            <textarea class="form-control" id="medicalForwardingAppointment" rows="3"
+                                placeholder="Descreva o encaminhamento."></textarea>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="medicalRelaseAppointment" class="form-label">Alta Médica</label>
+                            <textarea class="form-control" id="medicalRelaseAppointment" rows="3"
+                                placeholder="Descreva a alta do paciente."></textarea>
+                        </div>
+                    </div>
+        
+                </div>
+
+            </div>
+            <div class="d-flex flex-row justify-content-center gap-1">
+                <button type="submit" class="mx-1 btn btn-primary" id="newAppointment">Salvar</button>
+                <button type="submit" class="mx-1 btn btn-success" id="updateAppointment">Atualizar</button>
+                <button type="reset" class="mx-1 btn btn-danger">Cancelar</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

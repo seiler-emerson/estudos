@@ -1,0 +1,112 @@
+<div class="card m-5 p-2" id="newPatientContainer">
+    <div class="card-body">
+        <form action="/salvo.html" enctype="text/plain" method="get">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientName" class="form-label">Nome do paciente:</label>
+                            <input type="text" class="form-control" id="patientName" placeholder="Nome do paciente" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientCPF" class="form-label">CPF do paciente:</label>
+                            <input type="text" class="form-control" id="patientCPF" placeholder="000.000.000-00" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientMotherName" class="form-label">Nome da Mãe:</label>
+                            <input type="text" class="form-control" id="patientMotherName" placeholder="Nome da mãe" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientFatherName" class="form-label">Nome do Pai:</label>
+                            <input type="text" class="form-control" id="patientFatherName" placeholder="Nome da pai">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" id="genreMale" value="male" >
+                            <label class="form-check-label" for="genreMale">Masculino</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" id="genreFemale" value="female">
+                            <label class="form-check-label" for="genreFemale">Feminino</label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genre" id="genreOther" value="other" checked>
+                            <label class="form-check-label" for="genreOther">
+                              Outro
+                            </label>
+                          </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="birthDate" class="form-label">Data Nascimento:</label>
+                            <input type="date" class="form-control" id="birthDate" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientStreet" class="form-label">Nome da rua:</label>
+                            <input type="text" class="form-control" id="patientStreet" placeholder="Nome da rua">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientHomeNumber" class="form-label">Numero:</label>
+                            <input type="text" class="form-control" id="patientHomeNumber" placeholder="Numero">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientDistrict" class="form-label">Bairro:</label>
+                            <input type="text" class="form-control" id="patientDistrict" placeholder="Bairro">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientCity" class="form-label">Cidade:</label>
+                            <input type="text" class="form-control" id="patientCity" placeholder="Cidade">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientState" class="form-label">Estado:</label>
+                            <input type="text" class="form-control" id="patientState" placeholder="Estado">
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="patientCountry" class="form-label">País:</label>
+                            <input type="text" class="form-control" id="patientCountry" placeholder="País">
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="d-flex flex-row justify-content-center gap-1">
+                <button type="submit" class="mx-1 btn btn-primary" id="newPatient">Salvar</button>
+                <button type="submit" class="mx-1 btn btn-success" id="updatePatient">Atualizar</button>
+                <button type="reset" class="mx-1 btn btn-outline-danger">Cancelar</button>
+
+            </div>
+            
+        </form>
+    </div>
+</div>
