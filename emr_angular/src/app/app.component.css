@@ -1,0 +1,19 @@
+.medical-color {
+    background-color: #47BED8;
+}
+
+.initial {
+    height: 100vh;
+}
+
+.login-image {
+    background-image: url(../assets/images/background-login.png);
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    background-position: inherit;
+    background-size: cover;
+}
+
+.icon {
+    height: 20px;
+}

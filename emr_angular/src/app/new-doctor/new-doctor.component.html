@@ -1,6 +1,6 @@
 <div class="card m-5 p-2" id="newDoctorContainer">
     <div class="card-body">
-        <form action="/salvo.html" enctype="text/plain" method="get">
+        <form action="/salvo.html" enctype="text/plain" method="get" id="formNewDoctor">
             <div class="card-body">
                 <div class="row">
                     <div class="col">
@@ -150,7 +150,7 @@
                 </div>
             </div>
             <div class="d-flex flex-row justify-content-center gap-1">
-                <button type="submit" class="mx-1 btn btn-primary" id="newDoctor">Salvar</button>
+                <button type="submit" class="mx-1 btn btn-primary" id="newDoctor" (click)="newDoctor()">Salvar</button>
                 <button type="submit" class="mx-1 btn btn-success" id="updateDoctor">Atualizar</button>
                 <button type="reset" class="mx-1 btn btn-outline-danger">Cancelar</button>
 

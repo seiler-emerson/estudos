@@ -11,6 +11,7 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { NewDoctorComponent } from './new-doctor/new-doctor.component';
 import { UserComponent } from './user/user.component';
 import { NewUserComponent } from './new-user/new-user.component';
+import { LoggedAreaComponent } from './logged-area/logged-area.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewUserComponent } from './new-user/new-user.component';
     DoctorComponent,
     NewDoctorComponent,
     UserComponent,
-    NewUserComponent
+    NewUserComponent,
+    LoggedAreaComponent
   ],
   imports: [
     BrowserModule,

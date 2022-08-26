@@ -14,19 +14,21 @@
                 <th></th>
             </thead>
             <tbody class="text-center" id="tbodyPatient">
-                <tr>
-                    <td>Joana da Silva</td>
-                    <td>502.680.680-54</td>
-                    <td>3 atendimentos</td>
-                    <td class="d-flex gap-1 justify-content-center p-1">
-                        <div class="mx-1 btn btn-danger d-flex align-items-center justify-content-center">
-                            <span class="material-icons-sharp">delete</span>
-                        </div>
-                        <div class="mx-1 btn btn-success d-flex align-items-center justify-content-center">
-                            <span class="material-icons-sharp">edit</span>
-                        </div>
-                        <div class="mx-1 btn btn-primary d-flex align-items-center justify-content-center">
-                            <span class="material-icons-sharp">description</span>
+                <tr *ngFor="let patient of patients; let index = index">
+                    <td>{{ patient.name }}</td>
+                    <td>{{ patient.cpf }}</td>
+                    <td>{{ patient.appointments.length }}</td>
+                    <td class="p-1">
+                        <div class="d-flex gap-1 justify-content-center p-1">
+                            <div class="mx-1 btn btn-danger d-flex align-items-center justify-content-center" (click)="deletePatient(index)">
+                                <span class="material-icons-sharp">delete</span>
+                            </div>
+                            <div class="mx-1 btn btn-success d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">edit</span>
+                            </div>
+                            <div class="mx-1 btn btn-primary d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">description</span>
+                            </div>
                         </div>
                     </td>
                 </tr>

@@ -1,1 +1,35 @@
-<p>user works!</p>
+<div class="card m-5 p-2" id="listPatientContainer">
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Digite o login do usuario"
+                aria-label="Recipient's username" aria-describedby="searchButton" id="searchUser">
+            <button class="btn btn-primary" type="button" id="searchUserButton">Buscar</button>
+        </div>
+        <br>
+        <table class="table table-bordered table-hover table-striped">
+            <thead class="text-center">
+                <th>Usuário</th>
+                <th></th>
+            </thead>
+            <tbody class="text-center" id="tbodyUser">
+                <tr *ngFor="let user of users; let index = index">
+                    <td>{{ user.login }}</td>
+                    <td class="p-1">
+                        <div class="d-flex gap-1 justify-content-center p-0 m-0">
+                            <div class="mx-1 btn btn-danger d-flex align-items-center justify-content-center" (click)="deleteUser(index)">
+                                <span class="material-icons-sharp">delete</span>
+                            </div>
+                            <div class="mx-1 btn btn-success d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">edit</span>
+                            </div>
+                            <div class="mx-1 btn btn-primary d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">description</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

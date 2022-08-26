@@ -15,7 +15,25 @@
                 <th></th>
             </thead>
             <tbody class="text-center" id="tbodyDoctor">
-
+                <tr *ngFor="let doctor of doctors; let index = index">
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.speciality }}</td>
+                    <td>{{ doctor.registerNumber }}</td>
+                    <td>{{ doctor.numberAppointments }}</td>
+                    <td class="p-1">
+                        <div class="d-flex gap-1 justify-content-center p-1">
+                            <div class="mx-1 btn btn-danger d-flex align-items-center justify-content-center" (click)="deleteDoctor(index)">
+                                <span class="material-icons-sharp">delete</span>
+                            </div>
+                            <div class="mx-1 btn btn-success d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">edit</span>
+                            </div>
+                            <div class="mx-1 btn btn-primary d-flex align-items-center justify-content-center">
+                                <span class="material-icons-sharp">description</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 

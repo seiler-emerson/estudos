@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientComponent implements OnInit {
 
-  patient: Array<any> = [
+  patients: Array<any> = [
     {
         name: "Sheldon Cooper",
         cpf: "036.869.260-40",
@@ -169,8 +169,8 @@ export class PatientComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  listPatient() {
-    
+  deletePatient(index: number) {
+    this.patients.splice(index,1)
   }
 
 }
