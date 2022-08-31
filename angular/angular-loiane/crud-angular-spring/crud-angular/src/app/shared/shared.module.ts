@@ -22,3 +22,5 @@ import { CategoryPipe } from './pipes/category.pipe';
   ]
 })
 export class SharedModule { }
+
+

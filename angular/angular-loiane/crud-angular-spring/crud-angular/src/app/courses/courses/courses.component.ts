@@ -2,8 +2,9 @@ import { ErrorDialogComponent } from './../../shared/components/error-dialog/err
 import { CoursesService } from './../services/courses.service';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../model/course';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, config, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -13,17 +14,19 @@ import { MatDialog } from '@angular/material/dialog';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>;
-  displayedColumns = ['name', 'category']
+  displayedColumns = ['name', 'category','actions']
 
   // CoursesService: CoursesService;
 
   constructor(
-    private CoursesService: CoursesService,
-    public dialog: MatDialog
+    private coursesService: CoursesService,
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
     ) {
     // this.courses = [];
-    //this.CoursesService = new CoursesService();
-    this.courses$ = this.CoursesService.list().pipe(
+    //this.coursesService = new CoursesService();
+    this.courses$ = this.coursesService.list().pipe(
       catchError(error => {
         this.onError("Erro ao carregar cursos.");
 
@@ -40,6 +43,10 @@ export class CoursesComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  onAdd() {
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }
