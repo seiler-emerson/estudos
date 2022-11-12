@@ -5,23 +5,14 @@ import java.util.List;
 
 import cursojava.constantes.StatusAluno;
 
-public class Aluno {
+public class Aluno extends Pessoa {
 
 	// Atributos do aluno
-	private String nome;
-	private int idade;
-	private String dataNascimento;
-	private String registroGeral;
-	private String numeroCpf;
-	private String nomeMae;
-	private String nomePai;
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
 
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-
-	
 
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
@@ -125,7 +116,7 @@ public class Aluno {
 	}
 
 	public double getMediaNota() {
-		
+
 		double somaNotas = 0.0;
 		for (Disciplina disciplina : disciplinas) {
 			somaNotas += disciplina.getNota();
@@ -145,7 +136,7 @@ public class Aluno {
 	public String getAlunoAprovado2() {
 		double media = this.getMediaNota();
 		if (media >= 50) {
-			if(media>=70) {
+			if (media >= 70) {
 				return StatusAluno.APROVADO;
 			} else {
 				return StatusAluno.RECUPERACAO;
@@ -157,12 +148,26 @@ public class Aluno {
 
 	@Override
 	public String toString() {
-		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
-				+ registroGeral + ", numeroCpf=" + numeroCpf + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
-				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
-				+ serieMatriculado + "]";
+		return "Aluno [dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
+				+ serieMatriculado + ", disciplinas=" + disciplinas + ", nome=" + nome + ", idade=" + idade
+				+ ", dataNascimento=" + dataNascimento + ", registroGeral=" + registroGeral + ", numeroCpf=" + numeroCpf
+				+ ", nomeMae=" + nomeMae + ", nomePai=" + nomePai + "]";
 	}
-	
-	
+
+	@Override
+	public boolean pessoaMaiorIdade() {
+
+		return idade >= 21;
+	}
+
+	public String msgMaiorIdade() {
+
+		return this.pessoaMaiorIdade() ? "Maior idade" : "Ainda não";
+	}
+
+	@Override
+	public double salario() {
+		return 1500.90;
+	}
 
 }
