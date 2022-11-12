@@ -42,5 +42,4 @@ public class ContaBancaria {
 		return "ContaBancaria [descricao=" + descricao + ", saldo=" + saldo + "]";
 	}
 	
-	
 }

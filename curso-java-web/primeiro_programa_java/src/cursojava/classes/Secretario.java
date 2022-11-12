@@ -10,14 +10,14 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 
 	private String login;
 	private String senha;
-	
+
 	public Secretario(String login, String senha) {
 		this.login = login;
 		this.senha = senha;
 	}
-	
+
 	public Secretario() {
-		
+
 	}
 
 	public String getRegistro() {
@@ -56,7 +56,6 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		return 1800 * 0.9;
 	}
 
-
 	public String getLogin() {
 		return login;
 	}
@@ -86,6 +85,4 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		return login.equals("admin") && senha.equals("admin");
 	}
 
-	
-	
 }

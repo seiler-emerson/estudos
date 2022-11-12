@@ -7,28 +7,26 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
-import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
-import cursojava.interfaces.PermitirAcesso;
 
 public class PrimeiraClasseJava {
 
 	static int maiorIdadeGlobal = 30;
 
 	public static void main(String[] args) {
-		
+
 		String login = JOptionPane.showInputDialog("Informe o login");
 		String senha = JOptionPane.showInputDialog("Informe o senha");
 
-		PermitirAcesso permitirAcesso = new Secretario(login, senha);		
-		
-		if(permitirAcesso.autenticar()) {
-			
+		if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
+
 			List<Aluno> alunos = new ArrayList<Aluno>();
-			
+
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
-			
+
 			for (int qtd = 1; qtd <= 3; qtd++) {
 				// new Aluno() é uma INSTANCIA (criacao de objeto)
 				// aluno1 é uma referencia para o objeto aluno
@@ -85,33 +83,32 @@ public class PrimeiraClasseJava {
 				}
 				alunos.add(aluno1);
 			}
-			
+
 			maps.put(StatusAluno.APROVADO, new ArrayList<Aluno>());
 
 			for (Aluno aluno : alunos) {
-				if(aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
+				if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.APROVADO)) {
 					maps.get(StatusAluno.APROVADO).add(aluno);
 				} else if (aluno.getAlunoAprovado2().equalsIgnoreCase(StatusAluno.RECUPERACAO)) {
 					maps.get(StatusAluno.RECUPERACAO).add(aluno);
 				} else {
 					maps.get(StatusAluno.REPROVADO).add(aluno);
 				}
-				
 			}
 
 			System.out.println("================= Lista Aprovados =================");
 			for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
-				System.out.println(aluno.getNome() + " com média de "+aluno.getMediaNota());
+				System.out.println(aluno.getNome() + " com média de " + aluno.getMediaNota());
 			}
-			
+
 			System.out.println("================= Lista Reprovados =================");
 			for (Aluno aluno : maps.get(StatusAluno.REPROVADO)) {
-				System.out.println(aluno.getNome() + " com média de "+aluno.getMediaNota());
+				System.out.println(aluno.getNome() + " com média de " + aluno.getMediaNota());
 			}
-			
+
 			System.out.println("================= Lista Recuperacao =================");
 			for (Aluno aluno : maps.get(StatusAluno.RECUPERACAO)) {
-				System.out.println(aluno.getNome() + " com média de "+aluno.getMediaNota());
+				System.out.println(aluno.getNome() + " com média de " + aluno.getMediaNota());
 			}
 		} else {
 			JOptionPane.showMessageDialog(null, "Acesso nao permitido!");

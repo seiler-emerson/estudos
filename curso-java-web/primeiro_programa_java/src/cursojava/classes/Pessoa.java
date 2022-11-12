@@ -11,7 +11,7 @@ public abstract class Pessoa {
 	protected String nomePai;
 
 	public abstract double salario();
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -69,8 +69,6 @@ public abstract class Pessoa {
 	}
 
 	public boolean pessoaMaiorIdade() {
-		return idade>=18;
+		return idade >= 18;
 	}
-	
-	
 }
