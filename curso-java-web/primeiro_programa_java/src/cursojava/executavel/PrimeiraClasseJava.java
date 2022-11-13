@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.execao.ExcecaoProcessarNota;
 
 public class PrimeiraClasseJava {
 
@@ -21,9 +23,15 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
-			
-//			File file = new File("arquivo.txt");
-//			Scanner scanner = new Scanner(file);
+			lerArquivo();
+//			Usando excecao customizada
+//			try {
+//				File file = new File("arquivo.txt");
+//				Scanner scanner = new Scanner(file);				
+//			} catch (FileNotFoundException e) {
+//				e.printStackTrace();
+//				throw new ExcecaoProcessarNota(e.getMessage());
+//			}
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
@@ -41,7 +49,7 @@ public class PrimeiraClasseJava {
 					// aluno1 é uma referencia para o objeto aluno
 
 					String nome = JOptionPane.showInputDialog("Qual o nome do aluno " + qtd + "?");
-				String idade = JOptionPane.showInputDialog("Qual a idade do aluno?");
+					String idade = JOptionPane.showInputDialog("Qual a idade do aluno?");
 //				String dataNascimento = JOptionPane.showInputDialog("Qual a data de nascimento do aluno?");
 //				String rg = JOptionPane.showInputDialog("Qual o rg do aluno?");
 //				String cpf = JOptionPane.showInputDialog("Qual o cpf do aluno?");
@@ -54,7 +62,7 @@ public class PrimeiraClasseJava {
 					Aluno aluno1 = new Aluno(); // Joao
 
 					aluno1.setNome(nome);
-				aluno1.setIdade(Integer.valueOf(idade));
+					aluno1.setIdade(Integer.valueOf(idade));
 //				aluno1.setDataNascimento(dataNascimento);
 //				aluno1.setRegistroGeral(rg);
 //				aluno1.setNumeroCpf(cpf);
@@ -145,12 +153,28 @@ public class PrimeiraClasseJava {
 
 			JOptionPane.showMessageDialog(null, "Erro de conversao de numero" + saida.toString());
 		} catch (NullPointerException e) {
-			JOptionPane.showMessageDialog(null, "Erro de NullPointerException"+ e.getClass());
+			JOptionPane.showMessageDialog(null, "Erro de NullPointerException" + e.getClass());
 
-		} catch (Exception e) { //Captura todas as excecoes nao prev
-			e.printStackTrace(); //imprime no console
-			JOptionPane.showMessageDialog(null, "Erro inesperado "+ e.getClass().getName());
+		} catch (FileNotFoundException e) { // Captura todas as excecoes nao prev
+			e.printStackTrace(); // imprime no console
+			JOptionPane.showMessageDialog(null, "Erro da excecao customizada " + e.getClass().getName());
+
+		} catch (Exception e) { // Captura todas as excecoes nao prev
+			e.printStackTrace(); // imprime no console
+			JOptionPane.showMessageDialog(null, "Erro inesperado " + e.getClass().getName());
+
+		} finally { // sempre executa mesmo que n ocorram erros
+			// Sempre e executado quando um processo deve ser executado mesmo que com erro.
+			// Uma aplicacao e o fechamento da transacao no banco de dados de uma venda
+			JOptionPane.showMessageDialog(null, "Final sendo executado");
 
 		}
+	}
+
+	public static void lerArquivo() throws FileNotFoundException {
+
+//		File file = new File("arquivo.txt");
+//		Scanner scanner = new Scanner(file);
+
 	}
 }
