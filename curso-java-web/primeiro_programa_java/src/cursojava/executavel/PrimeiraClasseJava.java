@@ -1,8 +1,10 @@
 package cursojava.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -19,6 +21,9 @@ public class PrimeiraClasseJava {
 	public static void main(String[] args) {
 
 		try {
+			
+//			File file = new File("arquivo.txt");
+//			Scanner scanner = new Scanner(file);
 
 			String login = JOptionPane.showInputDialog("Informe o login");
 			String senha = JOptionPane.showInputDialog("Informe o senha");
@@ -27,9 +32,11 @@ public class PrimeiraClasseJava {
 
 				List<Aluno> alunos = new ArrayList<Aluno>();
 
+//				List<Aluno> alunos = null;
+
 				HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
-				for (int qtd = 1; qtd <= 2; qtd++) {
+				for (int qtd = 1; qtd <= 1; qtd++) {
 					// new Aluno() é uma INSTANCIA (criacao de objeto)
 					// aluno1 é uma referencia para o objeto aluno
 
@@ -118,7 +125,7 @@ public class PrimeiraClasseJava {
 				JOptionPane.showMessageDialog(null, "Acesso nao permitido!");
 			}
 
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 
 			StringBuilder saida = new StringBuilder();
 
@@ -136,7 +143,14 @@ public class PrimeiraClasseJava {
 
 			}
 
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas" + saida.toString());
+			JOptionPane.showMessageDialog(null, "Erro de conversao de numero" + saida.toString());
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Erro de NullPointerException"+ e.getClass());
+
+		} catch (Exception e) { //Captura todas as excecoes nao prev
+			e.printStackTrace(); //imprime no console
+			JOptionPane.showMessageDialog(null, "Erro inesperado "+ e.getClass().getName());
+
 		}
 	}
 }
