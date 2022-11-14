@@ -10,6 +10,7 @@ import { TemplateFormModule } from './template-form/template-form.module';
 @NgModule({
   declarations: [
     AppComponent,
+    
   ],
   imports: [
     BrowserModule,

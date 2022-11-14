@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateFormComponent implements OnInit {
 
   usuario:any = {
-    nome: "Emerson",
-    email: "seiler.emerson@gmail.com"
+    nome: null,
+    email: null
   }
 
 
