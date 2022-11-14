@@ -14,7 +14,19 @@ public class DatasEmJava {
 		
 		long dias = ChronoUnit.DAYS.between(LocalDate.parse("2021-10-14"), LocalDate.now());
 		
-		System.out.println("Possui "+ dias + " entre a faixa de data.");
+		System.out.println("Possui "+ dias + " dias entre a faixa de data.");
+		
+		long meses = ChronoUnit.MONTHS.between(LocalDate.parse("2021-10-14"), LocalDate.now());
+		
+		System.out.println("Possui "+ meses + " meses entre a faixa de data.");
+		
+		long semanas = ChronoUnit.WEEKS.between(LocalDate.parse("2021-10-14"), LocalDate.now());
+		
+		System.out.println("Possui "+ semanas + " semanas entre a faixa de data.");
+		
+		long anos = ChronoUnit.YEARS.between(LocalDate.parse("2021-10-14"), LocalDate.now());
+		
+		System.out.println("Possui "+ anos + " anos entre a faixa de data.");
 		
 		/* =================== Calculo de dia, ano e mês com Calendar ======================== */
 /*	
