@@ -1,0 +1,3 @@
+Alex;pessoa1@gmail.com;50
+Marcos;pessoa2@gmail.com;25
+Maria;pessoa3@gmail.com;40
