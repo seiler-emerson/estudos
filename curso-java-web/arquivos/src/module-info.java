@@ -6,4 +6,5 @@
  *
  */
 module arquivos {
+	requires org.apache.poi.poi;
 }

@@ -6,10 +6,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Arquivo2 {
+public class Arquivo3 {
 
 	public static void main(String[] args) throws IOException {
-
 		Pessoa pessoa1 = new Pessoa();
 		pessoa1.setEmail("pessoa1@gmail.com");
 		pessoa1.setIdade(50);
@@ -32,7 +31,7 @@ public class Arquivo2 {
 		pessoas.add(pessoa3);
 
 		
-		File arquivo = new File("/Users/emerson/Documents/GitHub/estudos/curso-java-web/arquivos/src/arquivos/arquivo2.txt");
+		File arquivo = new File("/Users/emerson/Documents/GitHub/estudos/curso-java-web/arquivos/src/arquivos/arquivo3.csv");
 	
 		if(!arquivo.exists()) {
 			arquivo.createNewFile();
@@ -47,5 +46,4 @@ public class Arquivo2 {
 		escrever_no_arquivo.flush();
 		escrever_no_arquivo.close();
 	}
-
 }
