@@ -25,7 +25,7 @@ public class CursospringrestapiApplication implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(CursospringrestapiApplication.class, args);
     }
-
+//		System.out.println(new BCryptPasswordEncoder());
     // Mapeamento Global de Origens
     @Override
     public void addCorsMappings(CorsRegistry registry) {

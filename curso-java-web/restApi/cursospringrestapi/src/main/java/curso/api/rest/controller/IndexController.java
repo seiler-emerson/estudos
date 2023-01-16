@@ -5,6 +5,7 @@ import curso.api.rest.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -49,6 +50,8 @@ public class IndexController {
 			usuario.getTelefones().get(pos).setUsuario(usuario);
 		}
 
+		String senhacriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
+		usuario.setSenha(senhacriptografada);
 		Usuario usuarioSalvo = usuarioRepository.save(usuario);
 
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
@@ -70,6 +73,13 @@ public class IndexController {
 			usuario.getTelefones().get(pos).setUsuario(usuario);
 		}
 		Usuario usuarioSalvo = usuarioRepository.save(usuario);
+
+		Usuario userTemporario = usuarioRepository.findUserByLogin(usuario.getLogin());
+
+		if( !userTemporario.getSenha().equals(usuario.getSenha())) { //Senhas diferentes
+			String senhacriptografada = new BCryptPasswordEncoder().encode(usuario.getSenha());
+			usuario.setSenha(senhacriptografada);
+		}
 
 		return ResponseEntity.ok(usuarioSalvo);
 	}
